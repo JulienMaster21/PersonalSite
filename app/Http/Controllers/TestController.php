@@ -8,7 +8,32 @@ use \App\Test;
 class TestController extends Controller
 {
     function index () {
-        return view("pages/dashboard");
+        $tests = Test::orderBy("blok", "asc")
+                            ->orderBy("cursus", "asc")
+                            ->get();
+        $currentBlok = 0;
+        $currentEC = 0;
+        $maxEC = 0;
+        $bloks = [];
+        foreach ($tests as $test) {
+            if ($test->blok != $currentBlok) {
+                array_push($bloks, $test->blok);
+                $currentBlok = $test->blok;
+            }
+            if ($test->completed) {
+                $currentEC += $test->EC;
+            }
+            $maxEC += $test->EC;
+        }
+        $ECValues = [
+            $currentEC,
+            $maxEC
+        ];
+        return view("pages/dashboard",  [
+                                            "tests" => $tests,
+                                            "ECValues" => $ECValues,
+                                            "bloks" => $bloks
+                                        ]);
     }
 
     function create (Request $request) {

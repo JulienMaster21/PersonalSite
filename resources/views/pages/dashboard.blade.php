@@ -43,9 +43,6 @@
     </section>
 @endsection
 @section("content")
-    {{$tests = App\Test::orderBy("blok", "asc")
-                        ->orderBy("cursus", "asc")
-                        ->get()}}
     <h1 class="center">Studiemonitor</h1>
     <table class="monitor">
         <tbody>
@@ -58,79 +55,71 @@
                 <th>EC's</th>
                 <th></th>
             </tr>
-            {{$currentBlok = 0}}
-            @foreach ($tests as $test)
-                @if ($currentBlok != $test->blok)
-                    <tr class="blok">
-                        <td colspan="7">Blok {{$test->blok}}</td>
-                    </tr>
-                    {{$currentBlok = $test->blok}}
-                @endif
-                <tr>
-                    <form action="/update" method="POST">
-                        @csrf
-                        <td>
-                            <input required value="{{$test->blok}}" type="number" name="blok">
-                        </td>
-                        <td>
-                            <input required value="{{$test->cursus}}" type="text" name="cursus">
-                        </td>
-                        <td>
-                            <input required value="{{$test->subject}}" type="text" name="subject">
-                        </td>
-                        <td>
-                            <input required value=1 type="radio" name="completed" {{$test->completed ? "checked" : NULL}}>
-                            <label>Ja</label>
-                            <input required value=0 type="radio" name="completed" {{!$test->completed ? "checked" : NULL}}>
-                            <label>Nee</label>
-                        </td>
-                        <td>
-                            <input value="{{$test->grade}}" type="text" name="grade">
-                        </td>
-                        <td>
-                            <input required value="{{$test->EC}}" type="text" name="EC">
-                        </td>
-                        <td class="flex">
-                            <button type="submit" name="id" value="{{$test->id}}">
-                                <i class="fas fa-pencil-alt"></i>
-                            </button>
-                    </form>
-                        <form action="/delete" method="POST">
-                            @csrf
-                            <button type="submit" name="id" value="{{$test->id}}">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </form>
-                    </td>
+            @foreach ($bloks as $blok)
+                <tr class="blok">
+                    <td colspan="7">Blok {{$blok}}</td>
                 </tr>
-            @endforeach
-            {{  $currentEC = 0,
-                $maxEC = 0}}
-            @foreach ($tests as $test)
-                @if ($test->completed)
-                    {{$currentEC += $test->EC}}
-                @endif
-                {{$maxEC += $test->EC}}
+                @foreach ($tests as $test)
+                    @if ($test->blok == $blok)
+                    <tr>
+                        <form action="/update" method="POST">
+                            @csrf
+                            <td>
+                                <input required value="{{$test->blok}}" type="number" name="blok">
+                            </td>
+                            <td>
+                                <input required value="{{$test->cursus}}" type="text" name="cursus">
+                            </td>
+                            <td>
+                                <input required value="{{$test->subject}}" type="text" name="subject">
+                            </td>
+                            <td>
+                                <input required value=1 type="radio" name="completed" {{$test->completed ? "checked" : NULL}}>
+                                <label>Ja</label>
+                                <input required value=0 type="radio" name="completed" {{!$test->completed ? "checked" : NULL}}>
+                                <label>Nee</label>
+                            </td>
+                            <td>
+                                <input value="{{$test->grade}}" type="text" name="grade">
+                            </td>
+                            <td>
+                                <input required value="{{$test->EC}}" type="text" name="EC">
+                            </td>
+                            <td class="flex">
+                                <button type="submit" name="id" value="{{$test->id}}">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button>
+                        </form>
+                            <form action="/delete" method="POST">
+                                @csrf
+                                <button type="submit" name="id" value="{{$test->id}}">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endif
+                @endforeach
             @endforeach
             <tr
-            @if ($currentEC < 45)
+            @if ($ECValues[0] < 45)
                 class="blok failed"
-            @elseif ($currentEC < 60)
+            @elseif ($ECValues[0] < 60)
                 class="blok inprogress"
             @else
                 class="blok"
             @endif>
                 <td colspan="5">Totaal</td>
-                <td>{{$currentEC}}/{{$maxEC}}</td>
+                <td>{{$ECValues[0]}}/{{$ECValues[1]}}</td>
                 <td></td>
             </tr>
         </tbody>
     </table>
     <h1 class="center">Voortgang van Propedeuse</h1>
-    <progress value="{{$currentEC}}" max="{{$maxEC}}"
-    @if ($currentEC < 45)
+    <progress value="{{$ECValues[0]}}" max="{{$ECValues[1]}}"
+    @if ($ECValues[0] < 45)
         class="belowMSBA"
-    @elseif ($currentEC < 60)
+    @elseif ($ECValues[0] < 60)
         class="belowPropedeuse"
     @endif
     ></progress
