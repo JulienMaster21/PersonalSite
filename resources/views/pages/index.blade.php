@@ -81,4 +81,7 @@
             </tr>
         </tbody>
     </table>
+    <div class="flex">
+        <a class="link" href="{{route("assignment.index")}}">Ga naar assignments</a>
+    </div>
 @endsection

@@ -29,11 +29,21 @@ Route::get("/motivatie", "PageController@getMotivatie")
 Route::get("/emperor", "PageController@getEmperor")
         ->name("emperor");
 
-Route::post("/update", "TestController@update")
-        ->name("update");
+Route::post("/updateTest", "TestController@update")
+        ->name("updateTest");
 
-Route::post("/delete", "TestController@delete")
-        ->name("update");
+Route::post("/deleteTest", "TestController@delete")
+        ->name("deleteTest");
 
-Route::post("/create", "TestController@create")
-        ->name("update");
+Route::post("/createTest", "TestController@create")
+        ->name("createTest");
+
+Route::resource("assignment", "AssignmentController")->names([
+    "index" => "assignment.index",
+    "create" => "assignment.create",
+    "store" => "assignment.store",
+    "show" => "assignment.show",
+    "edit" => "assignment.edit",
+    "update" => "assignment.update",
+    "destroy" => "assignment.destroy",
+]);
