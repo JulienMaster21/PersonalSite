@@ -52,7 +52,7 @@ class TestController extends Controller
     }
 
     function update (Request $request) {
-        $test = \App\Test::find($request->id);
+        $test = Test::find($request->id);
 
         $test->blok = $request->blok;
         $test->cursus = $request->cursus;
@@ -67,7 +67,7 @@ class TestController extends Controller
     }
 
     function delete (Request $request) {
-        \App\Test::find($request->id)
+        Test::find($request->id)
                     ->delete();
 
         return redirect()->route("dashboard");

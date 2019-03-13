@@ -62,7 +62,7 @@
                 @foreach ($tests as $test)
                     @if ($test->blok == $blok)
                     <tr>
-                        <form action="/update" method="POST">
+                        <form action="/updateTest" method="POST">
                             @csrf
                             <td>
                                 <input required value="{{$test->blok}}" type="number" name="blok">
@@ -90,7 +90,7 @@
                                     <i class="fas fa-pencil-alt"></i>
                                 </button>
                         </form>
-                            <form action="/delete" method="POST">
+                            <form action="/deleteTest" method="POST">
                                 @csrf
                                 <button type="submit" name="id" value="{{$test->id}}">
                                     <i class="fas fa-trash-alt"></i>
@@ -136,7 +136,7 @@
                 <th></th>
             </tr>
             <tr>
-                <form action="/create" method="POST">
+                <form action="/createTest" method="POST">
                     @csrf
                     <td>
                         <input required placeholder="Blok" name="blok">
