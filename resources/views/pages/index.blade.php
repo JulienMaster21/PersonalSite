@@ -1,31 +1,5 @@
 @extends("templates/basePage")
 @section("title", "Home")
-@section("navbar")
-    <!--Mobile dropdown menu-->
-    <section class="hamburger_button" onclick="menu();">
-        <div></div>
-        <div></div>
-        <div></div>
-    </section>
-    <!--Mobile navbar-->
-    <section class="mobile_navbar" id="dropdown">
-        <div class="mobile_navbutton_active">Home</div>
-        <a href="{{route("about")}}"><div class="mobile_navbutton">Over mij</div></a>
-        <a href="{{route("dashboard")}}"><div class="mobile_navbutton">Dashboard</div></a>
-        <a href="{{route("beroepsbeeld")}}"><div class="mobile_navbutton">Beroepsbeeld</div></a>
-        <a href="{{route("motivatie")}}"><div class="mobile_navbutton">Motivatie</div></a>
-    </section>
-    <!--Desktop navbar-->
-    <section class="navbar">
-        <div class="navcontainer">
-            <div class="navbutton_active">Home</div>
-            <a href="{{route("about")}}"><div class="navbutton">Over mij</div></a>
-            <a href="{{route("dashboard")}}"><div class="navbutton">Dashboard</div></a>
-            <a href="{{route("beroepsbeeld")}}"><div class="navbutton">Beroepsbeeld</div></a>
-            <a href="{{route("motivatie")}}"><div class="navbutton">Motivatie</div></a>
-        </div>
-    </section>
-@endsection
 @section("content")
     <h1 class="center">Hier zijn de redenen waarom deze opleiding bij mij past.</h1>
     <section class="container">
@@ -81,7 +55,4 @@
             </tr>
         </tbody>
     </table>
-    <div class="flex">
-        <a class="link" href="{{route("assignment.index")}}">Ga naar assignments</a>
-    </div>
 @endsection

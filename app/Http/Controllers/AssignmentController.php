@@ -44,7 +44,7 @@ class AssignmentController extends Controller
 
         $assignment->save();
 
-        return redirect("assignment");
+        return redirect("assignments");
     }
 
     /**
@@ -86,7 +86,7 @@ class AssignmentController extends Controller
 
         $assignment->save();
 
-        return redirect("assignment");
+        return redirect("assignments");
     }
 
     /**
@@ -100,6 +100,6 @@ class AssignmentController extends Controller
         Assignment::find($id)
                     ->delete();
 
-        return redirect("assignment");
+        return redirect("assignments");
     }
 }

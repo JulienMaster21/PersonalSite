@@ -1,8 +1,8 @@
-@extends('templates/emptyPage')
+@extends('templates/BasePage')
 @section("title", "Assignments")
 @section("content")
     @foreach ($assignments as $assignment)
-        <form action="/assignment/{{$assignment->id}}" method="POST">
+        <form action="/assignments/{{$assignment->id}}" method="POST">
             @method("PATCH")
             @csrf
             <div class="flex">
@@ -23,7 +23,7 @@
                 </button>
             </div>
         </form>
-        <form action="/assignment/{{$assignment->id}}" method="POST">
+        <form action="/assignments/{{$assignment->id}}" method="POST">
             @method("DELETE")
             @csrf
             <div class="flex marginbottom">
@@ -34,7 +34,7 @@
         </form>
     @endforeach
     <table class="monitor">
-        <form action="/assignment" method="POST">
+        <form action="/assignments" method="POST">
             @csrf
             <tbody>
                 <tr>

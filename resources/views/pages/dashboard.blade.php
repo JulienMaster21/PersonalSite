@@ -1,47 +1,5 @@
 @extends("templates/basePage")
 @section("title", "Dashboard")
-@section("navbar")
-    <!--Mobile dropdown menu-->
-    <section class="hamburger_button" onclick="menu();">
-        <div></div>
-        <div></div>
-        <div></div>
-    </section>
-    <!--Mobile navbar-->
-    <section class="mobile_navbar" id="dropdown">
-        <a href="{{route("index")}}">
-            <div class="mobile_navbutton">Home</div>
-        </a>
-        <a href="{{route("about")}}">
-            <div class="mobile_navbutton">Over mij</div>
-        </a>
-        <div class="mobile_navbutton_active">Dashboard</div>
-        <a href="{{route("beroepsbeeld")}}">
-            <div class="mobile_navbutton">Beroepsbeeld</div>
-        </a>
-        <a href="{{route("motivatie")}}">
-            <div class="mobile_navbutton">Motivatie</div>
-        </a>
-    </section>
-    <!--Desktop navbar-->
-    <section class="navbar">
-        <div class="navcontainer">
-            <a href="{{route("index")}}">
-                <div class="navbutton">Home</div>
-            </a>
-            <a href="{{route("about")}}">
-                <div class="navbutton">Over mij</div>
-            </a>
-            <div class="navbutton_active">Dashboard</div>
-            <a href="{{route("beroepsbeeld")}}">
-                <div class="navbutton">Beroepsbeeld</div>
-            </a>
-            <a href="{{route("motivatie")}}">
-                <div class="navbutton">Motivatie</div>
-            </a>
-        </div>
-    </section>
-@endsection
 @section("content")
     <h1 class="center">Studiemonitor</h1>
     <table class="monitor">

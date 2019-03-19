@@ -12,7 +12,7 @@
 */
 
 Route::get("/", "PageController@getIndex")
-        ->name("index");
+        ->name("home");
 
 Route::get("/over-mij", "PageController@getAbout")
         ->name("about");
@@ -38,12 +38,12 @@ Route::post("/deleteTest", "TestController@delete")
 Route::post("/createTest", "TestController@create")
         ->name("createTest");
 
-Route::resource("assignment", "AssignmentController")->names([
-    "index" => "assignment.index",
-    "create" => "assignment.create",
-    "store" => "assignment.store",
-    "show" => "assignment.show",
-    "edit" => "assignment.edit",
-    "update" => "assignment.update",
-    "destroy" => "assignment.destroy",
+Route::resource("assignments", "AssignmentController")->names([
+    "index" => "assignments.index",
+    "create" => "assignments.create",
+    "store" => "assignments.store",
+    "show" => "assignments.show",
+    "edit" => "assignments.edit",
+    "update" => "assignments.update",
+    "destroy" => "assignments.destroy",
 ]);

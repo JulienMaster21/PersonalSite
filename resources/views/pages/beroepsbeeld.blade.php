@@ -1,47 +1,5 @@
 @extends("templates/basePage")
 @section("title", "Beroepsbeeld")
-@section("navbar")
-    <!--Mobile dropdown menu-->
-    <section class="hamburger_button" onclick="menu();">
-        <div></div>
-        <div></div>
-        <div></div>
-    </section>
-    <!--Mobile navbar-->
-    <section class="mobile_navbar" id="dropdown">
-        <a href="{{route("index")}}">
-            <div class="mobile_navbutton">Home</div>
-        </a>
-        <a href="{{route("about")}}">
-            <div class="mobile_navbutton">Over mij</div>
-        </a>
-        <a href="{{route("dashboard")}}">
-            <div class="mobile_navbutton">Dashboard</div>
-        </a>
-        <div class="mobile_navbutton_active">Beroepsbeeld</div>
-        <a href="{{route("motivatie")}}">
-            <div class="mobile_navbutton">Motivatie</div>
-        </a>
-    </section>
-    <!--Desktop navbar-->
-    <section class="navbar">
-        <div class="navcontainer">
-            <a href="{{route("index")}}">
-                <div class="navbutton">Home</div>
-            </a>
-            <a href="{{route("about")}}">
-                <div class="navbutton">Over mij</div>
-            </a>
-            <a href="{{route("dashboard")}}">
-                <div class="navbutton">Dashboard</div>
-            </a>
-            <div class="navbutton_active">Beroepsbeeld</div>
-            <a href="{{route("motivatie")}}">
-                <div class="navbutton">Motivatie</div>
-            </a>
-        </div>
-    </section>
-@endsection
 @section("content")
     <p>Op deze pagina zal ik mijn mening en data over het beroep van ICT'er uitwerken.</p>
     <img src="{{asset("images/hbo_i.jpg")}}" class="imageberoep rotate180" />

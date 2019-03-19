@@ -14,7 +14,80 @@
         <title>@yield("title")</title>
     </head>
     <body>
-        @yield("navbar")
+        <!--Mobile dropdown menu-->
+        <section class="hamburger_button" onclick="menu();">
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+        <!--Mobile navbar-->
+        <section class="mobile_navbar" id="dropdown">
+            @if (url()->current() == "http://localhost:8000")
+                <div class="mobile_navbutton_active">Home</div>
+            @else
+                <a href="{{route("home")}}"><div class="mobile_navbutton">Home</div></a>
+            @endif
+            @if (url()->current() == "http://localhost:8000/over-mij")
+                <div class="mobile_navbutton_active">Over mij</div>
+            @else
+            <a href="{{route("about")}}"><div class="mobile_navbutton">Over mij</div></a>
+            @endif
+            @if (url()->current() == "http://localhost:8000/dashboard")
+                <div class="mobile_navbutton_active">Dashboard</div>
+            @else
+            <a href="{{route("dashboard")}}"><div class="mobile_navbutton">Dashboard</div></a>
+            @endif
+            @if (url()->current() == "http://localhost:8000/beroepsbeeld")
+                <div class="mobile_navbutton_active">Beroepsbeeld</div>
+            @else
+            <a href="{{route("beroepsbeeld")}}"><div class="mobile_navbutton">Beroepsbeeld</div></a>
+            @endif
+            @if (url()->current() == "http://localhost:8000/motivatie")
+                <div class="mobile_navbutton_active">Motivatie</div>
+            @else
+            <a href="{{route("motivatie")}}"><div class="mobile_navbutton">Motivatie</div></a>
+            @endif
+            @if (url()->current() == "http://localhost:8000/assignments")
+                <div class="mobile_navbutton_active">Assignments</div>
+            @else
+            <a href="{{route("assignments.index")}}"><div class="mobile_navbutton">Assignments</div></a>
+            @endif
+        </section>
+        <!--Desktop navbar-->
+        <section class="navbar">
+            <div class="navcontainer">
+                @if (url()->current() == "http://localhost:8000")
+                    <div class="navbutton_active">Home</div>
+                @else
+                    <a href="{{route("home")}}"><div class="navbutton">Home</div></a>
+                @endif
+                @if (url()->current() == "http://localhost:8000/over-mij")
+                    <div class="navbutton_active">Over mij</div>
+                @else
+                <a href="{{route("about")}}"><div class="navbutton">Over mij</div></a>
+                @endif
+                @if (url()->current() == "http://localhost:8000/dashboard")
+                    <div class="navbutton_active">Dashboard</div>
+                @else
+                <a href="{{route("dashboard")}}"><div class="navbutton">Dashboard</div></a>
+                @endif
+                @if (url()->current() == "http://localhost:8000/beroepsbeeld")
+                    <div class="navbutton_active">Beroepsbeeld</div>
+                @else
+                <a href="{{route("beroepsbeeld")}}"><div class="navbutton">Beroepsbeeld</div></a>
+                @endif
+                @if (url()->current() == "http://localhost:8000/motivatie")
+                    <div class="navbutton_active">Motivatie</div>
+                @else
+                <a href="{{route("motivatie")}}"><div class="navbutton">Motivatie</div></a>
+                @endif
+                @if (url()->current() == "http://localhost:8000/assignments")
+                    <div class="navbutton_active">Assingments</div>
+                @else
+                <a href="{{route("assignments.index")}}"><div class="navbutton">Assignments</div></a>
+                @endif
+            </div>
+        </section>
         <main class="content">
             @yield("content")
         </main>
