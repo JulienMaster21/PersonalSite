@@ -20,21 +20,5 @@
         <div class="flex">
             <h3>{{$assignment->description}}</h3>
         </div>
-        <div class="flex">
-            <form action="/assignments/{{$assignment->id}}/edit" method="GET">
-                <button type="submit" name="id" value="{{$assignment->id}}">
-                    <i class="fas fa-pencil-alt"></i>
-                </button>
-            </form>
-        </div>
-        <div class="flex marginbottom">
-            <form action="/assignments/{{$assignment->id}}" method="POST">
-                @method("DELETE")
-                @csrf
-                <button type="submit">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </form>
-        </div>
     @endforeach
 @endsection
