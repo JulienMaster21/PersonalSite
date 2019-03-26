@@ -48,9 +48,9 @@
             <a href="{{route("motivatie")}}"><div class="mobile_navbutton">Motivatie</div></a>
             @endif
             @if (url()->current() == "http://localhost:8000/assignments")
-                <div class="mobile_navbutton_active">Assignments</div>
+                <div class="mobile_navbutton_active">Opdrachten</div>
             @else
-            <a href="{{route("assignments.index")}}"><div class="mobile_navbutton">Assignments</div></a>
+            <a href="{{route("assignments.index")}}"><div class="mobile_navbutton">Opdrachten</div></a>
             @endif
         </section>
         <!--Desktop navbar-->
@@ -82,9 +82,9 @@
                 <a href="{{route("motivatie")}}"><div class="navbutton">Motivatie</div></a>
                 @endif
                 @if (url()->current() == "http://localhost:8000/assignments")
-                    <div class="navbutton_active">Assingments</div>
+                    <div class="navbutton_active">Opdrachten</div>
                 @else
-                <a href="{{route("assignments.index")}}"><div class="navbutton">Assignments</div></a>
+                <a href="{{route("assignments.index")}}"><div class="navbutton">Opdrachten</div></a>
                 @endif
             </div>
         </section>
