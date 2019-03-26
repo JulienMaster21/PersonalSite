@@ -32,7 +32,7 @@
         <div class="flex">
             <a href="{{route("assignments.index")}}">
                 <div class="divButton">
-                    <i class="fas fa-home"></i>
+                    <i class="fas fa-arrow-left"></i>
                 </div>
             </a>
         </div>
