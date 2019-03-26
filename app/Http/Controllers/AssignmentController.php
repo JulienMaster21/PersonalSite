@@ -25,7 +25,7 @@ class AssignmentController extends Controller
      */
     public function create()
     {
-
+        return view("pages/assignments/create");
     }
 
     /**
@@ -55,7 +55,8 @@ class AssignmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $assignment = Assignment::find($id);
+        return view("pages/assignments/show", ["assignment" => $assignment]);
     }
 
     /**
@@ -66,7 +67,8 @@ class AssignmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $assignment = Assignment::find($id);
+        return view("pages/assignments/edit", ["assignment" => $assignment]);
     }
 
     /**
