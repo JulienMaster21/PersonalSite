@@ -36,6 +36,12 @@ class AssignmentController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            "name" => "required|unique:assignments|max:255",
+            "url" => "required",
+            "description" => "required|max:255",
+        ]);
+
         $assignment = new Assignment;
 
         $assignment->name = $validatedData["name"];
@@ -80,6 +86,12 @@ class AssignmentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            "name" => "required|unique:assignments,name," . $id . "|max:255",
+            "url" => "required",
+            "description" => "required|max:255",
+        ]);
+
         $assignment = Assignment::find($id);
 
         $assignment->name = $validatedData["name"];
