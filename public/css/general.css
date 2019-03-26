@@ -90,8 +90,8 @@ input {
     width: auto;
 }
 button {
-    height: auto;
-    width: auto;
+    height: 3em;
+    width: 3em;
     color: #00FF33;
     background-color: black;
     border: 2px dashed #00FF33;
