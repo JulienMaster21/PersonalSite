@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Assignment extends Model
 {
     protected $attributes = [
-        "project_name" => "",
-        "image_url" => "",
+        "name" => "",
+        "url" => "",
         "description" => "",
     ];
     public $timestamps = false;

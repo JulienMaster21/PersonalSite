@@ -15,8 +15,8 @@ class CreateAssignmentsTable extends Migration
     {
         Schema::create("assignments", function (Blueprint $table) {
             $table->increments("id");
-            $table->string("project_name");
-            $table->string("image_url");
+            $table->string("name");
+            $table->string("url");
             $table->string("description");
         });
     }

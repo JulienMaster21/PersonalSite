@@ -38,9 +38,9 @@ class AssignmentController extends Controller
     {
         $assignment = new Assignment;
 
-        $assignment->project_name = $request->name;
-        $assignment->image_url = $request->url;
-        $assignment->description = $request->description;
+        $assignment->name = $validatedData["name"];
+        $assignment->url = $validatedData["url"];
+        $assignment->description = $validatedData["description"];
 
         $assignment->save();
 
@@ -82,9 +82,9 @@ class AssignmentController extends Controller
     {
         $assignment = Assignment::find($id);
 
-        $assignment->project_name = $request->name;
-        $assignment->image_url = $request->url;
-        $assignment->description = $request->description;
+        $assignment->name = $validatedData["name"];
+        $assignment->url = $validatedData["url"];
+        $assignment->description = $validatedData["description"];
 
         $assignment->save();
 
