@@ -5,15 +5,27 @@
         @csrf
         <h3 class="center">Naam</h3>
         <div class="flex marginbottom">
-            <input required name="name" placeholder="Naam">
+            @if (old("name") !== NULL)
+                <input required name="name" value="{{old("name")}}">
+            @else
+                <input required name="name" placeholder="Naam">
+            @endif
         </div>
         <h3 class="center">url</h3>
         <div class="flex marginbottom">
-            <input required name="url" placeholder="Url">
+            @if (old("url") !== NULL)
+                <input required name="url" value="{{old("url")}}">
+            @else
+                <input required name="url" placeholder="URL">
+            @endif
         </div>
         <h3 class="center">Beschrijving</h3>
         <div class="flex marginbottom">
-            <input required name="description" placeholder="Beschrijving">
+            @if (old("description") !== NULL)
+                <input required name="description" value="{{old("description")}}">
+            @else
+                <input required name="description" placeholder="Beschrijving">
+            @endif
         </div>
         <div class="flex">
             <button type="submit">

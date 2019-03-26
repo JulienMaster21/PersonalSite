@@ -6,15 +6,27 @@
         @csrf
         <h3 class="center">Naam</h3>
         <div class="flex marginbottom">
-            <input required name="name" value="{{$assignment->project_name}}">
+            @if (old("name"))
+                <input required name="name" value="{{old("name")}}">
+            @else
+                <input required name="name" value="{{$assignment->name}}">
+            @endif
         </div>
         <h3 class="center">url</h3>
         <div class="flex marginbottom">
-            <input required name="url" value="{{$assignment->image_url}}">
+            @if (old("url"))
+                <input required name="url" value="{{old("url")}}">
+            @else
+                <input required name="url" value="{{$assignment->url}}">
+            @endif
         </div>
         <h3 class="center">Beschrijving</h3>
         <div class="flex marginbottom">
-            <input required name="description" value="{{$assignment->description}}">
+            @if (old("description"))
+                <input required name="description" value="{{old("description")}}">
+            @else
+                <input required name="description" value="{{$assignment->description}}">
+            @endif
         </div>
         <div class="flex">
             <button type="submit" name="id" value="{{$assignment->id}}">
