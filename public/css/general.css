@@ -90,14 +90,29 @@ input {
     width: auto;
 }
 button {
-    height: 3em;
-    width: 3em;
+    height: auto;
+    width: auto;
     color: #00FF33;
     background-color: black;
     border: 2px dashed #00FF33;
     margin: 0.5em;
+    padding: 0.5em
 }
 button:hover {
+    color: black;
+    background-color: #00FF33;
+    border: none;
+}
+.divButton {
+    height: auto;
+    width: auto;
+    color: #00FF33;
+    background-color: black;
+    border: 2px dashed #00FF33;
+    margin: 0.5em;
+    padding: 0.5em
+}
+.divButton:hover {
     color: black;
     background-color: #00FF33;
     border: none;
