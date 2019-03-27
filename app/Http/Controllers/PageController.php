@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    function getIndex () {
-        return view("pages/index");
+    function getHome () {
+        return view("pages/home");
     }
 
     function getAbout () {

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get("/", "PageController@getIndex")
+Route::get("/", "PageController@getHome")
         ->name("home");
 
 Route::get("/over-mij", "PageController@getAbout")
