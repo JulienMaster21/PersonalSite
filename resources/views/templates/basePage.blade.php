@@ -35,7 +35,7 @@
             @if (url()->current() == "http://localhost:8000/dashboard")
                 <div class="mobile_navbutton_active">Dashboard</div>
             @else
-            <a href="{{route("dashboard")}}"><div class="mobile_navbutton">Dashboard</div></a>
+            <a href="{{route("tests.index")}}"><div class="mobile_navbutton">Dashboard</div></a>
             @endif
             @if (url()->current() == "http://localhost:8000/beroepsbeeld")
                 <div class="mobile_navbutton_active">Beroepsbeeld</div>

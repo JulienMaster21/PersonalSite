@@ -29,21 +29,5 @@ Route::get("/motivatie", "PageController@getMotivatie")
 Route::get("/emperor", "PageController@getEmperor")
         ->name("emperor");
 
-Route::post("/updateTest", "TestController@update")
-        ->name("updateTest");
-
-Route::post("/deleteTest", "TestController@delete")
-        ->name("deleteTest");
-
-Route::post("/createTest", "TestController@create")
-        ->name("createTest");
-
-Route::resource("assignments", "AssignmentController")->names([
-    "index" => "assignments.index",
-    "create" => "assignments.create",
-    "store" => "assignments.store",
-    "show" => "assignments.show",
-    "edit" => "assignments.edit",
-    "update" => "assignments.update",
-    "destroy" => "assignments.destroy",
-]);
+Route::resource("assignments", "AssignmentController");
+Route::resource("tests", "TestController");

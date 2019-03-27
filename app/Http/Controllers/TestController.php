@@ -7,7 +7,13 @@ use \App\Test;
 
 class TestController extends Controller
 {
-    function index () {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         $tests = Test::orderBy("blok", "asc")
                             ->orderBy("cursus", "asc")
                             ->get();
@@ -29,47 +35,102 @@ class TestController extends Controller
             $currentEC,
             $maxEC
         ];
-        return view("pages/dashboard",  [
+        return view("pages/tests.index",  [
                                             "tests" => $tests,
                                             "ECValues" => $ECValues,
                                             "bloks" => $bloks
                                         ]);
     }
 
-    function create (Request $request) {
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view("pages/tests.create");
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $test = new Test;
 
         $test->blok = $request->blok;
         $test->cursus = $request->cursus;
         $test->subject = $request->subject;
-        $test->completed = $request->completed;
+        $test->completed = $request->completed ? 1 : 0;
         $test->grade = $request->grade;
         $test->EC = $request->EC;
 
         $test->save();
 
-        return redirect()->route("dashboard");
+        return redirect("tests");
     }
 
-    function update (Request $request) {
-        $test = Test::find($request->id);
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $test = Test::find($id);
+        return view("pages/tests.show", ["test" => $test]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $test = Test::find($id);
+        return view("pages/tests.edit", ["test" => $test]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $test = Test::find($id);
 
         $test->blok = $request->blok;
         $test->cursus = $request->cursus;
         $test->subject = $request->subject;
-        $test->completed = $request->completed;
+        $test->completed = $request->completed ? 1 : 0;
         $test->grade = $request->grade;
         $test->EC = $request->EC;
 
         $test->save();
 
-        return redirect()->route("dashboard");
+        return redirect("tests");
     }
 
-    function delete (Request $request) {
-        Test::find($request->id)
-                    ->delete();
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        Test::find($id)->delete();
 
-        return redirect()->route("dashboard");
+        return redirect("tests");
     }
 }
