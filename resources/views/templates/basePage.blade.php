@@ -22,32 +22,32 @@
         </section>
         <!--Mobile navbar-->
         <section class="mobile_navbar" id="dropdown">
-            @if (url()->current() == "http://localhost:8000")
+            @if (url()->current() == "http://portfolio.test")
                 <div class="mobile_navbutton_active">Home</div>
             @else
                 <a href="{{route("home")}}"><div class="mobile_navbutton">Home</div></a>
             @endif
-            @if (url()->current() == "http://localhost:8000/over-mij")
+            @if (url()->current() == "http://portfolio.test/over-mij")
                 <div class="mobile_navbutton_active">Over mij</div>
             @else
             <a href="{{route("about")}}"><div class="mobile_navbutton">Over mij</div></a>
             @endif
-            @if (url()->current() == "http://localhost:8000/dashboard")
+            @if (url()->current() == "http://portfolio.test/dashboard")
                 <div class="mobile_navbutton_active">Dashboard</div>
             @else
             <a href="{{route("tests.index")}}"><div class="mobile_navbutton">Dashboard</div></a>
             @endif
-            @if (url()->current() == "http://localhost:8000/beroepsbeeld")
+            @if (url()->current() == "http://portfolio.test/beroepsbeeld")
                 <div class="mobile_navbutton_active">Beroepsbeeld</div>
             @else
             <a href="{{route("beroepsbeeld")}}"><div class="mobile_navbutton">Beroepsbeeld</div></a>
             @endif
-            @if (url()->current() == "http://localhost:8000/motivatie")
+            @if (url()->current() == "http://portfolio.test/motivatie")
                 <div class="mobile_navbutton_active">Motivatie</div>
             @else
             <a href="{{route("motivatie")}}"><div class="mobile_navbutton">Motivatie</div></a>
             @endif
-            @if (url()->current() == "http://localhost:8000/assignments")
+            @if (url()->current() == "http://portfolio.test/assignments")
                 <div class="mobile_navbutton_active">Opdrachten</div>
             @else
             <a href="{{route("assignments.index")}}"><div class="mobile_navbutton">Opdrachten</div></a>
@@ -56,32 +56,32 @@
         <!--Desktop navbar-->
         <section class="navbar">
             <div class="navcontainer">
-                @if (url()->current() == "http://localhost:8000")
+                @if (url()->current() == "http://portfolio.test")
                     <div class="navbutton_active">Home</div>
                 @else
                     <a href="{{route("home")}}"><div class="navbutton">Home</div></a>
                 @endif
-                @if (url()->current() == "http://localhost:8000/over-mij")
+                @if (url()->current() == "http://portfolio.test/over-mij")
                     <div class="navbutton_active">Over mij</div>
                 @else
                 <a href="{{route("about")}}"><div class="navbutton">Over mij</div></a>
                 @endif
-                @if (url()->current() == "http://localhost:8000/dashboard")
+                @if (url()->current() == "http://portfolio.test/dashboard")
                     <div class="navbutton_active">Dashboard</div>
                 @else
                 <a href="{{route("dashboard")}}"><div class="navbutton">Dashboard</div></a>
                 @endif
-                @if (url()->current() == "http://localhost:8000/beroepsbeeld")
+                @if (url()->current() == "http://portfolio.test/beroepsbeeld")
                     <div class="navbutton_active">Beroepsbeeld</div>
                 @else
                 <a href="{{route("beroepsbeeld")}}"><div class="navbutton">Beroepsbeeld</div></a>
                 @endif
-                @if (url()->current() == "http://localhost:8000/motivatie")
+                @if (url()->current() == "http://portfolio.test/motivatie")
                     <div class="navbutton_active">Motivatie</div>
                 @else
                 <a href="{{route("motivatie")}}"><div class="navbutton">Motivatie</div></a>
                 @endif
-                @if (url()->current() == "http://localhost:8000/assignments")
+                @if (url()->current() == "http://portfolio.test/assignments")
                     <div class="navbutton_active">Opdrachten</div>
                 @else
                 <a href="{{route("assignments.index")}}"><div class="navbutton">Opdrachten</div></a>
