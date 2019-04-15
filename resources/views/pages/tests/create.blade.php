@@ -18,9 +18,9 @@
         <h3 class="center">Behaald?</h3>
             <div class="flex marginbottom">
                 <label>Ja<label>
-                    <input required type="radio" name="completed" placeholder=true>
+                    <input required type="radio" name="completed" value="true">
                 <label>Nee<label>
-                    <input required type="radio" name="completed" placeholder=false>
+                    <input required type="radio" name="completed" value="false">
             </div>
         <h3 class="center">Cijfer</h3>
             <div class="flex marginbottom">

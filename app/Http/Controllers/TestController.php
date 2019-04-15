@@ -60,14 +60,25 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate(
+            [
+                "blok" => "required|digits_between:1,2|string",
+                "cursus" => "required|max:255|string",
+                "subject" => "required|max:255|string",
+                "completed" => "required|in:true,false|string",
+                "grade" => "nullable|max:5",
+                "EC" => "required|max:5",
+            ]
+        );
+
         $test = new Test;
 
-        $test->blok = $request->blok;
-        $test->cursus = $request->cursus;
-        $test->subject = $request->subject;
-        $test->completed = $request->completed ? 1 : 0;
-        $test->grade = $request->grade;
-        $test->EC = $request->EC;
+        $test->blok = $validatedData["blok"];
+        $test->cursus = $validatedData["cursus"];
+        $test->subject = $validatedData["subject"];
+        $test->completed = $validatedData["completed"] == "true" ? true : false;
+        $test->grade = $validatedData["grade"];
+        $test->EC = $validatedData["EC"];
 
         $test->save();
 
@@ -107,14 +118,23 @@ class TestController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            "blok" => "required|digits_between:1,2|string",
+            "cursus" => "required|max:255|string",
+            "subject" => "required|max:255|string",
+            "completed" => "required|in:true,false|string",
+            "grade" => "nullable|max:5",
+            "EC" => "required|max:5",
+        ]);
+
         $test = Test::find($id);
 
-        $test->blok = $request->blok;
-        $test->cursus = $request->cursus;
-        $test->subject = $request->subject;
-        $test->completed = $request->completed ? 1 : 0;
-        $test->grade = $request->grade;
-        $test->EC = $request->EC;
+        $test->blok = $validatedData["blok"];
+        $test->cursus = $validatedData["cursus"];
+        $test->subject = $validatedData["subject"];
+        $test->completed = $validatedData["completed"] == "true" ? true : false;
+        $test->grade = $validatedData["grade"];
+        $test->EC = $validatedData["EC"];
 
         $test->save();
 

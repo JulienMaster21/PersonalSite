@@ -19,9 +19,9 @@
         <h3 class="center">Behaald?</h3>
             <div class="flex marginbottom">
                 <label>Ja<label>
-                    <input required type="radio" name="completed" value=true {{$test->completed ? "checked" : NULL}}>
+                    <input required type="radio" name="completed" value="true" {{$test->completed ? "checked" : NULL}}>
                 <label>Nee<label>
-                    <input required type="radio" name="completed" value=false {{!$test->completed ? "checked" : NULL}}>
+                    <input required type="radio" name="completed" value="false" {{!$test->completed ? "checked" : NULL}}>
             </div>
         <h3 class="center">Cijfer</h3>
             <div class="flex marginbottom">
