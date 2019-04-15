@@ -196,7 +196,7 @@ td {
 .navbar {
     overflow: hidden;
     position: fixed;
-    top: 0em;
+    top: 5em;
     width: 95%;
     margin: 0.5% 2.5%;
     border: 2px dashed #00FF33;
@@ -239,10 +239,16 @@ td {
     background-color: #00FF33;
     color: black;
 }
+.profile_bar {
+    margin-top: 1em;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2em;
+}
 /*Main Content Classes*/
 .content {
     margin: 0 1em;
-    margin-top: 18em;
+    margin-top: 21em;
 }
 .content p, h1, h2, h3, h4, h5, h6, img {
     margin-bottom: 1em;

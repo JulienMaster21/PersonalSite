@@ -14,6 +14,21 @@
         <title>@yield("title")</title>
     </head>
     <body>
+        <!--Profile bar-->
+        <section class="profile_bar">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit">
+                    <i class="fas fa-user"></i>
+                </button>
+            </form>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </form>
+        </section>
         <!--Mobile dropdown menu-->
         <section class="hamburger_button" onclick="menu();">
             <div></div>

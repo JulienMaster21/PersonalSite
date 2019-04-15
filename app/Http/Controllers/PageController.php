@@ -6,6 +6,16 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function getHome () {
         return view("pages/home");
     }
@@ -24,5 +34,9 @@ class PageController extends Controller
 
     function getEmperor () {
         return view("pages/emperor");
+    }
+
+    function logOut () {
+        Auth::logout();
     }
 }
