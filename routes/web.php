@@ -33,5 +33,3 @@ Route::resource("assignments", "AssignmentController");
 Route::resource("tests", "TestController");
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
