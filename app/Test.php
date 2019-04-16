@@ -6,14 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
+    /**
+    * Get the course that owns the test.
+    */
+    public function course()
+    {
+        return $this->belongsTo('App\Course');
+    }
+
     protected $attributes = [
-        "blok" => -1,
-        "cursus" => "",
-        "subject" => "",
+        "name" => "",
         "completed" => false,
         "grade" => -1,
         "EC" => -1
     ];
-    public $timestamps = false;
     protected $table = "tests";
+    public $timestamps = false;
 }

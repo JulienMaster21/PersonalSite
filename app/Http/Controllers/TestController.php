@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Test;
+use \App\Blok;
+use \App\Course;
 
 class TestController extends Controller
 {
@@ -24,31 +26,31 @@ class TestController extends Controller
      */
     public function index()
     {
-        $tests = Test::orderBy("blok", "asc")
-                            ->orderBy("cursus", "asc")
-                            ->get();
-        $currentBlok = 0;
-        $currentEC = 0;
-        $maxEC = 0;
-        $bloks = [];
-        foreach ($tests as $test) {
-            if ($test->blok != $currentBlok) {
-                array_push($bloks, $test->blok);
-                $currentBlok = $test->blok;
-            }
-            if ($test->completed) {
-                $currentEC += $test->EC;
-            }
-            $maxEC += $test->EC;
-        }
-        $ECValues = [
-            $currentEC,
-            $maxEC
-        ];
+        $bloks = Blok::all();
+        $courses = Course::all();
+        $tests = Test::all();
+        // $currentBlok = 0;
+        // $currentEC = 0;
+        // $maxEC = 0;
+        // $bloks = [];
+        // foreach ($tests as $test) {
+        //     if ($test->blok != $currentBlok) {
+        //         array_push($bloks, $test->blok);
+        //         $currentBlok = $test->blok;
+        //     }
+        //     if ($test->completed) {
+        //         $currentEC += $test->EC;
+        //     }
+        //     $maxEC += $test->EC;
+        // }
+        // $ECValues = [
+        //     $currentEC,
+        //     $maxEC
+        // ];
         return view("pages/tests.index",  [
+                                            "bloks" => $bloks,
+                                            "courses" => $courses,
                                             "tests" => $tests,
-                                            "ECValues" => $ECValues,
-                                            "bloks" => $bloks
                                         ]);
     }
 
