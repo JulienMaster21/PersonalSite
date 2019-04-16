@@ -31,5 +31,7 @@ Route::get("/emperor", "PageController@getEmperor")
 
 Route::resource("assignments", "AssignmentController");
 Route::resource("tests", "TestController");
+Route::resource("courses", "CourseController");
+Route::resource("bloks", "BlokController");
 
 Auth::routes();
