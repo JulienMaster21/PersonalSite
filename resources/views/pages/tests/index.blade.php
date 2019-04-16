@@ -13,30 +13,39 @@
         <tbody>
             <tr>
                 <th>Cursus</th>
-                <th>Toetsonderdeel</th>
+                <th>Naam</th>
                 <th>Behaald?</th>
                 <th>Cijfer</th>
                 <th>EC's</th>
             </tr>
             @foreach ($bloks as $blok)
                 <tr class="blok">
-                    <td colspan="5">Blok {{$blok}}</td>
+                    <td colspan="5">
+                        <a class="link" href="bloks/{{ $blok->id }}">Blok {{ $blok->id }}</a>
+                    </td>
                 </tr>
-                @foreach ($tests as $test)
-                    @if ($test->blok == $blok)
-                    <tr>
-                        <td>{{$test->cursus}}</td>
-                        <td>
-                            <a class="link" href="{{route("tests.show", ["id" => $test->id])}}">{{$test->subject}}</a>
-                        </td>
-                        <td>{{$test->completed ? "Ja" : "Nee"}}</td>
-                        <td>{{$test->grade}}</td>
-                        <td>{{$test->EC}}</td>
-                    </tr>
-                    @endif
+                @foreach ($courses->where("bloks_id", "=", $blok->id) as $course)
+                    @foreach ($tests->where("courses_id", "=", $course->id) as $test)
+                        <tr>
+                            <td>
+                                <a class="link" href="courses/{{ $course->id }}">{{ $course->name }}</a>
+                            </td>
+                            <td>
+                                <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>
+                            </td>
+                            <td>{{ $test->completed ? "Ja" : "Nee" }}</td>
+                            <td>{{ $test->grade }}</td>
+                            <td>{{ $test->EC }}</td>
+                        </tr>
+                    @endforeach
                 @endforeach
             @endforeach
-            <tr
+            {{-- @foreach ($bloks as $blok)
+                <tr class="blok">
+                    <td colspan="5">Blok {{ $blok }}</td>
+                </tr>
+            @endforeach --}}
+            {{-- <tr
             @if ($ECValues[0] < 45)
                 class="blok failed"
             @elseif ($ECValues[0] < 60)
@@ -46,11 +55,11 @@
             @endif>
                 <td colspan="4">Totaal</td>
                 <td>{{$ECValues[0]}}/{{$ECValues[1]}}</td>
-            </tr>
+            </tr> --}}
         </tbody>
     </table>
     <h1 class="center">Voortgang van Propedeuse</h1>
-    <progress value="{{$ECValues[0]}}" max="{{$ECValues[1]}}"
+    {{-- <progress value="{{$ECValues[0]}}" max="{{$ECValues[1]}}"
     @if ($ECValues[0] < 45)
         class="marginbottom belowMSBA"
     @elseif ($ECValues[0] < 60)
@@ -58,7 +67,7 @@
     @else
         class="marginbottom"
     @endif
-    ></progress>
+    ></progress> --}}
     <h1 class="center">Studiewijzer</h1>
     <ul>
         <li>

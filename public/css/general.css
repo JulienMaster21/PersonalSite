@@ -183,6 +183,9 @@ td {
     color: black;
     font-weight: bold;
 }
+.blok td a {
+    color: black;
+}
 .inprogress td {
     background-color: cyan;
     color: black;
