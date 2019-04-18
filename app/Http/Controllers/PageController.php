@@ -24,6 +24,10 @@ class PageController extends Controller
         return view("pages/about");
     }
 
+    function getDashboard () {
+        return view("pages/dashboard");
+    }
+
     function getBeroepsbeeld () {
         return view("pages/beroepsbeeld");
     }

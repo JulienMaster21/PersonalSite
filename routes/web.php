@@ -17,7 +17,7 @@ Route::get("/", "PageController@getHome")
 Route::get("/over-mij", "PageController@getAbout")
         ->name("about");
 
-Route::get("/dashboard", "TestController@index")
+Route::get("/dashboard", "PageController@getDashboard")
         ->name("dashboard");
 
 Route::get("/beroepsbeeld", "PageController@getBeroepsbeeld")
