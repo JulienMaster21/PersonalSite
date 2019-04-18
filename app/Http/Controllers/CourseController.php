@@ -51,14 +51,14 @@ class CourseController extends Controller
         $validatedData = $request->validate(
             [
                 "name" => "required|max:255|string",
-                "bloks_id" => "nullable",
+                "blok_id" => "nullable",
             ]
         );
 
         $course = new Course;
 
         $course->name = $validatedData["name"];
-        $course->bloks_id = $validatedData["bloks_id"];
+        $course->blok_id = $validatedData["blok_id"];
 
         $course->save();
 
@@ -101,13 +101,13 @@ class CourseController extends Controller
     {
         $validatedData = $request->validate([
             "name" => "required|max:255|string",
-            "bloks_id" => "nullable",
+            "blok_id" => "nullable",
         ]);
 
         $course = Course::find($id);
 
         $course->name = $validatedData["name"];
-        $course->completed = $validatedData["bloks_id"];
+        $course->blok_id = $validatedData["blok_id"];
 
         $course->save();
 

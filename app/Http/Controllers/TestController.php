@@ -75,7 +75,7 @@ class TestController extends Controller
                 "completed" => "required|in:true,false|string",
                 "grade" => "nullable|max:5",
                 "EC" => "required|max:5",
-                "courses_id" => "nullable"
+                "course_id" => "nullable"
             ]
         );
 
@@ -85,7 +85,7 @@ class TestController extends Controller
         $test->completed = $validatedData["completed"] == "true" ? true : false;
         $test->grade = $validatedData["grade"];
         $test->EC = $validatedData["EC"];
-        $test->courses_id = $validatedData["courses_id"];
+        $test->course_id = $validatedData["course_id"];
 
         $test->save();
 
@@ -140,7 +140,7 @@ class TestController extends Controller
             "completed" => "required|in:true,false|string",
             "grade" => "nullable|max:5",
             "EC" => "required|max:5",
-            "courses_id" => "nullable",
+            "course_id" => "nullable",
         ]);
 
         $test = Test::find($id);
@@ -149,7 +149,7 @@ class TestController extends Controller
         $test->completed = $validatedData["completed"] == "true" ? true : false;
         $test->grade = $validatedData["grade"];
         $test->EC = $validatedData["EC"];
-        $test->courses_id = $validatedData["courses_id"];
+        $test->course_id = $validatedData["course_id"];
 
         $test->save();
 
