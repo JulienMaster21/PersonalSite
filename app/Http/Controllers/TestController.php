@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Test;
-use \App\Blok;
-use \App\Course;
 
 class TestController extends Controller
 {
@@ -26,27 +24,9 @@ class TestController extends Controller
      */
     public function index()
     {
-        $bloks = Blok::all();
-        $courses = Course::all();
-        $tests = Test::all();
-        $ECValues = [];
-        $ECmin = 0;
-        $ECmax = 0;
+        $tests = Test::with(['course', 'course.blok'])->paginate(10);
 
-        foreach ($tests as $test) {
-            if ($test->completed) {
-                $ECmin += $test->EC;
-            }
-            $ECmax += $test->EC;
-        }
-        array_push($ECValues, $ECmin, $ECmax);
-
-        return view("pages/tests.index",  [
-                                            "bloks" => $bloks,
-                                            "courses" => $courses,
-                                            "tests" => $tests,
-                                            "ECValues" => $ECValues,
-                                        ]);
+        return $tests;
     }
 
     /**
@@ -75,7 +55,7 @@ class TestController extends Controller
                 "completed" => "required|in:true,false|string",
                 "grade" => "nullable|max:5",
                 "EC" => "required|max:5",
-                "courses_id" => "nullable"
+                "course_id" => "nullable|integer"
             ]
         );
 
@@ -85,11 +65,10 @@ class TestController extends Controller
         $test->completed = $validatedData["completed"] == "true" ? true : false;
         $test->grade = $validatedData["grade"];
         $test->EC = $validatedData["EC"];
-        $test->courses_id = $validatedData["courses_id"];
+        $test->course_id = $validatedData["course_id"];
+        $test->course()->associate(Course::find($validatedData['course_id']));
 
         $test->save();
-
-        return redirect("tests");
     }
 
     /**
@@ -100,13 +79,9 @@ class TestController extends Controller
      */
     public function show($id)
     {
-        $test = Test::find($id);
-        $course = $test->course;
+        $test = Test::with(['course', 'course.blok'])->find($id);
 
-        return view("pages/tests.show", [
-            "test" => $test,
-            "course" => $course,
-        ]);
+        return $test;
     }
 
     /**
@@ -135,25 +110,24 @@ class TestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            "name" => "required|max:255|string",
-            "completed" => "required|in:true,false|string",
-            "grade" => "nullable|max:5",
-            "EC" => "required|max:5",
-            "courses_id" => "nullable",
-        ]);
-
-        $test = Test::find($id);
+        $validatedData = $request->validate(
+            [
+                "name" => "required|max:255|string",
+                "completed" => "required|in:true,false|string",
+                "grade" => "nullable|max:5",
+                "EC" => "required|max:5",
+                "course_id" => "nullable|integer"
+            ]
+        );
 
         $test->name = $validatedData["name"];
         $test->completed = $validatedData["completed"] == "true" ? true : false;
         $test->grade = $validatedData["grade"];
         $test->EC = $validatedData["EC"];
-        $test->courses_id = $validatedData["courses_id"];
+        $test->courses_id = $validatedData["course_id"];
+        $test->course()->associate(Course::find($validatedData['course_id']));
 
         $test->save();
-
-        return redirect("tests");
     }
 
     /**
@@ -165,7 +139,5 @@ class TestController extends Controller
     public function destroy($id)
     {
         Test::find($id)->delete();
-
-        return redirect("tests");
     }
 }

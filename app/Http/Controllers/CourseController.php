@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
-use App\Blok;
 
 class CourseController extends Controller
 {
@@ -25,7 +24,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::with(['tests', 'blok'])->paginate(10);
+
+        return $courses;
     }
 
     /**
@@ -51,18 +52,17 @@ class CourseController extends Controller
         $validatedData = $request->validate(
             [
                 "name" => "required|max:255|string",
-                "bloks_id" => "nullable",
+                "blok_id" => "nullable|integer"
             ]
         );
 
         $course = new Course;
 
         $course->name = $validatedData["name"];
-        $course->bloks_id = $validatedData["bloks_id"];
+        $course->blok_id = $validatedData["blok_id"];
+        $course->blok()->associate(Blok::find($validatedData['blok_id']));
 
         $course->save();
-
-        return redirect("tests");
     }
 
     /**
@@ -73,9 +73,9 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        $course = Course::find($id);
+        $course = Course::with(['blok', 'tests'])->find($id);
 
-        return view("pages/courses.show", ["course" => $course]);
+        return $course;
     }
 
     /**
@@ -99,19 +99,18 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            "name" => "required|max:255|string",
-            "bloks_id" => "nullable",
-        ]);
-
-        $course = Course::find($id);
+        $validatedData = $request->validate(
+            [
+                "name" => "required|max:255|string",
+                "blok_id" => "nullable|integer"
+            ]
+        );
 
         $course->name = $validatedData["name"];
-        $course->completed = $validatedData["bloks_id"];
+        $course->blok_id = $validatedData["blok_id"];
+        $course->blok()->associate(Blok::find($validatedData['blok_id']));
 
         $course->save();
-
-        return redirect("tests");
     }
 
     /**
@@ -123,7 +122,5 @@ class CourseController extends Controller
     public function destroy($id)
     {
         Course::find($id)->delete();
-
-        return redirect("tests");
     }
 }

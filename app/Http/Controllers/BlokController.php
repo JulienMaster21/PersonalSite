@@ -24,7 +24,9 @@ class BlokController extends Controller
      */
     public function index()
     {
-        //
+        $bloks = Blok::with(['courses', 'courses.tests'])->paginate(10);
+
+        return $bloks;
     }
 
     /**
@@ -45,13 +47,15 @@ class BlokController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate(
+            [
+
+            ]
+        );
+
         $blok = new Blok;
 
-        $blok->id = $request->id;
-
         $blok->save();
-
-        return redirect("tests");
     }
 
     /**
@@ -62,12 +66,9 @@ class BlokController extends Controller
      */
     public function show($id)
     {
-        $blok = Blok::find($id);
-        $bloks = Blok::all();
-        return view("pages/bloks.show", [
-            "blok" => $blok,
-            "bloks" => $bloks,
-        ]);
+        $blok = Blok::with(['courses', 'courses.tests'])->find($id);
+
+        return $blok;
     }
 
     /**
@@ -90,7 +91,7 @@ class BlokController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return false;
     }
 
     /**
@@ -102,7 +103,5 @@ class BlokController extends Controller
     public function destroy($id)
     {
         Blok::find($id)->delete();
-
-        return redirect("tests");
     }
 }
