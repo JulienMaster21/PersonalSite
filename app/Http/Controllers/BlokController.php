@@ -3,9 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Blok;
 
 class BlokController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +45,13 @@ class BlokController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $blok = new Blok;
+
+        $blok->id = $request->id;
+
+        $blok->save();
+
+        return redirect("tests");
     }
 
     /**
@@ -45,7 +62,12 @@ class BlokController extends Controller
      */
     public function show($id)
     {
-        //
+        $blok = Blok::find($id);
+        $bloks = Blok::all();
+        return view("pages/bloks.show", [
+            "blok" => $blok,
+            "bloks" => $bloks,
+        ]);
     }
 
     /**
@@ -79,6 +101,8 @@ class BlokController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Blok::find($id)->delete();
+
+        return redirect("tests");
     }
 }

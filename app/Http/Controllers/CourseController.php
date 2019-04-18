@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Course;
+use App\Blok;
 
 class CourseController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +35,9 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        $bloks = Blok::all();
+
+        return view("pages/courses.create", ["bloks" => $bloks]);
     }
 
     /**
@@ -34,7 +48,21 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate(
+            [
+                "name" => "required|max:255|string",
+                "bloks_id" => "nullable",
+            ]
+        );
+
+        $course = new Course;
+
+        $course->name = $validatedData["name"];
+        $course->bloks_id = $validatedData["bloks_id"];
+
+        $course->save();
+
+        return redirect("tests");
     }
 
     /**
@@ -45,7 +73,9 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        //
+        $course = Course::find($id);
+
+        return view("pages/courses.show", ["course" => $course]);
     }
 
     /**
@@ -56,7 +86,8 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Course::find($id);
+        return view("pages/courses.edit", ["course" => $course]);
     }
 
     /**
@@ -68,7 +99,19 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            "name" => "required|max:255|string",
+            "bloks_id" => "nullable",
+        ]);
+
+        $course = Course::find($id);
+
+        $course->name = $validatedData["name"];
+        $course->completed = $validatedData["bloks_id"];
+
+        $course->save();
+
+        return redirect("tests");
     }
 
     /**
@@ -79,6 +122,8 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Course::find($id)->delete();
+
+        return redirect("tests");
     }
 }
