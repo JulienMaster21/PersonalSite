@@ -23,13 +23,13 @@ class CreateCoursesTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->unsignedInteger('bloks_id');
+            $table->unsignedInteger('blok_id')->nullable();
             $table->string('name');
 
-            $table->index(["bloks_id"], 'fk_courses_bloks_idx');
+            $table->index(["blok_id"], 'fk_courses_bloks_idx');
 
 
-            $table->foreign('bloks_id', 'fk_courses_bloks_idx')
+            $table->foreign('blok_id', 'fk_courses_bloks_idx')
                 ->references('id')->on('bloks')
                 ->onDelete('no action')
                 ->onUpdate('no action');

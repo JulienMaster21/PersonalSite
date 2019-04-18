@@ -14,20 +14,20 @@ class CourseSeeder extends Seeder
     {
         // factory(Course::class, 20)->create();
         DB::table("courses")->insert([
-            ["bloks_id" => 1, "name" => "Computer Science Basics"],
-            ["bloks_id" => 1, "name" => "Opleidings- en Beroepsorientatie"],
-            ["bloks_id" => 1, "name" => "Programming Basics"],
-            ["bloks_id" => 2, "name" => "Object-Oriented Programming"],
-            ["bloks_id" => 2, "name" => "Professional Skills 1"],
-            ["bloks_id" => 2, "name" => "HZ-Personality 2a"],
-            ["bloks_id" => 3, "name" => "Framework Development 1"],
-            ["bloks_id" => 3, "name" => "Framework Project 1"],
-            ["bloks_id" => 3, "name" => "Professional Skills 2"],
-            ["bloks_id" => 3, "name" => "Professionele Werkplek 1"],
-            ["bloks_id" => 4, "name" => "Framework Development 2"],
-            ["bloks_id" => 4, "name" => "Framework Project 2"],
-            ["bloks_id" => 4, "name" => "Professional Skills 3"],
-            ["bloks_id" => 4, "name" => "IT Personality 2a"],
+            ["blok_id" => 1, "name" => "Computer Science Basics"],
+            ["blok_id" => 1, "name" => "Opleidings- en Beroepsorientatie"],
+            ["blok_id" => 1, "name" => "Programming Basics"],
+            ["blok_id" => 2, "name" => "Object-Oriented Programming"],
+            ["blok_id" => 2, "name" => "Professional Skills 1"],
+            ["blok_id" => 2, "name" => "HZ-Personality 2a"],
+            ["blok_id" => 3, "name" => "Framework Development 1"],
+            ["blok_id" => 3, "name" => "Framework Project 1"],
+            ["blok_id" => 3, "name" => "Professional Skills 2"],
+            ["blok_id" => 3, "name" => "Professionele Werkplek 1"],
+            ["blok_id" => 4, "name" => "Framework Development 2"],
+            ["blok_id" => 4, "name" => "Framework Project 2"],
+            ["blok_id" => 4, "name" => "Professional Skills 3"],
+            ["blok_id" => 4, "name" => "IT Personality 2a"],
         ]);
     }
 }
