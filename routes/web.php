@@ -30,8 +30,10 @@ Route::get("/emperor", "PageController@getEmperor")
         ->name("emperor");
 
 Route::resource("assignments", "AssignmentController");
-Route::resource("tests", "TestController");
-Route::resource("courses", "CourseController");
-Route::resource("bloks", "BlokController");
+
+// Api Routes
+Route::resource("/api/tests", "TestController");
+Route::resource("/api/courses", "CourseController");
+Route::resource("/api/bloks", "BlokController");
 
 Auth::routes();
