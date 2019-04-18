@@ -23,15 +23,6 @@
             <div class="flex marginbottom">
                 <input required type="text" name="EC" value="{{$test->EC}}">
             </div>
-        <h3 class="center">Cursus</h3>
-            <div class="flex marginbottom">
-                <select name="courses_id">
-                    @foreach ($courses as $course)
-                        <option value="{{ $course->id }}">{{ $course->name }}</option>
-                    @endforeach
-                    <option value="">Geen</option>
-                </select>
-            </div>
         <div class="flex">
             <button type="submit">
                 <i class="fas fa-pencil-alt"></i>

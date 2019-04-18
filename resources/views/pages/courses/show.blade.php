@@ -1,42 +1,26 @@
 @extends('templates/emptyPage')
-@section("title", "Toets $test->id")
+@section("title", "Cursus $course->id")
 @section("content")
-    <h3 class="center">Toets</h3>
-        <div class="flex">
-            <h3>{{ $test->name }}</h3>
-        </div>
-    <h3 class="center">Behaald?</h3>
-        <div class="flex">
-            <h3>{{ $test->completed ? "Ja" : "Nee" }}</h3>
-        </div>
-    <h3 class="center">Cijfer</h3>
-        <div class="flex">
-            <h3>{{ $test->grade }}</h3>
-        </div>
-    <h3 class="center">EC's</h3>
-        <div class="flex">
-            <h3>{{ $test->EC }}</h3>
-        </div>
     <h3 class="center">Cursus</h3>
         <div class="flex">
-            <h3>{{ $course->name }}</h3>
+            <h3>{{$course->name}}</h3>
         </div>
         <div class="flex marginbottom">
-            <a href="{{route("tests.create")}}">
+            <a href="{{route("courses.create")}}">
                 <div class="divButton">
                     <i class="fas fa-plus"></i>
                 </div>
             </a>
         </div>
         <div class="flex marginbottom">
-            <form action="/tests/{{$test->id}}/edit" method="GET">
+            <form action="/courses/{{$course->id}}/edit" method="GET">
                 <button type="submit">
                     <i class="fas fa-pencil-alt"></i>
                 </button>
             </form>
         </div>
         <div class="flex marginbottom">
-            <form action="/tests/{{$test->id}}" method="POST">
+            <form action="/courses/{{$course->id}}" method="POST">
                 @method("DELETE")
                 @csrf
                 <button type="submit">

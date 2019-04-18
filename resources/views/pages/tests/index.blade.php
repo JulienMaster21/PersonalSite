@@ -1,13 +1,6 @@
 @extends("templates/basePage")
 @section("title", "Dashboard")
 @section("content")
-    <div class="flex">
-        <a href="{{route("tests.create")}}">
-            <div class="divButton">
-                <i class="fas fa-plus"></i>
-            </div>
-        </a>
-    </div>
     <h1 class="center">Studiemonitor</h1>
     <table class="monitor">
         <tbody>
@@ -40,12 +33,39 @@
                     @endforeach
                 @endforeach
             @endforeach
-            {{-- @foreach ($bloks as $blok)
-                <tr class="blok">
-                    <td colspan="5">Blok {{ $blok }}</td>
+            <tr class="blok">
+                <td colspan="5">Niet aangewezen cursussen</td>
+            </tr>
+            <tr>
+                <th colspan="5">Naam</th>
+            </tr>
+            @foreach ($courses->where("bloks_id", "=", NULL) as $course)
+                <tr>
+                    <td colspan="5">
+                        <a href="/courses/{{ $course->id }}">{{ $course->name }}</a>
+                    </td>
                 </tr>
-            @endforeach --}}
-            {{-- <tr
+                @endforeach
+            <tr class="blok">
+                <td colspan="5">Niet aangewezen toetsen</td>
+            </tr>
+            <tr>
+                <th colspan="2">Naam</th>
+                <th>Behaald?</th>
+                <th>Cijfer</th>
+                <th>EC's</th>
+            </tr>
+            @foreach ($tests->where("courses_id", "=", NULL) as $test)
+                <tr>
+                    <td colspan="2">
+                        <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>
+                    </td>
+                    <td>{{ $test->completed ? "Ja" : "Nee" }}</td>
+                    <td>{{ $test->grade }}</td>
+                    <td>{{ $test->EC }}</td>
+                </tr>
+            @endforeach
+            <tr
             @if ($ECValues[0] < 45)
                 class="blok failed"
             @elseif ($ECValues[0] < 60)
@@ -55,11 +75,11 @@
             @endif>
                 <td colspan="4">Totaal</td>
                 <td>{{$ECValues[0]}}/{{$ECValues[1]}}</td>
-            </tr> --}}
+            </tr>
         </tbody>
     </table>
     <h1 class="center">Voortgang van Propedeuse</h1>
-    {{-- <progress value="{{$ECValues[0]}}" max="{{$ECValues[1]}}"
+    <progress value="{{$ECValues[0]}}" max="60"
     @if ($ECValues[0] < 45)
         class="marginbottom belowMSBA"
     @elseif ($ECValues[0] < 60)
@@ -67,7 +87,7 @@
     @else
         class="marginbottom"
     @endif
-    ></progress> --}}
+    ></progress>
     <h1 class="center">Studiewijzer</h1>
     <ul>
         <li>
