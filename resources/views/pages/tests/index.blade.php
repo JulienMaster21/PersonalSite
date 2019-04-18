@@ -17,20 +17,32 @@
                         <a class="link" href="bloks/{{ $blok->id }}">Blok {{ $blok->id }}</a>
                     </td>
                 </tr>
-                @foreach ($courses->where("bloks_id", "=", $blok->id) as $course)
-                    @foreach ($tests->where("courses_id", "=", $course->id) as $test)
+                @foreach ($courses->where("blok_id", "=", $blok->id) as $course)
+                    @if (count($course->tests) == 0)
                         <tr>
                             <td>
-                                <a class="link" href="courses/{{ $course->id }}">{{ $course->name }}</a>
+                                <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
                             </td>
-                            <td>
-                                <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>
-                            </td>
-                            <td>{{ $test->completed ? "Ja" : "Nee" }}</td>
-                            <td>{{ $test->grade }}</td>
-                            <td>{{ $test->EC }}</td>
+                            <td>Geen</td>
+                            <td>Geen</td>
+                            <td>Geen</td>
+                            <td>Geen</td>
                         </tr>
-                    @endforeach
+                    @else
+                        @foreach ($tests->where("course_id", "=", $course->id) as $test)
+                            <tr>
+                                <td>
+                                    <a class="link" href="courses/{{ $course->id }}">{{ $course->name }}</a>
+                                </td>
+                                <td>
+                                    <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>
+                                </td>
+                                <td>{{ $test->completed ? "Ja" : "Nee" }}</td>
+                                <td>{{ $test->grade }}</td>
+                                <td>{{ $test->EC }}</td>
+                            </tr>
+                        @endforeach
+                    @endif
                 @endforeach
             @endforeach
             <tr class="blok">
@@ -39,7 +51,7 @@
             <tr>
                 <th colspan="5">Naam</th>
             </tr>
-            @foreach ($courses->where("bloks_id", "=", NULL) as $course)
+            @foreach ($courses->where("blok_id", "=", NULL) as $course)
                 <tr>
                     <td colspan="5">
                         <a href="/courses/{{ $course->id }}">{{ $course->name }}</a>
@@ -55,7 +67,7 @@
                 <th>Cijfer</th>
                 <th>EC's</th>
             </tr>
-            @foreach ($tests->where("courses_id", "=", NULL) as $test)
+            @foreach ($tests->where("course_id", "=", NULL) as $test)
                 <tr>
                     <td colspan="2">
                         <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>

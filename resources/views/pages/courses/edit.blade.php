@@ -1,27 +1,21 @@
 @extends("templates/emptyPage")
-@section("title", "Pas opdracht aan")
+@section("title", "Pas Cursus aan")
 @section("content")
-    <form action="/tests/{{$test->id}}" method="POST">
+    <form action="/courses/{{ $course->id }}" method="POST">
         @method("PATCH")
         @csrf
-        <h3 class="center">Toets</h3>
+        <h3 class="center">Cursus</h3>
             <div class="flex marginbottom">
-                <input required type="text" name="name" value="{{$test->name}}">
+                <input required type="text" name="name" value="{{ $course->name }}">
             </div>
-        <h3 class="center">Behaald?</h3>
+        <h3 class="center">Blok</h3>
             <div class="flex marginbottom">
-                <label>Ja<label>
-                    <input required type="radio" name="completed" value="true" {{$test->completed ? "checked" : NULL}}>
-                <label>Nee<label>
-                    <input required type="radio" name="completed" value="false" {{!$test->completed ? "checked" : NULL}}>
-            </div>
-        <h3 class="center">Cijfer</h3>
-            <div class="flex marginbottom">
-                <input required type="text" name="grade" value="{{$test->grade}}">
-            </div>
-        <h3 class="center">EC's</h3>
-            <div class="flex marginbottom">
-                <input required type="text" name="EC" value="{{$test->EC}}">
+                <select name="blok_id">
+                    @foreach ($bloks as $blok)
+                        <option value="{{ $blok->id }}">Blok {{ $blok->id }}</option>
+                    @endforeach
+                    <option value="">Geen</option>
+                </select>
             </div>
         <div class="flex">
             <button type="submit">
@@ -30,7 +24,7 @@
         </div>
     </form>
     <div class="flex">
-        <a href="{{route("tests.show", ["id" => $test->id])}}">
+        <a href="{{route("tests.index")}}">
             <div class="divButton">
                 <i class="fas fa-arrow-left"></i>
             </div>

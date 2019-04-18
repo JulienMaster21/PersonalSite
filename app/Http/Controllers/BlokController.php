@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Blok;
+use \App\Course;
 
 class BlokController extends Controller
 {
@@ -64,9 +65,12 @@ class BlokController extends Controller
     {
         $blok = Blok::find($id);
         $bloks = Blok::all();
+        $courses = Course::all();
+
         return view("pages/bloks.show", [
             "blok" => $blok,
             "bloks" => $bloks,
+            "courses" => $courses,
         ]);
     }
 

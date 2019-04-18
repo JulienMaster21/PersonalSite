@@ -5,7 +5,20 @@
         <div class="flex">
             <h3>{{$blok->id}}</h3>
         </div>
-
+    <h3 class="center">Cursussen</h3>
+        @if (count($blok->courses) == 0)
+            <div class="flex">
+                <h3>Geen</h3>
+            </div>
+        @else
+            @foreach ($courses->where("blok_id", "=", $blok->id) as $course)
+                    <div class="flex">
+                        <h3>
+                            <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
+                        </h3>
+                    </div>
+            @endforeach
+        @endif
         <div class="flex marginbottom">
             <form action="/bloks" method="post">
                 @csrf

@@ -24,7 +24,7 @@
             </div>
         <h3 class="center">Cursus</h3>
             <div class="flex marginbottom">
-                <select name="courses_id">
+                <select name="course_id">
                     @foreach ($courses as $course)
                         <option value="{{ $course->id }}">{{ $course->name }}</option>
                     @endforeach

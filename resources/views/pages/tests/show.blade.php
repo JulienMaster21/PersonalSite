@@ -19,7 +19,13 @@
         </div>
     <h3 class="center">Cursus</h3>
         <div class="flex">
-            <h3>{{ $course->name }}</h3>
+            @if ($test->course_id == NULL)
+                <h3>Geen</h3>
+            @else
+                <h3>
+                    <a href="/courses/{{ $course->id }}">{{ $course->name }}</a>
+                </h3>
+            @endif
         </div>
         <div class="flex marginbottom">
             <a href="{{route("tests.create")}}">

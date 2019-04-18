@@ -9,7 +9,7 @@
             </div>
         <h3 class="center">Blok</h3>
             <div class="flex marginbottom">
-                <select name="bloks_id">
+                <select name="blok_id">
                     @foreach ($bloks as $blok)
                         <option value="{{ $blok->id }}">Blok {{ $blok->id }}</option>
                     @endforeach
