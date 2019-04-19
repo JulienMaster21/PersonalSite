@@ -74,11 +74,13 @@ class CourseController extends Controller
      */
     public function show($id)
     {
+        $courses = Course::all();
         $course = Course::find($id);
         $tests = Test::all();
         $blok = $course->blok;
 
         return view("pages/courses.show", [
+            "courses" => $courses,
             "course" => $course,
             "tests" => $tests,
             "blok" => $blok,

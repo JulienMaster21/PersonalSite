@@ -100,10 +100,12 @@ class TestController extends Controller
      */
     public function show($id)
     {
+        $tests = Test::all();
         $test = Test::find($id);
         $course = $test->course;
 
         return view("pages/tests.show", [
+            "tests" => $tests,
             "test" => $test,
             "course" => $course,
         ]);

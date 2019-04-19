@@ -27,15 +27,19 @@
                 </button>
             </form>
         </div>
-        <div class="flex marginbottom">
-            <form action="/bloks/{{$blok->id}}" method="POST">
-                @method("DELETE")
-                @csrf
-                <button type="submit">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </form>
-        </div>
+        @if (count($bloks) == 1)
+
+        @else
+            <div class="flex marginbottom">
+                <form action="/bloks/{{$blok->id}}" method="POST">
+                    @method("DELETE")
+                    @csrf
+                    <button type="submit">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+            </div>
+        @endif
         <div class="flex">
             <a href="{{route("tests.index")}}">
                 <div class="divButton">
