@@ -105,7 +105,11 @@ class BlokController extends Controller
      */
     public function destroy($id)
     {
-        Blok::find($id)->delete();
+        $blok = Blok::find($id);
+
+        Course::where('blok_id', $blok->id)->update(['blok_id' => NULL]);
+
+        $blok->delete();
 
         return redirect("tests");
     }

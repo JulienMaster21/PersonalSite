@@ -134,7 +134,11 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        Course::find($id)->delete();
+        $course = Course::find($id);
+
+        Test::where('course_id', $course->id)->update(['course_id' => NULL]);
+
+        $course->delete();
 
         return redirect("tests");
     }
