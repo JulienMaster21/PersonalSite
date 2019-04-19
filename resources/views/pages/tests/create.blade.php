@@ -33,14 +33,14 @@
             </div>
         <div class="flex">
             <button type="submit">
-                <i class="fas fa-pencil-alt"></i>
+                <i class="fas fa-check"></i>
             </button>
         </div>
     </form>
     <div class="flex">
-        <a href="{{route("tests.index")}}">
+        <a href="{{ url()->previous() }}">
             <div class="divButton">
-                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-ban"></i>
             </div>
         </a>
     </div>
