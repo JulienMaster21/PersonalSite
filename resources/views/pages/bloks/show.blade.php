@@ -6,7 +6,7 @@
             <h3>{{$blok->id}}</h3>
         </div>
     <h3 class="center">Cursussen</h3>
-        @if (count($blok->courses) == 0)
+        @if ($blok->courses->isEmpty())
             <div class="flex">
                 <h3>Geen</h3>
             </div>

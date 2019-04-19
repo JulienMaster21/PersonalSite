@@ -16,7 +16,7 @@
             @endif
         </div>
         <h3 class="center">Toetsen</h3>
-            @if (count($course->tests) == 0)
+            @if ($course->tests->isEmpty())
                 <div class="flex">
                     <h3>Geen</h3>
                 </div>

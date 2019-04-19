@@ -18,7 +18,7 @@
                     </td>
                 </tr>
                 @foreach ($courses->where("blok_id", "=", $blok->id) as $course)
-                    @if (count($course->tests) == 0)
+                    @if ($course->tests->isEmpty())
                         <tr>
                             <td>
                                 <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
