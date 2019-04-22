@@ -33,6 +33,9 @@ h1 {
 .underlined {
     text-decoration: underline;
 }
+.notDecorated {
+    text-decoration: none;
+}
 .marginbottom {
     margin-bottom: 1em;
 }
@@ -110,7 +113,10 @@ button:hover {
     background-color: black;
     border: 2px dashed #00FF33;
     margin: 0.5em;
-    padding: 0.5em
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .divButton:hover {
     color: black;
@@ -289,6 +295,35 @@ td {
 .anchor {
     padding-top: 180px;
     margin-top: -180px;
+}
+/*Error pages*/
+.errorHeader {
+    margin-top: 30vh;
+    font-size: 60px;
+}
+.errorSection {
+    border: 2px dashed #00FF33;
+    padding-top: 1em;
+    margin: 1em;
+}
+.errorDivButton {
+    height: auto;
+    width: 10em;
+    color: #00FF33;
+    background-color: black;
+    border: 2px dashed #00FF33;
+    margin: 0.5em;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.errorSection:hover {
+    color: black;
+    background-color: #00FF33;
+    border: 2px solid #00FF33;
 }
 /*Sitemap*/
 .sitemap {

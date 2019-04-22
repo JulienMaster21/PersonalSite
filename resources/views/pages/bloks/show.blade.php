@@ -41,7 +41,7 @@
             </div>
         @endif
         <div class="flex">
-            <a href="{{route("tests.index")}}">
+            <a class="notDecorated" href="{{route("tests.index")}}">
                 <div class="divButton">
                     <i class="fas fa-arrow-left"></i>
                 </div>

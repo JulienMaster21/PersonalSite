@@ -30,7 +30,7 @@
                 @endforeach
             @endif
         <div class="flex marginbottom">
-            <a href="{{route("courses.create")}}">
+            <a class="notDecorated" href="{{route("courses.create")}}">
                 <div class="divButton">
                     <i class="fas fa-plus"></i>
                 </div>
@@ -57,7 +57,7 @@
             </div>
         @endif
         <div class="flex">
-            <a href="{{route("tests.index")}}">
+            <a class="notDecorated" href="{{route("tests.index")}}">
                 <div class="divButton">
                     <i class="fas fa-arrow-left"></i>
                 </div>

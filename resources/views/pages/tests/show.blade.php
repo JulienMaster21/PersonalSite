@@ -28,7 +28,7 @@
             @endif
         </div>
         <div class="flex marginbottom">
-            <a href="{{route("tests.create")}}">
+            <a class="notDecorated" href="{{route("tests.create")}}">
                 <div class="divButton">
                     <i class="fas fa-plus"></i>
                 </div>
@@ -55,7 +55,7 @@
             </div>
         @endif
         <div class="flex">
-            <a href="{{route("tests.index")}}">
+            <a class="notDecorated" href="{{route("tests.index")}}">
                 <div class="divButton">
                     <i class="fas fa-arrow-left"></i>
                 </div>

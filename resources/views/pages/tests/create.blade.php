@@ -38,7 +38,7 @@
         </div>
     </form>
     <div class="flex">
-        <a href="{{ url()->previous() }}">
+        <a class="notDecorated" href="{{ url()->previous() }}">
             <div class="divButton">
                 <i class="fas fa-ban"></i>
             </div>
