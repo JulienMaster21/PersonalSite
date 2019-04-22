@@ -14,7 +14,7 @@
         <title>@yield("title")</title>
     </head>
     <body>
-        @yield("navbar")
+        <div style="height: 2em;"></div>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

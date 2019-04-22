@@ -320,7 +320,7 @@ td {
     justify-content: center;
     align-items: center;
 }
-.errorSection:hover {
+.errorDivButton:hover {
     color: black;
     background-color: #00FF33;
     border: 2px solid #00FF33;

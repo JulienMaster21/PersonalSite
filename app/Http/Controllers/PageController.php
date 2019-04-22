@@ -36,6 +36,10 @@ class PageController extends Controller
         return view("pages/emperor");
     }
 
+    function getContact () {
+        return view("pages/contact");
+    }
+
     function logOut () {
         Auth::logout();
     }

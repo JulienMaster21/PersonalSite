@@ -29,6 +29,9 @@ Route::get("/motivatie", "PageController@getMotivatie")
 Route::get("/emperor", "PageController@getEmperor")
         ->name("emperor");
 
+Route::get("/contact", "PageController@getContact")
+        ->name("contact");
+
 Route::resource("assignments", "AssignmentController");
 Route::resource("tests", "TestController");
 Route::resource("courses", "CourseController");
