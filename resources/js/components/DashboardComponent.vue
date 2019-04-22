@@ -3,6 +3,7 @@
         <h1 class="center">Studiemonitor</h1>
         <table class="monitor">
             <thead>
+                <th>Cursus</th>
                 <th>Toets</th>
                 <th>Behaald?</th>
                 <th>Cijfer</th>
@@ -11,13 +12,13 @@
             <tbody>
                 <template v-for="blok in bloks">
                     <tr class="blok">
-                        <td colspan="4">Blok {{ blok.id }}</td>
+                        <td colspan="5">Blok {{ blok.id }}</td>
                     </tr>
                     <template v-for="course in blok.courses">
-                        <tr>
-                            <td colspan="4">{{ course.name }}</td>
-                        </tr>
                         <tr v-for="test in course.tests">
+                            <td>
+                                {{ course.name }}
+                            </td>
                             <td>{{ test.name }}</td>
                             <td>{{ test.completed == 1 ? "Ja" : "Nee" }}</td>
                             <td>{{ test.grade }}</td>
@@ -25,6 +26,10 @@
                         </tr>
                     </template>
                 </template>
+                <tr >
+                    <td colspan="4">Totaal</td>
+                    <td>{{ ECs.minEC }}/{{ ECs.maxEC }}</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -42,7 +47,7 @@
             return {
                 bloks : {},
                 pagination : {},
-                tests : {},
+                i : 0,
                 ECs : {
                     minEC : 0,
                     maxEC : 0,
@@ -72,13 +77,17 @@
                     .catch(console.log);
             },
             countECs: function() {
-                Array.prototype.forEach.call(this.tests, child => {
-                    if (child.completed) {
-                        this.ECs.minEC = this.ECs.minEC + child.EC;
-                    }
-                    this.ECs.maxEC = this.ECs.maxEC + child.EC;
-                });
-                console.log(this.ECs.minEC);
+                // Array.prototype.forEach.call(this.tests, child => {
+                //     if (child.completed) {
+                //         this.ECs.minEC = this.ECs.minEC + child.EC;
+                //     }
+                //     this.ECs.maxEC = this.ECs.maxEC + child.EC;
+                // });
+                // console.log(this.ECs.minEC);
+
+                for(this.i = 0; this.i < this.bloks.length; this.i++) {
+                    console.log(this.bloks[this.i]);
+                }
             },
         },
     }

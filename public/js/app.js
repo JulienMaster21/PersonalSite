@@ -1795,6 +1795,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.fetchBloks();
@@ -1806,7 +1811,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       bloks: {},
       pagination: {},
-      tests: {},
+      i: 0,
       ECs: {
         minEC: 0,
         maxEC: 0
@@ -1837,16 +1842,16 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](console.log);
     },
     countECs: function countECs() {
-      var _this3 = this;
-
-      Array.prototype.forEach.call(this.tests, function (child) {
-        if (child.completed) {
-          _this3.ECs.minEC = _this3.ECs.minEC + child.EC;
-        }
-
-        _this3.ECs.maxEC = _this3.ECs.maxEC + child.EC;
-      });
-      console.log(this.ECs.minEC);
+      // Array.prototype.forEach.call(this.tests, child => {
+      //     if (child.completed) {
+      //         this.ECs.minEC = this.ECs.minEC + child.EC;
+      //     }
+      //     this.ECs.maxEC = this.ECs.maxEC + child.EC;
+      // });
+      // console.log(this.ECs.minEC);
+      for (this.i = 0; this.i < this.bloks.length; this.i++) {
+        console.log(this.bloks[this.i]);
+      }
     }
   }
 });
@@ -37154,36 +37159,44 @@ var render = function() {
           _vm._l(_vm.bloks, function(blok) {
             return [
               _c("tr", { staticClass: "blok" }, [
-                _c("td", { attrs: { colspan: "4" } }, [
+                _c("td", { attrs: { colspan: "5" } }, [
                   _vm._v("Blok " + _vm._s(blok.id))
                 ])
               ]),
               _vm._v(" "),
               _vm._l(blok.courses, function(course) {
-                return [
-                  _c("tr", [
-                    _c("td", { attrs: { colspan: "4" } }, [
-                      _vm._v(_vm._s(course.name))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(course.tests, function(test) {
-                    return _c("tr", [
-                      _c("td", [_vm._v(_vm._s(test.name))]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(_vm._s(test.completed == 1 ? "Ja" : "Nee"))
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(test.grade))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(test.EC))])
-                    ])
-                  })
-                ]
+                return _vm._l(course.tests, function(test) {
+                  return _c("tr", [
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(course.name) +
+                          "\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(test.name))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(test.completed == 1 ? "Ja" : "Nee"))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(test.grade))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(test.EC))])
+                  ])
+                })
               })
             ]
-          })
+          }),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", { attrs: { colspan: "4" } }, [_vm._v("Totaal")]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(_vm._s(_vm.ECs.minEC) + "/" + _vm._s(_vm.ECs.maxEC))
+            ])
+          ])
         ],
         2
       )
@@ -37196,6 +37209,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
+      _c("th", [_vm._v("Cursus")]),
+      _vm._v(" "),
       _c("th", [_vm._v("Toets")]),
       _vm._v(" "),
       _c("th", [_vm._v("Behaald?")]),
