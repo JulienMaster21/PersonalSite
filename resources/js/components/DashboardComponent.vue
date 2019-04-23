@@ -10,12 +10,17 @@
                 <th>EC's</th>
             </thead>
             <tbody>
+                <!-- Loop through all of the bloks -->
                 <template v-for="blok in bloks">
                     <tr class="blok">
                         <td colspan="5">Blok {{ blok.id }}</td>
                     </tr>
+                    <!-- Loop through all of the courses -->
                     <template v-for="course in blok.courses">
+                        <!-- Loop through all of the tests -->
                         <tr v-for="(test, index) in course.tests">
+                            <!-- Only display the course.name on the
+                                first test -->
                             <td v-if="index===0" :rowspan="course.tests.length">
                                 {{ course.name }}
                             </td>
@@ -26,14 +31,20 @@
                         </tr>
                     </template>
                 </template>
+                <!-- If currentEC is above or equal to 60 then give the total
+                    row a green colour -->
                 <tr v-if="ECs.currentEC>=60" class="blok">
                     <td colspan="4">Totaal</td>
                     <td>{{ ECs.currentEC }}/{{ ECs.totalEC }}</td>
                 </tr>
+                <!-- If currentEC is above or equal to 45 then give the total
+                    row a blue colour -->
                 <tr v-else-if="ECs.currentEC>=45" class="blok inprogress">
                     <td colspan="4">Totaal</td>
                     <td>{{ ECs.currentEC }}/{{ ECs.totalEC }}</td>
                 </tr>
+                <!-- If currentEC is too low then giv the total row a red
+                    colour -->
                 <tr v-else class="blok failed">
                     <td colspan="4">Totaal</td>
                     <td>{{ ECs.currentEC }}/{{ ECs.totalEC }}</td>
@@ -78,9 +89,11 @@
                 this.bloks.forEach(blok => {
                     blok.courses.forEach(course => {
                         course.tests.forEach(test => {
+                            // If test is completed add EC to currentEC
                             if (test.completed == 1) {
                                 this.ECs.currentEC += test.EC;
                             }
+                            // Add EC to totalEC
                             this.ECs.totalEC += test.EC;
                         })
                     });
