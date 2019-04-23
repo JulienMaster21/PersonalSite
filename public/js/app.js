@@ -1819,13 +1819,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.fetchBloks();
+    this.fetchCourses();
+    this.fetchTests();
   },
   data: function data() {
     return {
       bloks: [],
+      courses: [],
+      tests: [],
       pagination: {},
       ECs: {
         currentEC: 0,
@@ -1849,21 +1870,48 @@ __webpack_require__.r(__webpack_exports__);
         _this.countECs();
       })["catch"](console.log);
     },
-    countECs: function countECs() {
+    fetchCourses: function fetchCourses() {
       var _this2 = this;
+
+      fetch('/api/courses').then(function (res) {
+        return res.json();
+      }).then(function (data) {
+        _this2.courses = data.data;
+      })["catch"](console.log);
+    },
+    fetchTests: function fetchTests() {
+      var _this3 = this;
+
+      fetch('/api/tests').then(function (res) {
+        return res.json();
+      }).then(function (data) {
+        _this3.tests = data.data;
+      })["catch"](console.log);
+    },
+    countECs: function countECs() {
+      var _this4 = this;
 
       this.bloks.forEach(function (blok) {
         blok.courses.forEach(function (course) {
           course.tests.forEach(function (test) {
             // If test is completed add EC to currentEC
             if (test.completed == 1) {
-              _this2.ECs.currentEC += test.EC;
+              _this4.ECs.currentEC += test.EC;
             } // Add EC to totalEC
 
 
-            _this2.ECs.totalEC += test.EC;
+            _this4.ECs.totalEC += test.EC;
           });
         });
+      });
+      this.tests.forEach(function (test) {
+        if (test.course_id == null) {
+          if (test.completed == 1) {
+            _this4.ECs.currentEC += test.EC;
+          }
+
+          _this4.ECs.totalEC += test.EC;
+        }
       });
     }
   }
@@ -37205,6 +37253,42 @@ var render = function() {
             ]
           }),
           _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._l(_vm.courses, function(course) {
+            return course.blok_id === null
+              ? _c("tr", [
+                  _c("td", { attrs: { colspan: "5" } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(course.name) +
+                        "\n                "
+                    )
+                  ])
+                ])
+              : _vm._e()
+          }),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._l(_vm.tests, function(test) {
+            return test.course_id === null
+              ? _c("tr", [
+                  _c("td", { attrs: { colspan: "2" } }, [
+                    _vm._v(_vm._s(test.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(_vm._s(test.completed == 1 ? "Ja" : "Nee"))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(test.grade))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(test.EC))])
+                ])
+              : _vm._e()
+          }),
+          _vm._v(" "),
           _vm.ECs.currentEC >= 60
             ? _c("tr", { staticClass: "blok" }, [
                 _c("td", { attrs: { colspan: "4" } }, [_vm._v("Totaal")]),
@@ -37255,6 +37339,24 @@ var staticRenderFns = [
       _c("th", [_vm._v("Cijfer")]),
       _vm._v(" "),
       _c("th", [_vm._v("EC's")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", { staticClass: "blok" }, [
+      _c("td", { attrs: { colspan: "5" } }, [
+        _vm._v("Niet aangewezen cursussen")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", { staticClass: "blok" }, [
+      _c("td", { attrs: { colspan: "5" } }, [_vm._v("Niet aangewezen toetsen")])
     ])
   }
 ]

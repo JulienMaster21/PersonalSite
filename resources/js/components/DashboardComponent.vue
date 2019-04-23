@@ -31,6 +31,23 @@
                         </tr>
                     </template>
                 </template>
+                <tr class="blok">
+                    <td colspan="5">Niet aangewezen cursussen</td>
+                </tr>
+                <tr v-if="course.blok_id===null" v-for="course in courses">
+                    <td colspan="5">
+                        {{ course.name }}
+                    </td>
+                </tr>
+                <tr class="blok">
+                    <td colspan="5">Niet aangewezen toetsen</td>
+                </tr>
+                <tr v-if="test.course_id===null" v-for="test in tests">
+                    <td colspan="2">{{ test.name }}</td>
+                    <td>{{ test.completed == 1 ? "Ja" : "Nee" }}</td>
+                    <td>{{ test.grade }}</td>
+                    <td>{{ test.EC }}</td>
+                </tr>
                 <!-- If currentEC is above or equal to 60 then give the total
                     row a green colour -->
                 <tr v-if="ECs.currentEC>=60" class="blok">
@@ -58,10 +75,14 @@
     export default {
         mounted: function() {
             this.fetchBloks();
+            this.fetchCourses();
+            this.fetchTests();
         },
         data: function() {
             return {
                 bloks : [],
+                courses : [],
+                tests : [],
                 pagination : {},
                 ECs : {
                     currentEC : 0,
@@ -85,6 +106,22 @@
                     })
                     .catch(console.log);
             },
+            fetchCourses: function() {
+                fetch('/api/courses')
+                    .then(res => res.json())
+                    .then(data => {
+                        this.courses = data.data;
+                    })
+                    .catch(console.log);
+            },
+            fetchTests: function() {
+                fetch('/api/tests')
+                    .then(res => res.json())
+                    .then(data => {
+                        this.tests = data.data;
+                    })
+                    .catch(console.log);
+            },
             countECs: function() {
                 this.bloks.forEach(blok => {
                     blok.courses.forEach(course => {
@@ -97,6 +134,14 @@
                             this.ECs.totalEC += test.EC;
                         })
                     });
+                });
+                this.tests.forEach(test => {
+                    if (test.course_id == null) {
+                        if (test.completed == 1) {
+                            this.ECs.currentEC += test.EC;
+                        }
+                        this.ECs.totalEC += test.EC;
+                    }
                 });
             },
         },

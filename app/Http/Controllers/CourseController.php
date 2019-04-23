@@ -24,7 +24,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::with(['tests', 'blok'])->paginate(10);
+        $courses = Course::with(['tests', 'blok'])->paginate(30);
 
         return $courses;
     }

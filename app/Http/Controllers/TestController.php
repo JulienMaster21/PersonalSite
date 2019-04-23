@@ -24,7 +24,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        $tests = Test::with(['course', 'course.blok'])->paginate(10);
+        $tests = Test::with(['course', 'course.blok'])->paginate(30);
 
         return $tests;
     }
