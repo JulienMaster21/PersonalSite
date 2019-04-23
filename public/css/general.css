@@ -303,8 +303,7 @@ td {
 }
 .errorSection {
     border: 2px dashed #00FF33;
-    padding-top: 1em;
-    margin: 1em;
+    padding: 1em
 }
 .errorDivButton {
     height: auto;

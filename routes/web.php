@@ -32,6 +32,14 @@ Route::get("/emperor", "PageController@getEmperor")
 Route::get("/contact", "PageController@getContact")
         ->name("contact");
 
+Route::get("/500", function () {
+    abort(500);
+});
+
+Route::get("/403", function () {
+    abort(403);
+});
+
 Route::resource("assignments", "AssignmentController");
 Route::resource("tests", "TestController");
 Route::resource("courses", "CourseController");
