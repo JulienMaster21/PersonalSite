@@ -1800,6 +1800,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.fetchBloks();
@@ -1810,7 +1829,7 @@ __webpack_require__.r(__webpack_exports__);
       pagination: {},
       ECs: {
         currentEC: 0,
-        maxEC: 0
+        totalEC: 0
       }
     };
   },
@@ -1836,11 +1855,13 @@ __webpack_require__.r(__webpack_exports__);
       this.bloks.forEach(function (blok) {
         blok.courses.forEach(function (course) {
           course.tests.forEach(function (test) {
+            // If test is completed add EC to currentEC
             if (test.completed == 1) {
               _this2.ECs.currentEC += test.EC;
-            }
+            } // Add EC to totalEC
 
-            _this2.ECs.maxEC += test.EC;
+
+            _this2.ECs.totalEC += test.EC;
           });
         });
       });
@@ -37157,15 +37178,17 @@ var render = function() {
               ]),
               _vm._v(" "),
               _vm._l(blok.courses, function(course) {
-                return _vm._l(course.tests, function(test) {
+                return _vm._l(course.tests, function(test, index) {
                   return _c("tr", [
-                    _c("td", [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(course.name) +
-                          "\n                        "
-                      )
-                    ]),
+                    index === 0
+                      ? _c("td", { attrs: { rowspan: course.tests.length } }, [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(course.name) +
+                              "\n                        "
+                          )
+                        ])
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(test.name))]),
                     _vm._v(" "),
@@ -37182,13 +37205,35 @@ var render = function() {
             ]
           }),
           _vm._v(" "),
-          _c("tr", [
-            _c("td", { attrs: { colspan: "4" } }, [_vm._v("Totaal")]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(_vm._s(_vm.ECs.currentEC) + "/" + _vm._s(_vm.ECs.maxEC))
-            ])
-          ])
+          _vm.ECs.currentEC >= 60
+            ? _c("tr", { staticClass: "blok" }, [
+                _c("td", { attrs: { colspan: "4" } }, [_vm._v("Totaal")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    _vm._s(_vm.ECs.currentEC) + "/" + _vm._s(_vm.ECs.totalEC)
+                  )
+                ])
+              ])
+            : _vm.ECs.currentEC >= 45
+            ? _c("tr", { staticClass: "blok inprogress" }, [
+                _c("td", { attrs: { colspan: "4" } }, [_vm._v("Totaal")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    _vm._s(_vm.ECs.currentEC) + "/" + _vm._s(_vm.ECs.totalEC)
+                  )
+                ])
+              ])
+            : _c("tr", { staticClass: "blok failed" }, [
+                _c("td", { attrs: { colspan: "4" } }, [_vm._v("Totaal")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    _vm._s(_vm.ECs.currentEC) + "/" + _vm._s(_vm.ECs.totalEC)
+                  )
+                ])
+              ])
         ],
         2
       )

@@ -15,8 +15,8 @@
                         <td colspan="5">Blok {{ blok.id }}</td>
                     </tr>
                     <template v-for="course in blok.courses">
-                        <tr v-for="test in course.tests">
-                            <td>
+                        <tr v-for="(test, index) in course.tests">
+                            <td v-if="index===0" :rowspan="course.tests.length">
                                 {{ course.name }}
                             </td>
                             <td>{{ test.name }}</td>
@@ -26,9 +26,17 @@
                         </tr>
                     </template>
                 </template>
-                <tr >
+                <tr v-if="ECs.currentEC>=60" class="blok">
                     <td colspan="4">Totaal</td>
-                    <td>{{ ECs.currentEC }}/{{ ECs.maxEC }}</td>
+                    <td>{{ ECs.currentEC }}/{{ ECs.totalEC }}</td>
+                </tr>
+                <tr v-else-if="ECs.currentEC>=45" class="blok inprogress">
+                    <td colspan="4">Totaal</td>
+                    <td>{{ ECs.currentEC }}/{{ ECs.totalEC }}</td>
+                </tr>
+                <tr v-else class="blok failed">
+                    <td colspan="4">Totaal</td>
+                    <td>{{ ECs.currentEC }}/{{ ECs.totalEC }}</td>
                 </tr>
             </tbody>
         </table>
@@ -46,7 +54,7 @@
                 pagination : {},
                 ECs : {
                     currentEC : 0,
-                    maxEC : 0,
+                    totalEC : 0,
                 },
             }
         },
@@ -73,7 +81,7 @@
                             if (test.completed == 1) {
                                 this.ECs.currentEC += test.EC;
                             }
-                            this.ECs.maxEC += test.EC;
+                            this.ECs.totalEC += test.EC;
                         })
                     });
                 });
