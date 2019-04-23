@@ -1803,17 +1803,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.fetchBloks();
-    this.fetchTests();
-    this.countECs();
-    console.log(this.ECs);
   },
   data: function data() {
     return {
-      bloks: {},
+      bloks: [],
       pagination: {},
-      i: 0,
       ECs: {
-        minEC: 0,
+        currentEC: 0,
         maxEC: 0
       }
     };
@@ -1830,28 +1826,24 @@ __webpack_require__.r(__webpack_exports__);
         _this.pagination.next_page_url = data.next_page_url;
         _this.pagination.prev_page_url = data.prev_page_url;
         _this.bloks = data.data;
-      })["catch"](console.log);
-    },
-    fetchTests: function fetchTests() {
-      var _this2 = this;
 
-      fetch('/api/tests').then(function (res) {
-        return res.json();
-      }).then(function (data) {
-        _this2.tests = data.data;
+        _this.countECs();
       })["catch"](console.log);
     },
     countECs: function countECs() {
-      // Array.prototype.forEach.call(this.tests, child => {
-      //     if (child.completed) {
-      //         this.ECs.minEC = this.ECs.minEC + child.EC;
-      //     }
-      //     this.ECs.maxEC = this.ECs.maxEC + child.EC;
-      // });
-      // console.log(this.ECs.minEC);
-      for (this.i = 0; this.i < this.bloks.length; this.i++) {
-        console.log(this.bloks[this.i]);
-      }
+      var _this2 = this;
+
+      this.bloks.forEach(function (blok) {
+        blok.courses.forEach(function (course) {
+          course.tests.forEach(function (test) {
+            if (test.completed == 1) {
+              _this2.ECs.currentEC += test.EC;
+            }
+
+            _this2.ECs.maxEC += test.EC;
+          });
+        });
+      });
     }
   }
 });
@@ -37194,7 +37186,7 @@ var render = function() {
             _c("td", { attrs: { colspan: "4" } }, [_vm._v("Totaal")]),
             _vm._v(" "),
             _c("td", [
-              _vm._v(_vm._s(_vm.ECs.minEC) + "/" + _vm._s(_vm.ECs.maxEC))
+              _vm._v(_vm._s(_vm.ECs.currentEC) + "/" + _vm._s(_vm.ECs.maxEC))
             ])
           ])
         ],

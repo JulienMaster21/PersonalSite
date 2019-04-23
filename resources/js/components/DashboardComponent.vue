@@ -28,7 +28,7 @@
                 </template>
                 <tr >
                     <td colspan="4">Totaal</td>
-                    <td>{{ ECs.minEC }}/{{ ECs.maxEC }}</td>
+                    <td>{{ ECs.currentEC }}/{{ ECs.maxEC }}</td>
                 </tr>
             </tbody>
         </table>
@@ -39,17 +39,13 @@
     export default {
         mounted: function() {
             this.fetchBloks();
-            this.fetchTests();
-            this.countECs();
-            console.log(this.ECs);
         },
         data: function() {
             return {
-                bloks : {},
+                bloks : [],
                 pagination : {},
-                i : 0,
                 ECs : {
-                    minEC : 0,
+                    currentEC : 0,
                     maxEC : 0,
                 },
             }
@@ -65,29 +61,22 @@
                         this.pagination.prev_page_url = data.prev_page_url;
 
                         this.bloks = data.data;
-                    })
-                    .catch(console.log);
-            },
-            fetchTests: function() {
-                fetch('/api/tests')
-                    .then(res => res.json())
-                    .then(data => {
-                        this.tests = data.data;
+
+                        this.countECs();
                     })
                     .catch(console.log);
             },
             countECs: function() {
-                // Array.prototype.forEach.call(this.tests, child => {
-                //     if (child.completed) {
-                //         this.ECs.minEC = this.ECs.minEC + child.EC;
-                //     }
-                //     this.ECs.maxEC = this.ECs.maxEC + child.EC;
-                // });
-                // console.log(this.ECs.minEC);
-
-                for(this.i = 0; this.i < this.bloks.length; this.i++) {
-                    console.log(this.bloks[this.i]);
-                }
+                this.bloks.forEach(blok => {
+                    blok.courses.forEach(course => {
+                        course.tests.forEach(test => {
+                            if (test.completed == 1) {
+                                this.ECs.currentEC += test.EC;
+                            }
+                            this.ECs.maxEC += test.EC;
+                        })
+                    });
+                });
             },
         },
     }
