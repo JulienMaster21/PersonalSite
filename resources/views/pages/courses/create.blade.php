@@ -9,7 +9,7 @@
             </div>
         <h3 class="center">Blok</h3>
             <div class="flex marginbottom">
-                <select name="bloks_id">
+                <select name="blok_id">
                     @foreach ($bloks as $blok)
                         <option value="{{ $blok->id }}">Blok {{ $blok->id }}</option>
                     @endforeach
@@ -18,14 +18,14 @@
             </div>
         <div class="flex">
             <button type="submit">
-                <i class="fas fa-pencil-alt"></i>
+                <i class="fas fa-check"></i>
             </button>
         </div>
     </form>
     <div class="flex">
-        <a href="{{ route("tests.index") }}">
+        <a class="notDecorated" href="{{ url()->previous() }}">
             <div class="divButton">
-                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-ban"></i>
             </div>
         </a>
     </div>

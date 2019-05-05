@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Blok;
+use \App\Course;
 
 class BlokController extends Controller
 {
@@ -36,7 +37,7 @@ class BlokController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -104,7 +105,11 @@ class BlokController extends Controller
      */
     public function destroy($id)
     {
-        Blok::find($id)->delete();
+        $blok = Blok::find($id);
+
+        Course::where('blok_id', $blok->id)->update(['blok_id' => NULL]);
+
+        $blok->delete();
 
         return response(null, Response::HTTP_OK);
     }

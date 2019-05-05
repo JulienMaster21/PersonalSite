@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
+use App\Blok;
+use App\Test;
 
 class CourseController extends Controller
 {
@@ -87,7 +89,12 @@ class CourseController extends Controller
     public function edit($id)
     {
         $course = Course::find($id);
-        return view("pages/courses.edit", ["course" => $course]);
+        $bloks = Blok::all();
+
+        return view("pages/courses.edit", [
+            "course" => $course,
+            "bloks" => $bloks,
+        ]);
     }
 
     /**

@@ -5,8 +5,32 @@
         <div class="flex">
             <h3>{{$course->name}}</h3>
         </div>
+    <h3 class="center">Blok</h3>
+        <div class="flex">
+            @if ($course->blok_id == NULL)
+                <h3>Geen</h3>
+            @else
+                <h3>
+                    <a class="link" href="/bloks/{{ $blok->id }}">Blok {{ $blok->id }}</a>
+                </h3>
+            @endif
+        </div>
+        <h3 class="center">Toetsen</h3>
+            @if ($course->tests->isEmpty())
+                <div class="flex">
+                    <h3>Geen</h3>
+                </div>
+            @else
+                @foreach ($tests->where("course_id", "=", $course->id) as $test)
+                        <div class="flex">
+                            <h3>
+                                <a class="link" href="/tests/{{ $test->id }}">{{ $test->name }}</a>
+                            </h3>
+                        </div>
+                @endforeach
+            @endif
         <div class="flex marginbottom">
-            <a href="{{route("courses.create")}}">
+            <a class="notDecorated" href="{{route("courses.create")}}">
                 <div class="divButton">
                     <i class="fas fa-plus"></i>
                 </div>
@@ -19,17 +43,21 @@
                 </button>
             </form>
         </div>
-        <div class="flex marginbottom">
-            <form action="/courses/{{$course->id}}" method="POST">
-                @method("DELETE")
-                @csrf
-                <button type="submit">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </form>
-        </div>
+        @if (count($courses) == 1)
+
+        @else
+            <div class="flex marginbottom">
+                <form action="/courses/{{$course->id}}" method="POST">
+                    @method("DELETE")
+                    @csrf
+                    <button type="submit">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+            </div>
+        @endif
         <div class="flex">
-            <a href="{{route("tests.index")}}">
+            <a class="notDecorated" href="{{route("tests.index")}}">
                 <div class="divButton">
                     <i class="fas fa-arrow-left"></i>
                 </div>

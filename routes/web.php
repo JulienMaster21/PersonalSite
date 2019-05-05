@@ -29,6 +29,17 @@ Route::get("/motivatie", "PageController@getMotivatie")
 Route::get("/emperor", "PageController@getEmperor")
         ->name("emperor");
 
+Route::get("/contact", "PageController@getContact")
+        ->name("contact");
+
+Route::get("/500", function () {
+    abort(500);
+});
+
+Route::get("/403", function () {
+    abort(403);
+});
+
 Route::resource("assignments", "AssignmentController");
 
 // Api Routes

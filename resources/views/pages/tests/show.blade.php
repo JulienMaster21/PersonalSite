@@ -19,10 +19,16 @@
         </div>
     <h3 class="center">Cursus</h3>
         <div class="flex">
-            <h3>{{ $course->name }}</h3>
+            @if ($test->course_id == NULL)
+                <h3>Geen</h3>
+            @else
+                <h3>
+                    <a href="/courses/{{ $course->id }}">{{ $course->name }}</a>
+                </h3>
+            @endif
         </div>
         <div class="flex marginbottom">
-            <a href="{{route("tests.create")}}">
+            <a class="notDecorated" href="{{route("tests.create")}}">
                 <div class="divButton">
                     <i class="fas fa-plus"></i>
                 </div>
@@ -35,17 +41,21 @@
                 </button>
             </form>
         </div>
-        <div class="flex marginbottom">
-            <form action="/tests/{{$test->id}}" method="POST">
-                @method("DELETE")
-                @csrf
-                <button type="submit">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </form>
-        </div>
+        @if (count($tests) == 1)
+
+        @else
+            <div class="flex marginbottom">
+                <form action="/tests/{{$test->id}}" method="POST">
+                    @method("DELETE")
+                    @csrf
+                    <button type="submit">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+            </div>
+        @endif
         <div class="flex">
-            <a href="{{route("tests.index")}}">
+            <a class="notDecorated" href="{{route("tests.index")}}">
                 <div class="divButton">
                     <i class="fas fa-arrow-left"></i>
                 </div>

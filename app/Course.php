@@ -24,7 +24,7 @@ class Course extends Model
 
     protected $attributes = [
         "name" => "",
-        "bloks_id" => -1,
+        "blok_id" => -1,
     ];
 
     protected $table = "courses";

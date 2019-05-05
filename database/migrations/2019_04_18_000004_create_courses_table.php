@@ -26,10 +26,10 @@ class CreateCoursesTable extends Migration
             $table->unsignedInteger('blok_id')->nullable();
             $table->string('name');
 
-            $table->index(["blok_id"], 'fk_courses_bloks_idx');
+            $table->index(["blok_id"], 'fk_courses_blok_idx');
 
 
-            $table->foreign('blok_id', 'fk_courses_bloks_idx')
+            $table->foreign('blok_id', 'fk_courses_blok_idx')
                 ->references('id')->on('bloks')
                 ->onDelete('no action')
                 ->onUpdate('no action');
