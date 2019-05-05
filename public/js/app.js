@@ -1849,6 +1849,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.fetchBloks();
@@ -37259,33 +37264,9 @@ var render = function() {
                         _vm._v("Blok " + _vm._s(blok.id))
                       ]),
                       _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            on: {
-                              click: function($event) {
-                                return _vm.create()
-                              }
-                            }
-                          },
-                          [_c("i", { staticClass: "fas fa-plus" })]
-                        )
-                      ]),
+                      _vm._m(1, true),
                       _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            on: {
-                              click: function($event) {
-                                return _vm.del()
-                              }
-                            }
-                          },
-                          [_c("i", { staticClass: "fas fa-trash" })]
-                        )
-                      ])
+                      _vm._m(2, true)
                     ]
                   )
                 : _c(
@@ -37333,7 +37314,7 @@ var render = function() {
             ]
           }),
           _vm._v(" "),
-          _vm._m(1),
+          _vm._m(3),
           _vm._v(" "),
           _vm._l(_vm.courses, function(course) {
             return course.blok_id === null
@@ -37349,7 +37330,7 @@ var render = function() {
               : _vm._e()
           }),
           _vm._v(" "),
-          _vm._m(2),
+          _vm._m(4),
           _vm._v(" "),
           _vm._l(_vm.tests, function(test) {
             return test.course_id === null
@@ -37419,6 +37400,30 @@ var staticRenderFns = [
       _c("th", [_vm._v("Cijfer")]),
       _vm._v(" "),
       _c("th", [_vm._v("EC's")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("form", { attrs: { action: "/api/bloks", method: "post" } }, [
+        _c("button", { attrs: { type: "submit" } }, [
+          _c("i", { staticClass: "fas fa-plus" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("form", { attrs: { action: "/api/bloks", method: "post" } }, [
+        _c("button", { attrs: { type: "submit" } }, [
+          _c("i", { staticClass: "fas fa-trash" })
+        ])
+      ])
     ])
   },
   function() {

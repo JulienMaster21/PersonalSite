@@ -12,7 +12,25 @@
             <tbody>
                 <!-- Loop through all of the bloks -->
                 <template v-for="blok in bloks">
-                    <tr class="blok">
+                    <tr v-on:click="editing = 0" v-if="editing===blok.id" class="blok">
+                        <td colspan="3">Blok {{ blok.id }}</td>
+                        <td>
+                            <form action="/api/bloks" method="post">
+                                <!-- <input type="hidden" name="_token" value="Wn6Rq4jm16iFb3X34BwIqWKRxDAmYxOWCmxGr2os"> -->
+                                <button type="submit">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/api/bloks" method="post">
+                                <button type="submit">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr v-else v-on:click="editing = blok.id" class="blok">
                         <td colspan="5">Blok {{ blok.id }}</td>
                     </tr>
                     <!-- Loop through all of the courses -->
@@ -88,6 +106,7 @@
                     currentEC : 0,
                     totalEC : 0,
                 },
+                editing : 0,
             }
         },
         methods: {
