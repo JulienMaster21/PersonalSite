@@ -36,7 +36,7 @@ class BlokController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -54,6 +54,8 @@ class BlokController extends Controller
         );
 
         $blok = new Blok;
+
+        $blok->id = Blok::last()->id + 1;
 
         $blok->save();
     }
@@ -103,5 +105,7 @@ class BlokController extends Controller
     public function destroy($id)
     {
         Blok::find($id)->delete();
+
+        return response(null, Response::HTTP_OK);
     }
 }
