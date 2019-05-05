@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         factory(User::class, 10)->create();
-        $adminUser = factory(\App\User::class)->make();
+        $adminUser = factory(User::class)->make();
         $adminUser->auth_level = 3;
         $adminUser->save();
         echo("\nAn administrative user is set up with the following credentials.\nemail: " . $adminUser->email . "\npassword:secret\n");
