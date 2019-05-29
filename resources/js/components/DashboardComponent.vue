@@ -15,8 +15,8 @@
                     <tr v-on:click="editing = 0" v-if="editing===blok.id" class="blok">
                         <td colspan="3">Blok {{ blok.id }}</td>
                         <td>
-                            <form action="/api/bloks" method="post">
-                                <!-- <input type="hidden" name="_token" value="Wn6Rq4jm16iFb3X34BwIqWKRxDAmYxOWCmxGr2os"> -->
+                            <form action="/api/bloks.store" method="post">
+                                <input type="hidden" name="_token" value="Wn6Rq4jm16iFb3X34BwIqWKRxDAmYxOWCmxGr2os">
                                 <button type="submit">
                                     <i class="fas fa-plus"></i>
                                 </button>
@@ -24,6 +24,7 @@
                         </td>
                         <td>
                             <form action="/api/bloks" method="post">
+                                <input type="hidden" name="_token" value="Wn6Rq4jm16iFb3X34BwIqWKRxDAmYxOWCmxGr2os">
                                 <button type="submit">
                                     <i class="fas fa-trash"></i>
                                 </button>
@@ -43,7 +44,7 @@
                                 {{ course.name }}
                             </td>
                             <td>{{ test.name }}</td>
-                            <td>{{ test.completed == 1 ? "Ja" : "Nee" }}</td>
+                            <td>{{ test.completed === 1 ? "Ja" : "Nee" }}</td>
                             <td>{{ test.grade }}</td>
                             <td>{{ test.EC }}</td>
                         </tr>
@@ -146,7 +147,7 @@
                     blok.courses.forEach(course => {
                         course.tests.forEach(test => {
                             // If test is completed add EC to currentEC
-                            if (test.completed == 1) {
+                            if (test.completed === 1) {
                                 this.ECs.currentEC += test.EC;
                             }
                             // Add EC to totalEC
@@ -156,7 +157,7 @@
                 });
                 this.tests.forEach(test => {
                     if (test.course_id == null) {
-                        if (test.completed == 1) {
+                        if (test.completed === 1) {
                             this.ECs.currentEC += test.EC;
                         }
                         this.ECs.totalEC += test.EC;

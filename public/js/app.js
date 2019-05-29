@@ -1854,6 +1854,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.fetchBloks();
@@ -1914,7 +1915,7 @@ __webpack_require__.r(__webpack_exports__);
         blok.courses.forEach(function (course) {
           course.tests.forEach(function (test) {
             // If test is completed add EC to currentEC
-            if (test.completed == 1) {
+            if (test.completed === 1) {
               _this4.ECs.currentEC += test.EC;
             } // Add EC to totalEC
 
@@ -1925,7 +1926,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       this.tests.forEach(function (test) {
         if (test.course_id == null) {
-          if (test.completed == 1) {
+          if (test.completed === 1) {
             _this4.ECs.currentEC += test.EC;
           }
 
@@ -37302,7 +37303,7 @@ var render = function() {
                     _c("td", [_vm._v(_vm._s(test.name))]),
                     _vm._v(" "),
                     _c("td", [
-                      _vm._v(_vm._s(test.completed == 1 ? "Ja" : "Nee"))
+                      _vm._v(_vm._s(test.completed === 1 ? "Ja" : "Nee"))
                     ]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(test.grade))]),
@@ -37407,7 +37408,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("td", [
-      _c("form", { attrs: { action: "/api/bloks", method: "post" } }, [
+      _c("form", { attrs: { action: "/api/bloks.store", method: "post" } }, [
+        _c("input", {
+          attrs: {
+            type: "hidden",
+            name: "_token",
+            value: "Wn6Rq4jm16iFb3X34BwIqWKRxDAmYxOWCmxGr2os"
+          }
+        }),
+        _vm._v(" "),
         _c("button", { attrs: { type: "submit" } }, [
           _c("i", { staticClass: "fas fa-plus" })
         ])
@@ -37420,6 +37429,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("td", [
       _c("form", { attrs: { action: "/api/bloks", method: "post" } }, [
+        _c("input", {
+          attrs: {
+            type: "hidden",
+            name: "_token",
+            value: "Wn6Rq4jm16iFb3X34BwIqWKRxDAmYxOWCmxGr2os"
+          }
+        }),
+        _vm._v(" "),
         _c("button", { attrs: { type: "submit" } }, [
           _c("i", { staticClass: "fas fa-trash" })
         ])
