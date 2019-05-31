@@ -37,7 +37,7 @@
                                 <td>
                                     <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>
                                 </td>
-                                <td>{{ $test->completed ? "Ja" : "Nee" }}</td>
+                                <td>{{ $test->completed === "completed" ? "Ja" : "Nee" }}</td>
                                 <td>{{ $test->grade }}</td>
                                 <td>{{ $test->EC }}</td>
                             </tr>

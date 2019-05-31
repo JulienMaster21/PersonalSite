@@ -6,15 +6,16 @@
         <meta name="description" content="My Portfolio site">
         <meta name="keywords" content="Awesome, Amazing, Stunning">
         <meta name="author" content="Julien Kenneth Pleijte">
-        <link href="{{asset("css/reset.css")}}" type="text/css" rel="stylesheet"></link>
-        <link href="{{asset("css/general.css")}}" type="text/css" rel="stylesheet"></link>
-        <link href="{{asset("images/admech_logo.ico")}}" type="image/ico" rel="icon"></link>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link href="{{asset("css/reset.css")}}" type="text/css" rel="stylesheet">
+        <link href="{{asset("css/app.css")}}" type="text/css" rel="stylesheet">
+        <link href="{{asset("css/general.css")}}" type="text/css" rel="stylesheet">
+        <link href="{{asset("images/admech_logo.ico")}}" type="image/ico" rel="icon">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <script src="{{asset("js/general.js")}}" rel="javascript"></script>
         <title>@yield("title")</title>
     </head>
     <body>
-        <div style="height: 2em;"></div>
+        <div class="text-center pt-4 px-3">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -25,5 +26,8 @@
             </div>
         @endif
         @yield("content")
+        </div>
     </body>
+    <script src="{{asset("js/general.js")}}" rel="javascript"></script>
+    <script src="{{asset("js/app.js")}}" rel="javascript"></script>
 </html>

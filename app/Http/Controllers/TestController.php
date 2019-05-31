@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTest;
 use Illuminate\Http\Request;
 use \App\Test;
 use \App\Blok;
@@ -67,27 +68,9 @@ class TestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTest $request)
     {
-        $validatedData = $request->validate(
-            [
-                "name" => "required|max:255|string",
-                "completed" => "required|in:true,false|string",
-                "grade" => "nullable|max:5",
-                "EC" => "required|max:5",
-                "course_id" => "nullable"
-            ]
-        );
-
-        $test = new Test;
-
-        $test->name = $validatedData["name"];
-        $test->completed = $validatedData["completed"] == "true" ? true : false;
-        $test->grade = $validatedData["grade"];
-        $test->EC = $validatedData["EC"];
-        $test->course_id = $validatedData["course_id"];
-
-        $test->save();
+        Test::create($request->validated());
 
         return redirect("tests");
     }

@@ -1,42 +1,53 @@
 @extends('templates/emptyPage')
 @section("title", "Maak Toets")
 @section("content")
-    <form action="/tests" method="POST">
-        @csrf
-        <h3 class="center">Toets</h3>
-            <div class="flex marginbottom">
-                <input required type="text" name="name" placeholder="Toets">
+    <p>* Verplicht</p>
+    <div class="container">
+        <form action="/tests" method="POST" id="form">
+            @csrf
+            <div class="form-group">
+                <label for="name">*Naam:</label>
+                <input id="name" required type="text" name="name"
+                       placeholder="Voer een naam in tussen 6 en 255 karakters" class="form-control"
+                       data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
+                       data-content="Voer een naam in tussen 6 en 255 karakters">
             </div>
-        <h3 class="center">Behaald?</h3>
-            <div class="flex marginbottom">
-                <label>Ja<label>
-                    <input required type="radio" name="completed" value="true">
-                <label>Nee<label>
-                    <input required type="radio" name="completed" value="false">
+            <div class="form-group">
+                <label for="grade">Cijfer:</label>
+                <input id="grade" required type="text" name="grade"
+                       placeholder="Voer een cijfer tussen 1 en 10 in" class="form-control"
+                       data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
+                       data-content="Voer een cijfer tussen 1 en 10 in">
             </div>
-        <h3 class="center">Cijfer</h3>
-            <div class="flex marginbottom">
-                <input required type="text" name="grade" placeholder="Cijfer">
+            <div class="form-check mb-3">
+                <input id="completed" type="checkbox" name="completed" value="completed" class="form-check-input">
+                <label for="completed" class="form-check-label">voldoende?</label>
             </div>
-        <h3 class="center">EC's</h3>
-            <div class="flex marginbottom">
-                <input required type="text" name="EC" placeholder="EC's">
+            <div class="form-group">
+                <label for="EC">*EC waarde:</label>
+                <input id="EC" required type="text" name="EC"
+                       placeholder="Voer een cijfer in tussen 1 en 10" class="form-control"
+                       data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
+                       data-content="Voer een cijfer tussen 1 en 10 in">
             </div>
-        <h3 class="center">Cursus</h3>
-            <div class="flex marginbottom">
-                <select name="course_id">
+            <div class="form-group">
+                <label for="course_id">Cursus:</label>
+                <select id="course_id" name="course_id" class="form-control"
+                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
+                        data-content="Alle waarden in de dropdown zijn toegestaan, inclusief geen">
+                    <option value="">Geen</option>
                     @foreach ($courses as $course)
                         <option value="{{ $course->id }}">{{ $course->name }}</option>
                     @endforeach
-                    <option value="">Geen</option>
                 </select>
             </div>
-        <div class="flex">
-            <button type="submit">
-                <i class="fas fa-check"></i>
-            </button>
-        </div>
-    </form>
+            <div class="flex">
+                <button type="submit">
+                    <i class="fas fa-check"></i>
+                </button>
+            </div>
+        </form>
+    </div>
     <div class="flex">
         <a class="notDecorated" href="{{ url()->previous() }}">
             <div class="divButton">
@@ -44,4 +55,5 @@
             </div>
         </a>
     </div>
+    <script rel="javascript" src="{{ asset("js/validateTest.js") }}"></script>
 @endsection

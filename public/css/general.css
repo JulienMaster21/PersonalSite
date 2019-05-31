@@ -2,7 +2,6 @@
 * {
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
-    /*font-family: Comic Sans MS;*/
 }
 body {
     background-color: black;
@@ -10,35 +9,35 @@ body {
 /*Text*/
 h1, h2, h3, h4, h5, h6, p, a, ul, ol, th, td, tr, li, label {
     color: #00FF33;
-    font-size: 24px;
+    /*font-size: 24px;*/
 }
 h1 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    /*font-family: Georgia, 'Times New Roman', Times, serif;*/
 }
-.center {
-    text-align: center;
-}
-.left {
-    text-align: left;
-}
-.right {
-    text-align: right;
-}
-.cursive {
-    font-style: italic;
-}
-.bold {
-    font-weight: bold;
-}
-.underlined {
-    text-decoration: underline;
-}
-.notDecorated {
-    text-decoration: none;
-}
-.marginbottom {
-    margin-bottom: 1em;
-}
+/*.center {*/
+/*    text-align: center;*/
+/*}*/
+/*.left {*/
+/*    text-align: left;*/
+/*}*/
+/*.right {*/
+/*    text-align: right;*/
+/*}*/
+/*.cursive {*/
+/*    font-style: italic;*/
+/*}*/
+/*.bold {*/
+/*    font-weight: bold;*/
+/*}*/
+/*.underlined {*/
+/*    text-decoration: underline;*/
+/*}*/
+/*.notDecorated {*/
+/*    text-decoration: none;*/
+/*}*/
+/*.marginbottom {*/
+/*    margin-bottom: 1em;*/
+/*}*/
 .link {
     word-break: break-all;
 }
@@ -259,9 +258,9 @@ td {
     margin: 0 1em;
     margin-top: 21em;
 }
-.content p, h1, h2, h3, h4, h5, h6, img {
-    margin-bottom: 1em;
-}
+/*.content p, h1, h2, h3, h4, h5, h6, img {*/
+/*    margin-bottom: 1em;*/
+/*}*/
 .container {
     display: flex;
     justify-content: space-around;
@@ -278,9 +277,9 @@ td {
     padding: 0 1em;
     margin: 0 auto;
 }
-.text_box p, h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 1em;
-}
+/*.text_box p, h1, h2, h3, h4, h5, h6 {*/
+/*    margin-bottom: 1em;*/
+/*}*/
 .image_box {
     width: 20vw;
     height: auto;
