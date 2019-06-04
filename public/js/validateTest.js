@@ -3,58 +3,16 @@ let init = function() {
     form.addEventListener('submit', validateForm);
 };
 
-let validateForm = function(event) {
-    event.preventDefault();
-
+function checkName () {
     // Define the name value
     let name = document.getElementById('name').value;
-
-    // Define the completed value
-    let completed = document.getElementById('completed').value;
-
-    // Define the grade value
-    let grade = document.getElementById('grade').value;
-
-    // Define the EC value
-    let EC = document.getElementById('EC').value;
-
-    // Define the course_id value
-    let course_id = document.getElementById('course_id').value;
 
     // Define the regex for checking the name value
     let nameRegex = /^[a-zA-Z0-9]{6,255}$/;
     let nameValidationSucceeded = nameRegex.test(name);
 
-    // Define the validation for checking the completed value
-    let completedValidation = 'completed' || null;
-    let completedValidationSucceeded = completed === completedValidation;
-
-    // Define the regex for checking the grade value
-    let gradeRegex = /^(0?[1-9]|1[0])$/;
-    let gradeValidationSucceeded = gradeRegex.test(grade);
-
-    // Define the regex for checking the EC value
-    let ECRegex = /^(0?[1-9]|1[0])$/;
-    let ECValidationSucceeded = ECRegex.test(EC);
-
-    // Define the regex for checking the course_id value
-    let courseRegex = /^[0-9]{0,}$/;
-    let courseValidationSucceeded = courseRegex.test(course_id);
-
     // Define error message on wrong name
     let nameErrorMessage = 'Voer een naam in van minimaal 6 tot 255 karakters.';
-
-    // Define error message on wrong completed
-    let completedErrorMessage = 'De waarde van de checkbox moet \'completed\'';
-
-    // Define error message on wrong grade
-    let gradeErrorMessage = 'Voer een cijfer van 1 tot 10 in';
-
-    // Define error message on wrong EC
-    let ECErrorMessage = 'Voer een cijfer van 1 tot 10 in';
-
-    // Define error message on wrong course_id
-    let courseErrorMessage = 'Kies een van de opties van de dropdown';
 
     // check if name feedback already exists and if so to delete it
     let nameFeedback = document.getElementById('name-feedback');
@@ -78,27 +36,19 @@ let validateForm = function(event) {
         document.getElementById('name').parentElement.appendChild(div);
     }
 
-    // check if completed feedback already exists and if so to delete it
-    let completedFeedback = document.getElementById('completed-feedback');
-    if (document.body.contains(completedFeedback)) {
-        completedFeedback.parentNode.removeChild(completedFeedback);
-    }
-    // Check if completed is valid
-    if (completedValidationSucceeded) {
-        if (document.getElementById('completed').classList.contains('is-invalid')) {
-            document.getElementById('completed').classList.remove('is-invalid');
-        }
-    }
-    // Add feedback if completed is not valid
-    else if (!completedValidationSucceeded) {
-        document.getElementById('completed').classList.add('is-invalid');
-        let div = document.createElement('div');
-        div.setAttribute('id', 'completed-feedback');
-        div.setAttribute('class', 'invalid-feedback');
-        div.innerText = completedErrorMessage;
+    return nameValidationSucceeded;
+}
 
-        document.getElementById('completed').parentElement.appendChild(div);
-    }
+function checkGrade () {
+    // Define the grade value
+    let grade = document.getElementById('grade').value;
+
+    // Define the regex for checking the grade value
+    let gradeRegex = /^(0?[1-9]|1[0])$/;
+    let gradeValidationSucceeded = gradeRegex.test(grade);
+
+    // Define error message on wrong grade
+    let gradeErrorMessage = 'Voer een cijfer van 1 tot 10 in';
 
     // check if grade feedback already exists and if so to delete it
     let gradeFeedback = document.getElementById('grade-feedback');
@@ -122,6 +72,56 @@ let validateForm = function(event) {
         document.getElementById('grade').parentElement.appendChild(div);
     }
 
+    return gradeValidationSucceeded;
+}
+
+function checkCompleted () {
+    // Define the completed value
+    let completed = document.getElementById('completed').value;
+
+    // Define the validation for checking the completed value
+    let completedValidation = 'completed' || null;
+    let completedValidationSucceeded = completed === completedValidation;
+
+    // Define error message on wrong completed
+    let completedErrorMessage = 'De waarde van de checkbox moet \'completed\' zijn';
+
+    // check if completed feedback already exists and if so to delete it
+    let completedFeedback = document.getElementById('completed-feedback');
+    if (document.body.contains(completedFeedback)) {
+        completedFeedback.parentNode.removeChild(completedFeedback);
+    }
+    // Check if completed is valid
+    if (completedValidationSucceeded) {
+        if (document.getElementById('completed').classList.contains('is-invalid')) {
+            document.getElementById('completed').classList.remove('is-invalid');
+        }
+    }
+    // Add feedback if completed is not valid
+    else if (!completedValidationSucceeded) {
+        document.getElementById('completed').classList.add('is-invalid');
+        let div = document.createElement('div');
+        div.setAttribute('id', 'completed-feedback');
+        div.setAttribute('class', 'invalid-feedback');
+        div.innerText = completedErrorMessage;
+
+        document.getElementById('completed').parentElement.appendChild(div);
+    }
+
+    return completedValidationSucceeded;
+}
+
+function checkEC () {
+    // Define the EC value
+    let EC = document.getElementById('EC').value;
+
+    // Define the regex for checking the EC value
+    let ECRegex = /^(0?[1-9]|1[0])$/;
+    let ECValidationSucceeded = ECRegex.test(EC);
+
+    // Define error message on wrong EC
+    let ECErrorMessage = 'Voer een cijfer van 1 tot 10 in';
+
     // check if EC feedback already exists and if so to delete it
     let ECFeedback = document.getElementById('EC-feedback');
     if (document.body.contains(ECFeedback)) {
@@ -143,6 +143,20 @@ let validateForm = function(event) {
 
         document.getElementById('EC').parentElement.appendChild(div);
     }
+
+    return ECValidationSucceeded;
+}
+
+function checkCourse () {
+    // Define the course_id value
+    let course_id = document.getElementById('course_id').value;
+
+    // Define the regex for checking the course_id value
+    let courseRegex = /^[0-9]{0,}$/;
+    let courseValidationSucceeded = courseRegex.test(course_id);
+
+    // Define error message on wrong course_id
+    let courseErrorMessage = 'De waarde van die optie is niet geldig';
 
     // check if course feedback already exists and if so to delete it
     let courseFeedback = document.getElementById('course-feedback');
@@ -166,15 +180,20 @@ let validateForm = function(event) {
         document.getElementById('course_id').parentElement.appendChild(div);
     }
 
+    return courseValidationSucceeded;
+}
+
+let validateForm = function(event) {
+    event.preventDefault();
+
     // Submit the form if the validation is succesful
-    if (nameValidationSucceeded &&
-        completedValidationSucceeded &&
-        gradeValidationSucceeded &&
-        ECValidationSucceeded &&
-        courseValidationSucceeded) {
+    if (checkName() &&
+        checkGrade() &&
+        checkCompleted() &&
+        checkEC() &&
+        checkCourse()) {
         document.getElementById('form').submit();
     }
 };
-
 
 window.addEventListener('load', init);
