@@ -8,6 +8,7 @@
         <meta name="author" content="Julien Kenneth Pleijte">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="{{asset("css/reset.css")}}" type="text/css" rel="stylesheet">
+        <link href="{{asset("css/app.css")}}" type="text/css" rel="stylesheet">
         <link href="{{asset("css/general.css")}}" type="text/css" rel="stylesheet">
         <link href="{{asset("images/admech_logo.ico")}}" type="image/ico" rel="icon">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -15,14 +16,14 @@
     </head>
     <body>
         <!--Profile bar-->
-        <section class="profile_bar">
+        <section class="profile_bar d-flex justify-content-end my-3">
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit">
                     <i class="fas fa-user"></i>
                 </button>
             </form>
-            <form action="{{ route('logout') }}" method="POST">
+            <form class="mx-3" action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit">
                     <i class="fas fa-sign-out-alt"></i>
@@ -30,10 +31,10 @@
             </form>
         </section>
         <!--Mobile dropdown menu-->
-        <section class="hamburger_button" onclick="menu();">
-            <div></div>
-            <div></div>
-            <div></div>
+        <section>
+            <button onclick="menu();">
+                <i class="fa fa-bars"></i>
+            </button>
         </section>
         <!--Mobile navbar-->
         <section class="mobile_navbar" id="dropdown">
@@ -69,39 +70,75 @@
             @endif
         </section>
         <!--Desktop navbar-->
-        <section class="navbar">
-            <div class="navcontainer">
+        <section class="navbar row text-center p-0 m-0 container-fluid">
+{{--            <div class="navcontainer">--}}
                 @if (url()->current() == "http://portfolio.test")
-                    <div class="navbutton_active">Home</div>
+                    <div class="col-2 py-5 navbutton_active">
+                        <h3>Home</h3>
+                    </div>
                 @else
-                    <a href="{{route("home")}}"><div class="navbutton">Home</div></a>
+                    <a class="col-2 p-0" href="{{route("home")}}">
+                        <div class="py-5 navbutton">
+                            <h3>Home</h3>
+                        </div>
+                    </a>
                 @endif
                 @if (url()->current() == "http://portfolio.test/over-mij")
-                    <div class="navbutton_active">Over mij</div>
+                    <div class="col-2 py-5 navbutton_active">
+                        <h3>Over mij</h3>
+                    </div>
                 @else
-                <a href="{{route("about")}}"><div class="navbutton">Over mij</div></a>
+                    <a class="col-2 p-0" href="{{route("about")}}">
+                        <div class="py-5 navbutton">
+                            <h3>Over mij</h3>
+                        </div>
+                    </a>
                 @endif
                 @if (url()->current() == "http://portfolio.test/dashboard")
-                    <div class="navbutton_active">Dashboard</div>
+                    <div class="col-2 py-5 navbutton_active">
+                        <h3>Dashboard</h3>
+                    </div>
                 @else
-                <a href="{{route("dashboard")}}"><div class="navbutton">Dashboard</div></a>
+                    <a class="col-2 p-0" href="{{route("dashboard")}}">
+                        <div class="py-5 navbutton">
+                            <h3>Dashboard</h3>
+                        </div>
+                    </a>
                 @endif
                 @if (url()->current() == "http://portfolio.test/beroepsbeeld")
-                    <div class="navbutton_active">Beroepsbeeld</div>
+                    <div class="col-2 py-5 navbutton_active">
+                        <h3>Beroepsbeeld</h3>
+                    </div>
                 @else
-                <a href="{{route("beroepsbeeld")}}"><div class="navbutton">Beroepsbeeld</div></a>
+                    <a class="col-2 p-0" href="{{route("beroepsbeeld")}}">
+                        <div class="py-5 navbutton">
+                            <h3>Beroepsbeeld</h3>
+                        </div>
+                    </a>
                 @endif
                 @if (url()->current() == "http://portfolio.test/motivatie")
-                    <div class="navbutton_active">Motivatie</div>
+                    <div class="col-2 py-5 navbutton_active">
+                        <h3>Motivatie</h3>
+                    </div>
                 @else
-                <a href="{{route("motivatie")}}"><div class="navbutton">Motivatie</div></a>
+                    <a class="col-2 p-0" href="{{route("motivatie")}}">
+                        <div class="py-5 navbutton">
+                            <h3>Motivatie</h3>
+                        </div>
+                    </a>
                 @endif
                 @if (url()->current() == "http://portfolio.test/assignments")
-                    <div class="navbutton_active">Opdrachten</div>
+                    <div class="col-2 py-5 navbutton_active">
+                        <h3>Opdrachten</h3>
+                    </div>
                 @else
-                <a href="{{route("assignments.index")}}"><div class="navbutton">Opdrachten</div></a>
+                    <a class="col-2 p-0" href="{{route("assignments.index")}}">
+                        <div class="py-5 navbutton">
+                            <h3>Opdrachten</h3>
+                        </div>
+                    </a>
                 @endif
-            </div>
+{{--            </div>--}}
         </section>
         <main class="content">
             @if ($errors->any())
