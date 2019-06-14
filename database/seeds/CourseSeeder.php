@@ -12,7 +12,6 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
-        // factory(Course::class, 20)->create();
         DB::table("courses")->insert([
             ["blok_id" => 1, "name" => "Computer Science Basics"],
             ["blok_id" => 1, "name" => "Opleidings- en Beroepsorientatie"],

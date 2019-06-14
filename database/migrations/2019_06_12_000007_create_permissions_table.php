@@ -24,8 +24,6 @@ class CreatePermissionsTable extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('name');
-
-            $table->unique(["name"], 'name_UNIQUE');
             $table->nullableTimestamps();
         });
     }

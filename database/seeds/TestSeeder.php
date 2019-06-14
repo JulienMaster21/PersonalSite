@@ -12,8 +12,7 @@ class TestSeeder extends Seeder
      */
     public function run()
     {
-        // factory(\App\Test::class, 20)->create();
-        DB::table('test')->insert([
+        DB::table('tests')->insert([
             ['name' => 'Theorietentamen',       'course_id' => 1,   'completed' => 1,   'grade' => 7.9,     'EC' => 7.5],
             ['name' => 'Toets 1',               'course_id' => 2,   'completed' => 1,   'grade' => 6.0,     'EC' => 2.5],
             ['name' => 'Casustoets',            'course_id' => 3,   'completed' => 1,   'grade' => 8.0,     'EC' => 5.0],
