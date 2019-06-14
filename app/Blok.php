@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blok extends Model
 {
     /**
-     * Get the courses for the blok.
+     * Get the courses for the bloks.
      */
     public function courses()
     {

@@ -17,60 +17,35 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, th, td, tr, li, label {
     color: red;
 }
 /*Images*/
-/*.image {*/
-/*    width: 100%;*/
-/*    height: auto;*/
-/*}*/
-/*.imageberoep {*/
-/*    width: 60vw;*/
-/*    height: 50em;*/
-/*    margin: 0 auto 0.5em auto;*/
-/*    display: block;*/
-/*    z-index: -1;*/
-/*}*/
 .memes {
     dankness: maximum;
     spicyness: very spicy;
-    /*width: 30vw;*/
-    /*height: auto;*/
 }
 .emperormeme {
     animation: grow 10s;
     animation-fill-mode: forwards;
 }
-/*.rotate90 {*/
-/*    transform: rotate(90deg);*/
-/*    width: 50em;*/
-/*    margin: 0 auto 0.5em auto;*/
-/*}*/
-/*.rotate180 {*/
-/*    transform: rotate(180deg);*/
-/*}*/
-/*.rotate270 {*/
-/*    transform: rotate(270deg);*/
-/*    width: 50em;*/
-/*    margin: 0;*/
-/*    margin-left: auto;*/
-/*    margin-right: auto;*/
-/*}*/
+.rotate90 {
+    transform: rotate(90deg);
+}
+.rotate180 {
+    transform: rotate(180deg);
+}
+.rotate270 {
+    transform: rotate(270deg);
+    width: 70vh;
+    height: 60vw;
+}
 /*forms*/
 input {
     color: #00FF33;
     background-color: black;
     border: none;
-    /*text-align: center;*/
-    /*font-size: 20px;*/
-    /*height: auto;*/
-    /*width: auto;*/
 }
 button {
-    /*height: 3em;*/
-    /*width: 3em;*/
     color: #00FF33;
     background-color: black;
     border: 2px dashed #00FF33;
-    /*margin: 0.5em;*/
-    /*padding: 0.5em*/
 }
 button:hover {
     color: black;
@@ -78,74 +53,30 @@ button:hover {
     border: 2px solid #00FF33;
 }
 .divButton {
-    /*height: auto;*/
-    /*width: auto;*/
     color: #00FF33;
     background-color: black;
     border: 2px dashed #00FF33;
-    /*margin: 0.5em;*/
-    /*padding: 0.5em;*/
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
 }
 .divButton:hover {
     color: black;
     background-color: #00FF33;
     border: 2px solid #00FF33;
 }
-progress {
-    /*width: 90vw;*/
-    background-color: #00FF33;
-    -webkit-appearance: none;
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
-}
-::-webkit-progress-value {
-    background-color: #00FF33;
-}
-::-webkit-progress-bar {
-    background-color: white;
-}
-.belowMSBA::-webkit-progress-value {
-    background-color: red;
-}
-.belowPropedeuse::-webkit-progress-value {
-    background-color: cyan;
-}
-/*.flex {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*}*/
 /*Lists*/
-/*ul, ol {*/
-/*    padding: 1em;*/
-/*}*/
-/*ul {*/
-/*    list-style: disc;*/
-/*}*/
-/*ol {*/
-/*    list-style: decimal;*/
-/*}*/
+ul {
+    list-style: disc;
+    padding-inline-start: 40px;
+}
+ol {
+    list-style: decimal;
+    padding-inline-start: 40px;
+}
 /*Tables*/
-/*.languages {*/
-/*    margin-left: auto;*/
-/*    margin-right: auto;*/
-/*    width: 60vw;*/
-/*    margin-bottom: 1em;*/
-/*    text-align: center;*/
-/*}*/
+.languages {
+    width: 60vw;
+}
 .monitor {
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
-    /*margin-bottom: 1em;*/
-    /*width: 90vw;*/
-    /*border-collapse: separate;*/
-    /*text-align: center;*/
-    /*overflow: scroll;*/
+    width: 90vw;
 }
 th {
     border: 2px solid #00FF33;
@@ -174,33 +105,17 @@ td {
 }
 /*Navbar*/
 .navbar {
-    overflow: hidden;
     position: fixed;
     top: 5em;
-    /*width: 95%;*/
-    /*margin: 0 2.5%;*/
     border: 2px dashed #00FF33;
     background-color: black;
-    /*z-index: 10;*/
+    z-index: 10;
 }
 .navbar a {
     text-decoration: none;
 }
-/*.navcontainer {*/
-/*    display: flex;*/
-/*    flex-wrap: wrap;*/
-/*    justify-content: center;*/
-/*}*/
 .navbutton {
-    /*height: 9vh;*/
-    /*width: 12vw;*/
-    /*min-height: 5em;*/
-    /*min-width: 10em;*/
     text-decoration: none;
-    /*font-size: 24px;*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
 }
 .navbutton:hover {
     background-color: #00FF33;
@@ -213,91 +128,34 @@ td {
     color: black;
 }
 .navbutton_active {
-    /*height: 9vh;*/
-    /*width: 12vw;*/
-    /*min-height: 5em;*/
-    /*min-width: 10em;*/
-    /*text-decoration: none;*/
-    /*font-size: 24px;*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
     background-color: #00FF33;
 }
 .navbutton_active h3 {
     color: black;
     margin: 0;
 }
-/*.profile_bar {*/
-/*    margin-top: 1em;*/
-/*    display: flex;*/
-/*    justify-content: flex-end;*/
-/*    padding-right: 2em;*/
-/*}*/
 /*Main Content Classes*/
-/*.content {*/
-/*    margin: 0 1em;*/
-/*    margin-top: 21em;*/
-/*}*/
-/*.content p, h1, h2, h3, h4, h5, h6, img {*/
-/*    margin-bottom: 1em;*/
-/*}*/
-/*.container {*/
-/*    display: flex;*/
-/*    justify-content: space-around;*/
-/*    width: 98vw;*/
-/*}*/
-/*.flex {*/
-/*    display: flex;*/
-/*    flex-wrap: wrap;*/
-/*    justify-content: space-around;*/
-/*    align-items: center;*/
-/*}*/
-/*.text_box {*/
-/*    width: 60vw;*/
-/*    padding: 0 1em;*/
-/*    margin: 0 auto;*/
-/*}*/
-/*.text_box p, h1, h2, h3, h4, h5, h6 {*/
-/*    margin-bottom: 1em;*/
-/*}*/
-/*.image_box {*/
-/*    width: 20vw;*/
-/*    height: auto;*/
-/*}*/
+.content {
+    margin: 15em 1em 0 1em;
+}
 .image_box p {
     font-style: italic;
-    /*margin-bottom: 1em;*/
 }
-/*.list_box {*/
-/*    width: 20vw;*/
-/*}*/
 .anchor {
-    padding-top: 180px;
-    margin-top: -180px;
+    padding-top: 6em;
+    margin-top: -6em;
 }
 /*Error pages*/
-/*.errorHeader {*/
-/*    margin-top: 30vh;*/
-/*    font-size: 60px;*/
-/*}*/
+.errorHeader {
+    margin-top: 30vh;
+}
 .errorSection {
     border: 2px dashed #00FF33;
-    /*padding: 1em*/
 }
 .errorDivButton {
-/*    height: auto;*/
-/*    width: 10em;*/
     color: #00FF33;
     background-color: black;
     border: 2px dashed #00FF33;
-    /*margin: 0.5em;*/
-    /*margin-right: auto;*/
-    /*margin-left: auto;*/
-    /*padding: 0.5em;*/
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
 }
 .errorDivButton:hover {
     color: black;
@@ -315,102 +173,68 @@ td {
     70% {height: 70vh; width: 70vw;}
     80% {height: 80vh; width: 80vw;}
     90% {height: 90vh; width: 90vw;}
-    100% {height: 100vh; width: 100vw;}
+    100% {height: 100vh; width: 99vw;}
 }
 /*Mobile settings*/
 .mobile_navbar {
-    /*overflow: hidden;*/
     position: fixed;
-    top: 5em;
+    top: 9em;
     border: 2px dashed #00FF33;
     background-color: black;
     display: none;
-    /*width: 90vw;*/
-    /*margin-left: 5vw;*/
-    /*padding-top: 0.5em;*/
-    /*padding-bottom: 0.5em;*/
-    /*z-index: 10;*/
+    z-index: 10;
 }
 .mobile_navbar a {
     text-decoration: none;
 }
 .mobile_navbutton {
-    /*height: 9vh;*/
-    /*width: 80vw;*/
-    /*margin-left: 5vw;*/
     text-decoration: none;
-    /*font-size: 24px;*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
 }
-.mobile_navbutton_active {
-    /*height: 9vh;*/
-    /*width: 80vw;*/
-    /*margin-left: 5vw;*/
+.mobile_navbutton_active h3 {
     text-decoration: none;
-    /*font-size: 24px;*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
     background-color: #00FF33;
     color: black;
 }
-.mobile_navbutton:hover {
+.mobile_navbutton:hover h3 {
     background-color: #00FF33;
     color: black;
 }
+
+.hamburger_button {
+    display: none;
+}
+
+.progress {
+    width: 90vw;
+}
+
+.progress-bar {
+    color: black;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 1007px) {
-    /*.languages {*/
-    /*    width: 90vw;*/
-    /*}*/
-    /*.monitor {*/
-    /*    display: flex;*/
-    /*}*/
-    /*.content {*/
-    /*    margin-top: 6em;*/
-    /*}*/
+    .list_box {
+        flex: none;
+        max-width: 100vw;
+    }
+    .monitor {
+        width: 100vw;
+        margin: 0;
+    }
+    .content {
+        margin: 2em 0 0 0;
+    }
     .navbar {
         display: none;
     }
     .hamburger_button {
-        /*position: fixed;*/
+        display: block;
         background-color: black;
-        /*left: 1em;*/
-        /*top: 1em;*/
-        /*width: 5em;*/
         border: 2px dashed #00FF33;
     }
     .hamburger_button:hover {
         background-color: #00FF33;
         border: 2px solid black;
-    }
-    .hamburger_button div {
-        /*width: 3em;*/
-        /*height: 0.5em;*/
-        background-color: #00FF33;
-        /*margin: 0.5em auto;*/
-    }
-    .hamburger_button:hover div {
-        background-color: black;
-    }
-    /*.container{*/
-    /*    display: initial;*/
-    /*}*/
-    /*.container div, h1 {*/
-    /*    padding: 0 1em;*/
-    /*}*/
-    /*.text_box {*/
-    /*    !*width: 100vw;*!*/
-    /*}*/
-    /*.image_box {*/
-    /*    !*width: 100vw;*!*/
-    /*}*/
-    /*.list_box {*/
-    /*    !*width: 100vw;*!*/
-    /*}*/
-    .anchor {
-        /*padding-top: 4em;*/
-        /*margin-top: -4em;*/
     }
 }

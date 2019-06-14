@@ -10,11 +10,11 @@ class CreateTestsTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'tests';
+    public $tableName = 'test';
 
     /**
      * Run the migrations.
-     * @table tests
+     * @table test
      *
      * @return void
      */
@@ -25,7 +25,7 @@ class CreateTestsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('course_id')->nullable();
             $table->string('name')->nullable();
-            $table->string('completed', 45)->nullable();
+            $table->tinyInteger('completed')->default('0');
             $table->float('grade')->nullable();
             $table->float('EC')->nullable();
 

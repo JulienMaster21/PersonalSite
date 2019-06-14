@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAssignment;
 use Illuminate\Http\Request;
 use \App\Assignment;
 
@@ -15,6 +16,7 @@ class AssignmentController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->authorizeResource(Assignment::class, "assignment");
     }
 
     /**
@@ -24,8 +26,10 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        $assignments = Assignment::get();
-        return view("pages/assignments/index", ["assignments" => $assignments]);
+        $assignments = Assignment::all();
+        return view("pages/assignments.index", [
+            "assignments" => $assignments
+        ]);
     }
 
     /**
@@ -35,7 +39,7 @@ class AssignmentController extends Controller
      */
     public function create()
     {
-        return view("pages/assignments/create");
+        return view("pages/assignments.create");
     }
 
     /**
@@ -44,23 +48,11 @@ class AssignmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAssignment $request)
     {
-        $validatedData = $request->validate([
-            "name" => "required|unique:assignments|max:255",
-            "url" => "required",
-            "description" => "required|max:255",
-        ]);
+        Assignment::create($request->validated());
 
-        $assignment = new Assignment;
-
-        $assignment->name = $validatedData["name"];
-        $assignment->url = $validatedData["url"];
-        $assignment->description = $validatedData["description"];
-
-        $assignment->save();
-
-        return redirect("assignments");
+        return redirect()->action('AssignmentController@index');
     }
 
     /**
@@ -69,10 +61,11 @@ class AssignmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Assignment $assignment)
     {
-        $assignment = Assignment::find($id);
-        return view("pages/assignments/show", ["assignment" => $assignment]);
+        return view("pages/assignments.show", [
+            "assignment" => $assignment
+        ]);
     }
 
     /**
@@ -81,10 +74,11 @@ class AssignmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Assignment $assignment)
     {
-        $assignment = Assignment::find($id);
-        return view("pages/assignments/edit", ["assignment" => $assignment]);
+        return view("pages/assignments.edit", [
+            "assignment" => $assignment
+        ]);
     }
 
     /**
@@ -94,23 +88,11 @@ class AssignmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreAssignment $request, Assignment $assignment)
     {
-        $validatedData = $request->validate([
-            "name" => "required|unique:assignments,name," . $id . "|max:255",
-            "url" => "required",
-            "description" => "required|max:255",
-        ]);
+        $assignment->update($request->validated());
 
-        $assignment = Assignment::find($id);
-
-        $assignment->name = $validatedData["name"];
-        $assignment->url = $validatedData["url"];
-        $assignment->description = $validatedData["description"];
-
-        $assignment->save();
-
-        return redirect("assignments");
+        return redirect()->action('AssignmentController@index');
     }
 
     /**
@@ -119,11 +101,10 @@ class AssignmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Assignment $assignment)
     {
-        Assignment::find($id)
-                    ->delete();
+        $assignment->delete();
 
-        return redirect("assignments");
+        return redirect()->action('AssignmentController@index');
     }
 }

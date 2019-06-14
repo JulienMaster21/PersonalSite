@@ -17,8 +17,7 @@
     <body>
         <!--Profile bar-->
         <section class="profile_bar d-flex justify-content-end my-3">
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
+            <form action="{{ route('userPage') }}" method="get">
                 <button type="submit">
                     <i class="fas fa-user"></i>
                 </button>
@@ -32,52 +31,87 @@
         </section>
         <!--Mobile dropdown menu-->
         <section>
-            <button onclick="menu();">
+            <button class="hamburger_button btn-lg ml-4" type="button" onclick="menu();">
                 <i class="fa fa-bars"></i>
             </button>
         </section>
         <!--Mobile navbar-->
-        <section class="mobile_navbar" id="dropdown">
+        <section class="mobile_navbar text-center container" id="dropdown">
             @if (url()->current() == "http://portfolio.test")
-                <div class="mobile_navbutton_active">Home</div>
+                <div class="mobile_navbutton_active">
+                    <h3>Home</h3>
+                </div>
             @else
-                <a href="{{route("home")}}"><div class="mobile_navbutton">Home</div></a>
+                <a href="{{ route("home") }}">
+                    <div class="mobile_navbutton">
+                        <h3>Home</h3>
+                    </div>
+                </a>
             @endif
             @if (url()->current() == "http://portfolio.test/over-mij")
-                <div class="mobile_navbutton_active">Over mij</div>
+                <div class="mobile_navbutton_active">
+                    <h3>Over mij</h3>
+                </div>
             @else
-            <a href="{{route("about")}}"><div class="mobile_navbutton">Over mij</div></a>
+            <a href="{{ route("about") }}">
+                <div class="mobile_navbutton">
+                    <h3>Over mij</h3>
+                </div>
+            </a>
             @endif
-            @if (url()->current() == "http://portfolio.test/dashboard")
-                <div class="mobile_navbutton_active">Dashboard</div>
+            @if (url()->current() == "tests")
+                <div class="mobile_navbutton_active">
+                    <h3>Dashboard</h3>
+                </div>
             @else
-            <a href="{{route("tests.index")}}"><div class="mobile_navbutton">Dashboard</div></a>
+            <a href="{{ route("dashboard") }}">
+                <div class="mobile_navbutton">
+                    <h3>Dashboard</h3>
+                </div>
+            </a>
             @endif
             @if (url()->current() == "http://portfolio.test/beroepsbeeld")
-                <div class="mobile_navbutton_active">Beroepsbeeld</div>
+                <div class="mobile_navbutton_active">
+                    <h3>Beroepsbeeld</h3>
+                </div>
             @else
-            <a href="{{route("beroepsbeeld")}}"><div class="mobile_navbutton">Beroepsbeeld</div></a>
+            <a href="{{ route("beroepsbeeld") }}">
+                <div class="mobile_navbutton">
+                    <h3>Beroepsbeeld</h3>
+                </div>
+            </a>
             @endif
             @if (url()->current() == "http://portfolio.test/motivatie")
-                <div class="mobile_navbutton_active">Motivatie</div>
+                <div class="mobile_navbutton_active">
+                    <h3>Motivatie</h3>
+                </div>
             @else
-            <a href="{{route("motivatie")}}"><div class="mobile_navbutton">Motivatie</div></a>
+            <a href="{{ route("motivatie") }}">
+                <div class="mobile_navbutton">
+                    <h3>Motivatie</h3>
+                </div>
+            </a>
             @endif
-            @if (url()->current() == "http://portfolio.test/assignments")
-                <div class="mobile_navbutton_active">Opdrachten</div>
+            @if (url()->current() == "assignments")
+                <div class="mobile_navbutton_active">
+                    <h3>Opdrachten</h3>
+                </div>
             @else
-            <a href="{{route("assignments.index")}}"><div class="mobile_navbutton">Opdrachten</div></a>
+            <a href="{{ route("assignments.index") }}">
+                <div class="mobile_navbutton">
+                    <h3>Opdrachten</h3>
+                </div>
+            </a>
             @endif
         </section>
         <!--Desktop navbar-->
         <section class="navbar row text-center p-0 m-0 container-fluid">
-{{--            <div class="navcontainer">--}}
-                @if (url()->current() == "http://portfolio.test")
+                @if (url()->current() == "tests")
                     <div class="col-2 py-5 navbutton_active">
                         <h3>Home</h3>
                     </div>
                 @else
-                    <a class="col-2 p-0" href="{{route("home")}}">
+                    <a class="col-2 p-0" href="{{ route("home") }}">
                         <div class="py-5 navbutton">
                             <h3>Home</h3>
                         </div>
@@ -88,7 +122,7 @@
                         <h3>Over mij</h3>
                     </div>
                 @else
-                    <a class="col-2 p-0" href="{{route("about")}}">
+                    <a class="col-2 p-0" href="{{ route("about") }}">
                         <div class="py-5 navbutton">
                             <h3>Over mij</h3>
                         </div>
@@ -99,7 +133,7 @@
                         <h3>Dashboard</h3>
                     </div>
                 @else
-                    <a class="col-2 p-0" href="{{route("dashboard")}}">
+                    <a class="col-2 p-0" href="{{ route("dashboard" )}}">
                         <div class="py-5 navbutton">
                             <h3>Dashboard</h3>
                         </div>
@@ -110,7 +144,7 @@
                         <h3>Beroepsbeeld</h3>
                     </div>
                 @else
-                    <a class="col-2 p-0" href="{{route("beroepsbeeld")}}">
+                    <a class="col-2 p-0" href="{{ route("beroepsbeeld") }}">
                         <div class="py-5 navbutton">
                             <h3>Beroepsbeeld</h3>
                         </div>
@@ -121,7 +155,7 @@
                         <h3>Motivatie</h3>
                     </div>
                 @else
-                    <a class="col-2 p-0" href="{{route("motivatie")}}">
+                    <a class="col-2 p-0" href="{{ route("motivatie") }}">
                         <div class="py-5 navbutton">
                             <h3>Motivatie</h3>
                         </div>
@@ -132,13 +166,12 @@
                         <h3>Opdrachten</h3>
                     </div>
                 @else
-                    <a class="col-2 p-0" href="{{route("assignments.index")}}">
+                    <a class="col-2 p-0" href="{{ route("assignments.index") }}">
                         <div class="py-5 navbutton">
                             <h3>Opdrachten</h3>
                         </div>
                     </a>
                 @endif
-{{--            </div>--}}
         </section>
         <main class="content">
             @if ($errors->any())

@@ -20,7 +20,7 @@
                        data-content="Voer een cijfer tussen 1 en 10 in" onblur="checkGrade();">
             </div>
             <div class="form-check mb-3">
-                <input id="completed" type="checkbox" name="completed" value="completed"
+                <input id="completed" type="checkbox" name="completed" value="1"
                        class="form-check-input" onblur="checkCompleted();">
                 <label for="completed" class="form-check-label">voldoende?</label>
             </div>
@@ -43,19 +43,19 @@
                     @endforeach
                 </select>
             </div>
-            <div class="flex">
+            <div class="container mb-3">
                 <button type="submit">
                     <i class="fas fa-check"></i>
                 </button>
             </div>
         </form>
     </div>
-    <div class="flex">
-        <a class="notDecorated" href="{{ url()->previous() }}">
-            <div class="divButton">
+    <div class="container">
+        <form action="{{ url()->previous() }}" method="get">
+            <button type="submit">
                 <i class="fas fa-ban"></i>
-            </div>
-        </a>
+            </button>
+        </form>
     </div>
     <script rel="javascript" src="{{ asset("js/validateTest.js") }}"></script>
 @endsection

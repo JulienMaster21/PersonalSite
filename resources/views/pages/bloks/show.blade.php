@@ -1,25 +1,20 @@
 @extends('templates/emptyPage')
 @section("title", "Blok $blok->id")
 @section("content")
-    <h3 class="center">Blok</h3>
-        <div class="flex">
-            <h3>{{$blok->id}}</h3>
-        </div>
-    <h3 class="center">Cursussen</h3>
+    <h3 class="text-center">Blok: {{$blok->id}}</h3>
+    <h3 class="text-center">Cursussen:</h3>
+    <div class="container text-center mb-5">
         @if ($blok->courses->isEmpty())
-            <div class="flex">
                 <h3>Geen</h3>
-            </div>
         @else
             @foreach ($courses->where("blok_id", "=", $blok->id) as $course)
-                    <div class="flex">
                         <h3>
                             <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
                         </h3>
-                    </div>
             @endforeach
         @endif
-        <div class="flex marginbottom">
+    </div>
+        <div class="container mb-3">
             <form action="/bloks" method="post">
                 @csrf
                 <button type="submit" name="id" value="{{ $bloks->last()->id + 1 }}">
@@ -30,7 +25,7 @@
         @if (count($bloks) == 1)
 
         @else
-            <div class="flex marginbottom">
+            <div class="container mb-3">
                 <form action="/bloks/{{$blok->id}}" method="POST">
                     @method("DELETE")
                     @csrf
@@ -40,10 +35,11 @@
                 </form>
             </div>
         @endif
-        <div class="flex">
-            <a class="notDecorated" href="{{route("tests.index")}}">
-                <div class="divButton">
+        <div class="container">
+            <form action="{{ route("test") }}" method="get">
+                <button type="submit">
                     <i class="fas fa-arrow-left"></i>
-                </div>
-            </a>
+                </button>
+            </form>
         </div>
+@endsection

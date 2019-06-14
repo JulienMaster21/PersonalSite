@@ -44,11 +44,11 @@ function checkGrade () {
     let grade = document.getElementById('grade').value;
 
     // Define the regex for checking the grade value
-    let gradeRegex = /^(0?[1-9]|1[0])$/;
+    let gradeRegex = /^(0?[1-9][.][0-9]|1[0]|1[0][.][0])$/;
     let gradeValidationSucceeded = gradeRegex.test(grade);
 
     // Define error message on wrong grade
-    let gradeErrorMessage = 'Voer een cijfer van 1 tot 10 in';
+    let gradeErrorMessage = 'Voer een cijfer van 1 tot 10 in met de vorm van 1.1';
 
     // check if grade feedback already exists and if so to delete it
     let gradeFeedback = document.getElementById('grade-feedback');
@@ -80,11 +80,11 @@ function checkCompleted () {
     let completed = document.getElementById('completed').value;
 
     // Define the validation for checking the completed value
-    let completedValidation = 'completed' || null;
-    let completedValidationSucceeded = completed === completedValidation;
+    let completedValidation = 1;
+    let completedValidationSucceeded = completed == completedValidation;
 
     // Define error message on wrong completed
-    let completedErrorMessage = 'De waarde van de checkbox moet \'completed\' zijn';
+    let completedErrorMessage = 'De waarde van de checkbox moet \'1\' zijn';
 
     // check if completed feedback already exists and if so to delete it
     let completedFeedback = document.getElementById('completed-feedback');
@@ -116,11 +116,11 @@ function checkEC () {
     let EC = document.getElementById('EC').value;
 
     // Define the regex for checking the EC value
-    let ECRegex = /^(0?[1-9]|1[0])$/;
+    let ECRegex = /^(0?[1-9][.][0-9]|1[0]|1[0][.][0])$/;
     let ECValidationSucceeded = ECRegex.test(EC);
 
     // Define error message on wrong EC
-    let ECErrorMessage = 'Voer een cijfer van 1 tot 10 in';
+    let ECErrorMessage = 'Voer een cijfer van 1 tot 10 in met de vorm 1.1';
 
     // check if EC feedback already exists and if so to delete it
     let ECFeedback = document.getElementById('EC-feedback');
@@ -158,8 +158,8 @@ function checkCourse () {
     // Define error message on wrong course_id
     let courseErrorMessage = 'De waarde van die optie is niet geldig';
 
-    // check if course feedback already exists and if so to delete it
-    let courseFeedback = document.getElementById('course-feedback');
+    // check if courses feedback already exists and if so to delete it
+    let courseFeedback = document.getElementById('courses-feedback');
     if (document.body.contains(courseFeedback)) {
         courseFeedback.parentNode.removeChild(courseFeedback);
     }
@@ -173,7 +173,7 @@ function checkCourse () {
     else if (!courseValidationSucceeded) {
         document.getElementById('course_id').classList.add('is-invalid');
         let div = document.createElement('div');
-        div.setAttribute('id', 'course-feedback');
+        div.setAttribute('id', 'courses-feedback');
         div.setAttribute('class', 'invalid-feedback');
         div.innerText = courseErrorMessage;
 

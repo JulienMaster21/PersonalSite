@@ -7628,7 +7628,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Webkit/Opera - :checked should return selected option elements
 			// http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
-			// IE8 throws error here and will not see later tests
+			// IE8 throws error here and will not see later test
 			if ( !el.querySelectorAll(":checked").length ) {
 				rbuggyQSA.push(":checked");
 			}
@@ -7658,7 +7658,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			}
 
 			// FF 3.5 - :enabled/:disabled and hidden elements (hidden elements are still enabled)
-			// IE8 throws error here and will not see later tests
+			// IE8 throws error here and will not see later test
 			if ( el.querySelectorAll(":enabled").length !== 2 ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
@@ -9045,7 +9045,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 	return results;
 };
 
-// One-time assignments
+// One-time assignment
 
 // Sort stability
 support.sortStable = expando.split("").sort( sortOrder ).join("") === expando;
@@ -12185,7 +12185,7 @@ function cloneCopyEvent( src, dest ) {
 	}
 }
 
-// Fix IE bugs, see support tests
+// Fix IE bugs, see support test
 function fixInput( src, dest ) {
 	var nodeName = dest.nodeName.toLowerCase();
 
@@ -12582,7 +12582,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 
 ( function() {
 
-	// Executing both pixelPosition & boxSizingReliable tests require only one layout
+	// Executing both pixelPosition & boxSizingReliable test require only one layout
 	// so they're executed at the same time to save the second computation.
 	function computeStyleTests() {
 
@@ -29512,7 +29512,7 @@ return jQuery;
     /**
      * Assigns own enumerable string keyed properties of source objects to the
      * destination object. Source objects are applied from left to right.
-     * Subsequent sources overwrite property assignments of previous sources.
+     * Subsequent sources overwrite property assignment of previous sources.
      *
      * **Note:** This method mutates `object` and is loosely based on
      * [`Object.assign`](https://mdn.io/Object/assign).
@@ -30141,7 +30141,7 @@ return jQuery;
     /**
      * Creates an object composed of the inverted keys and values of `object`.
      * If `object` contains duplicate values, subsequent values overwrite
-     * property assignments of previous values.
+     * property assignment of previous values.
      *
      * @static
      * @memberOf _
@@ -30359,7 +30359,7 @@ return jQuery;
      * skipped if a destination value exists. Array and plain object properties
      * are merged recursively. Other objects and value types are overridden by
      * assignment. Source objects are applied from left to right. Subsequent
-     * sources overwrite property assignments of previous sources.
+     * sources overwrite property assignment of previous sources.
      *
      * **Note:** This method mutates `object`.
      *

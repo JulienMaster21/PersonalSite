@@ -1,9 +1,9 @@
 @extends("templates/basePage")
 @section("title", "Dashboard")
 @section("content")
-    <h1 class="center">Studiemonitor</h1>
-    <table class="monitor">
-        <tbody>
+    <h1 class="text-center">Studiemonitor</h1>
+    <table class="text-center monitor mx-auto">
+        <thead>
             <tr>
                 <th>Cursus</th>
                 <th>Naam</th>
@@ -11,17 +11,19 @@
                 <th>Cijfer</th>
                 <th>EC's</th>
             </tr>
+        </thead>
+        <tbody>
             @foreach ($bloks as $blok)
                 <tr class="blok">
                     <td colspan="5">
-                        <a class="link" href="bloks/{{ $blok->id }}">Blok {{ $blok->id }}</a>
+                        <a class="link" href="blok/{{ $blok->id }}">Blok {{ $blok->id }}</a>
                     </td>
                 </tr>
                 @foreach ($courses->where("blok_id", "=", $blok->id) as $course)
                     @if ($course->tests->isEmpty())
                         <tr>
                             <td>
-                                <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
+                                <a class="link" href="/course/{{ $course->id }}">{{ $course->name }}</a>
                             </td>
                             <td>Geen</td>
                             <td>Geen</td>
@@ -32,12 +34,12 @@
                         @foreach ($tests->where("course_id", "=", $course->id) as $test)
                             <tr>
                                 <td>
-                                    <a class="link" href="courses/{{ $course->id }}">{{ $course->name }}</a>
+                                    <a class="link" href="course/{{ $course->id }}">{{ $course->name }}</a>
                                 </td>
                                 <td>
-                                    <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>
+                                    <a class="link" href="test/{{ $test->id }}">{{ $test->name }}</a>
                                 </td>
-                                <td>{{ $test->completed === "completed" ? "Ja" : "Nee" }}</td>
+                                <td>{{ $test->completed === 1 ? "Ja" : "Nee" }}</td>
                                 <td>{{ $test->grade }}</td>
                                 <td>{{ $test->EC }}</td>
                             </tr>
@@ -54,7 +56,7 @@
             @foreach ($courses->where("blok_id", "=", NULL) as $course)
                 <tr>
                     <td colspan="5">
-                        <a href="/courses/{{ $course->id }}">{{ $course->name }}</a>
+                        <a class="link" href="/course/{{ $course->id }}">{{ $course->name }}</a>
                     </td>
                 </tr>
                 @endforeach
@@ -70,9 +72,9 @@
             @foreach ($tests->where("course_id", "=", NULL) as $test)
                 <tr>
                     <td colspan="2">
-                        <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>
+                        <a class="link" href="test/{{ $test->id }}">{{ $test->name }}</a>
                     </td>
-                    <td>{{ $test->completed ? "Ja" : "Nee" }}</td>
+                    <td>{{ $test->completed === 1 ? "Ja" : "Nee" }}</td>
                     <td>{{ $test->grade }}</td>
                     <td>{{ $test->EC }}</td>
                 </tr>
@@ -86,21 +88,25 @@
                 class="blok"
             @endif>
                 <td colspan="4">Totaal</td>
-                <td>{{$ECValues[0]}}/{{$ECValues[1]}}</td>
+                <td>{{ $ECValues[0] }}/{{ $ECValues[1] }}</td>
             </tr>
         </tbody>
     </table>
-    <h1 class="center">Voortgang van Propedeuse</h1>
-    <progress value="{{$ECValues[0]}}" max="60"
-    @if ($ECValues[0] < 45)
-        class="marginbottom belowMSBA"
-    @elseif ($ECValues[0] < 60)
-        class="marginbottom belowPropedeuse"
-    @else
-        class="marginbottom"
-    @endif
-    ></progress>
-    <h1 class="center">Studiewijzer</h1>
+    <h1 class="text-center">Voortgang van Propedeuse</h1>
+    <div class="progress mb-3 mx-auto">
+        <div aria-valuenow="{{ $ECValues[0] }}" aria-valuemin="0" aria-valuemax="{{ $ECValues[1] }}" role="progressbar"
+             class="progress-bar
+             @if ($ECValues[0] < 45)
+                {{ "bg-danger" }}
+             @elseif ($ECValues[0] < 60)
+                {{ "bg-warning" }}
+             @else
+                {{ "bg-success" }}
+             @endif "
+             style="width:{{ $ECValues[0]/$ECValues[1] * 100 }}%;">{{ $ECValues[0]/$ECValues[1] * 100 }}%
+        </div>
+    </div>
+    <h1 class="text-center">Studiewijzer</h1>
     <ul>
         <li>
             <a href="https://hz.nl/uploads/documents/Regelingen/NL/Onderwijs-examenregelingen/OER-HZ-2018-2019docv2018-06-26DEFCvB-V-01.pdf" class="link">Het Onderwijs en Examenregelement</a>

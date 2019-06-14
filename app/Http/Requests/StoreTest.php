@@ -25,7 +25,7 @@ class StoreTest extends FormRequest
     {
         return [
             "name" => "required|between:6,255|string",
-            "completed" => "nullable|in:completed|string",
+            "completed" => "nullable|in:1|numeric",
             "grade" => "nullable|numeric|between:1,10",
             "EC" => "required|numeric|between:1,10",
             "course_id" => "nullable|numeric"

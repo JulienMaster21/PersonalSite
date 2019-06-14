@@ -18,6 +18,7 @@ class TestController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->authorizeResource(Test::class, "test");
     }
 
     /**
@@ -43,11 +44,11 @@ class TestController extends Controller
         array_push($ECValues, $ECmin, $ECmax);
 
         return view("pages/tests.index",  [
-                                            "bloks" => $bloks,
-                                            "courses" => $courses,
-                                            "tests" => $tests,
-                                            "ECValues" => $ECValues,
-                                        ]);
+            "bloks" => $bloks,
+            "courses" => $courses,
+            "tests" => $tests,
+            "ECValues" => $ECValues,
+        ]);
     }
 
     /**
@@ -59,7 +60,9 @@ class TestController extends Controller
     {
         $courses = Course::all();
 
-        return view("pages/tests.create", ["courses" => $courses]);
+        return view("pages/tests.create", [
+            "courses" => $courses
+        ]);
     }
 
     /**
@@ -72,7 +75,7 @@ class TestController extends Controller
     {
         Test::create($request->validated());
 
-        return redirect("tests");
+        return redirect("dashboard");
     }
 
     /**
@@ -81,10 +84,10 @@ class TestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Test $test)
     {
+
         $tests = Test::all();
-        $test = Test::find($id);
         $course = $test->course;
 
         return view("pages/tests.show", [
@@ -100,9 +103,8 @@ class TestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Test $test)
     {
-        $test = Test::find($id);
         $courses = Course::all();
 
         return view("pages/tests.edit", [
@@ -118,39 +120,28 @@ class TestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreTest $request, Test $test)
     {
-        $validatedData = $request->validate([
-            "name" => "required|max:255|string",
-            "completed" => "required|in:true,false|string",
-            "grade" => "nullable|max:5",
-            "EC" => "required|max:5",
-            "course_id" => "nullable",
-        ]);
-
-        $test = Test::find($id);
-
-        $test->name = $validatedData["name"];
-        $test->completed = $validatedData["completed"] == "true" ? true : false;
-        $test->grade = $validatedData["grade"];
-        $test->EC = $validatedData["EC"];
-        $test->course_id = $validatedData["course_id"];
+        $test->update($request->validated());
+        if (!$request->has("completed")) {
+            $test->completed = 0;
+        }
 
         $test->save();
 
-        return redirect("tests");
+        return redirect("dashboard");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  object  $test
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Test $test)
     {
-        Test::find($id)->delete();
+        $test->delete();
 
-        return redirect("tests");
+        return redirect("dashboard");
     }
 }

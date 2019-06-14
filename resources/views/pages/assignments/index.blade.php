@@ -1,23 +1,23 @@
 @extends('templates/BasePage')
 @section("title", "Opdrachten")
 @section("content")
-    <div class="flex">
-        <a href="{{route("assignments.create")}}">
-            <div class="divButton">
+    <div class="container-fluid d-flex justify-content-center mb-3">
+        <form action="{{route("assignments.create")}}" method="get">
+            <button class="btn-lg" type="submit">
                 <i class="fas fa-plus"></i>
-            </div>
-        </a>
+            </button>
+        </form>
     </div>
     @foreach ($assignments as $assignment)
-        <div class="flex">
+        <div class="container text-center">
             <h3>{{$assignment->name}}</h3>
         </div>
-        <div class="flex">
+        <div class="container d-flex justify-content-center mb-3">
             <a href="/assignments/{{$assignment->id}}">
-                <img src="{{$assignment->url}}">
+                <img class="img-fluid" src="{{$assignment->url}}">
             </a>
         </div>
-        <div class="flex">
+        <div class="container text-center mb-5">
             <h3>{{$assignment->description}}</h3>
         </div>
     @endforeach

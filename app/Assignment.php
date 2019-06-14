@@ -11,6 +11,13 @@ class Assignment extends Model
         "url" => "",
         "description" => "",
     ];
+
+    protected $fillable = [
+        "name",
+        "url",
+        "description",
+    ];
+
     public $timestamps = false;
     protected $table = "assignments";
 }

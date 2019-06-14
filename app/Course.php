@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     /**
-    * Get the blok that owns the course.
+    * Get the bloks that owns the courses.
     */
     public function blok()
     {
@@ -15,16 +15,16 @@ class Course extends Model
     }
 
     /**
-     * Get the tests for the course.
+     * Get the test for the courses.
      */
     public function tests()
     {
         return $this->hasMany('App\Test');
     }
 
-    protected $attributes = [
-        "name" => "",
-        "blok_id" => -1,
+    protected $fillable = [
+        "name",
+        "blok_id",
     ];
 
     protected $table = "courses";

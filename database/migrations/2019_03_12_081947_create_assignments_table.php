@@ -13,7 +13,7 @@ class CreateAssignmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create("assignments", function (Blueprint $table) {
+        Schema::create("assignment", function (Blueprint $table) {
             $table->bigIncrements("id");
             $table->string("name");
             $table->string("url");
@@ -28,6 +28,6 @@ class CreateAssignmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists("assignments");
+        Schema::dropIfExists("assignment");
     }
 }

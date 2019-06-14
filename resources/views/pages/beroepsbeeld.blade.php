@@ -2,8 +2,10 @@
 @section("title", "Beroepsbeeld")
 @section("content")
     <p>Op deze pagina zal ik mijn mening en data over het beroep van ICT'er uitwerken.</p>
-    <img src="{{asset("images/hbo_i.jpg")}}" class="imageberoep rotate180" />
-    <p class="center cursive">Selfie van mij bij de ingang van het HBO-I Job Event.</p>
+    <div class="container">
+        <img src="{{asset("images/hbo_i.jpg")}}" class="img-fluid rotate180"/>
+    </div>
+    <p class="text-center font-italic">Selfie van mij bij de ingang van het HBO-I Job Event.</p>
     <p>Als eerste zal ik beginnen met wat ik heb geleerd bij het HBO-I Job Event.
         Er waren verrassend veel verschillende soorten organisaties aanwezig. Het eerste
         voorbeeld is de Rabobank. De vertegenwoordiger heeft mij verteld over de verschillende
@@ -11,22 +13,28 @@
         Verder heeft hij mij verteld over ITIL (Information Technology Infrastructure Library).
         Dit gebruiken zij om de beheersprocessen op te delen in logische groepen.
     </p>
-    <img src="{{asset("images/rabobank.jpg")}}" class="imageberoep" />
-    <p class="center cursive">Selfie van mij bij de opstelling van de Rabobank</p>
+    <div class="container">
+        <img src="{{asset("images/rabobank.jpg")}}" class="img-fluid" />
+    </div>
+    <p class="text-center font-italic">Selfie van mij bij de opstelling van de Rabobank</p>
     <p>Naast de Rabobank waren er meerdere overheidsinstanties aanwezig zoals het CBS en de
         Ministerie van Defensie. Ik vond persoonlijk het CBS iets interessanter dan Defensie.
         In mijn gesprek met de CBS vertegenwoordiger kreeg ik te horen dat Data Scientist de
         meest gewilde positie is.
     </p>
-    <img src="{{asset("images/stroopwafel.jpg")}}" class="imageberoep rotate270" />
-    <p class="center cursive">Tegen een vers gemaakte stroopwafel zeg ik geen nee.</p>
+    <div class="container d-flex justify-content-center">
+        <img src="{{asset("images/stroopwafel.jpg")}}" class="rotate270" />
+    </div>
+    <p class="text-center font-italic">Tegen een vers gemaakte stroopwafel zeg ik geen nee.</p>
     <p>Als volgende voorbeeld heb ik een, volgens mijn mening, hilarische genoemd bedrijf
         genaamd dongIT. De reden waarom ik de naam zo grappig vind is dat dit een bedrijf is
         dat pentesten (penetratie testen) uitvoert om de beveiling van websites en dergelijke
         te testen. Naast pentesten schrijven zij ook software met PHP.
     </p>
-    <img src="{{asset("images/dongit.jpg")}}" class="imageberoep rotate90" />
-    <p class="center cursive">Een zeer doordringend bedrijf</p>
+    <div class="container">
+        <img src="{{asset("images/dongit.jpg")}}" class="img-fluid rotate90" />
+    </div>
+    <p class="text-center font-italic">Een zeer doordringend bedrijf</p>
     <p>Hierna heb ik met het bedrijf chipSoft gesproken. ChipSoft is een bedrijf dat zich
         specialiseert in medische software. Zij zochten naar nieuwe software developers.
         Verder gebruiken zij de techniek van Scrummen. Dat is een techniek die men gebruikt
@@ -36,8 +44,10 @@
     <p>Als laatste heb ik met het bedrijf ETTU gesproken. Zij zochten naar AI enigneers.
         Hiernaast zei de vertegenwoordiger dat zij werken met blockchain technologie.
     </p>
-    <img src="{{asset("images/arcade.jpg")}}" class="imageberoep rotate90" />
-    <p class="center cursive">Even een kleine pauze nemen.</p>
+    <div class="container">
+        <img src="{{asset("images/arcade.jpg")}}" class="img-fluid rotate90" />
+    </div>
+    <p class="text-center font-italic">Even een kleine pauze nemen.</p>
     <p>Hier zal ik een beoordeling geven van de bedrijven die we bezocht hebben tijdens de bedrijvensafari.</p>
     <ol>
         <li>
@@ -56,8 +66,10 @@
                 A/B Testing en Business Intelligence. Het bedrijf is zeer informeel en dat vind ik goed, maar
                 ik vind het net iets te informeel.
             </p>
-            <img src="{{asset("images/scanner.jpg")}}" class="imageberoep" />
-            <p class="center cursive">Geavanceerd spul hier.</p>
+            <div class="container">
+                <img src="{{asset("images/scanner.jpg")}}" class="img-fluid" />
+            </div>
+            <p class="text-center font-italic">Geavanceerd spul hier.</p>
         </li>
         <li>
             <p>Car Collect is een bedrijf dat een platform ontwikkelt voor bedrijven om op auto's te bieden.
@@ -67,11 +79,16 @@
         </li>
         <li>
             <p>Omoda is een modebedrijf. Ik vind aan dit bedrijf weinig interessant, omdat het product mij
-                weinig kan schelen en ik vind dat je weinig aan de techniek kan innoveren.</p>
-            <img src="{{asset("images/magazijn.jpg")}}" class="imageberoep" />
-            <p class="center cursive">Dat zijn veel schoenen.</p>
-            <img src="{{asset("images/sorteer.jpg")}}" class="imageberoep" />
-            <p class="center cursive">Mooi uitzicht hierboven.</p>
+                weinig kan schelen en ik vind dat je weinig aan de techniek kan innoveren.
+            </p>
+            <div class="container">
+                <img src="{{asset("images/magazijn.jpg")}}" class="img-fluid" />
+            </div>
+            <p class="text-center font-italic">Dat zijn veel schoenen.</p>
+            <div class="container">
+                <img src="{{asset("images/sorteer.jpg")}}" class="img-fluid" />
+            </div>
+            <p class="text-center font-italic">Mooi uitzicht hierboven.</p>
         </li>
     </ol>
 @endsection

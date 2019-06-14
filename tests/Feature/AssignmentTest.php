@@ -15,16 +15,16 @@ class AssignmentTest extends TestCase
      */
     public function testGetIndex()
     {
-        $response = $this->get("/assignments");
+        $response = $this->get("/assignment");
 
         $response->assertStatus(200);
-        $response->assertViewHas("assignments");
+        $response->assertViewHas("assignment");
     }
 
     public function testGetShow()
     {
         $id = 1;
-        $response = $this->get("/assignments/$id");
+        $response = $this->get("/assignment/$id");
 
         $response->assertStatus(200);
         $response->assertViewHas("assignment");
@@ -33,7 +33,7 @@ class AssignmentTest extends TestCase
     public function testGetEdit()
     {
         $id = 1;
-        $response = $this->get("/assignments/$id/edit");
+        $response = $this->get("/assignment/$id/edit");
 
         $response->assertStatus(200);
         $response->assertViewHas("assignment");
@@ -41,7 +41,7 @@ class AssignmentTest extends TestCase
 
     public function testGetCreate()
     {
-        $response = $this->get("/assignments/create");
+        $response = $this->get("/assignment/create");
 
         $response->assertStatus(200);
     }
@@ -56,7 +56,7 @@ class AssignmentTest extends TestCase
         $response = $this
                         ->withSession(["_token" => $token])
                         ->post(
-                            "/assignments",
+                            "/assignment",
                             [
                                 "_token" => $token,
                                 "name" => $name,
@@ -66,7 +66,7 @@ class AssignmentTest extends TestCase
                         );
 
         $this->assertDatabaseHas(
-            "assignments",
+            "assignment",
             [
                 "name" => $name,
                 "url" => $url,

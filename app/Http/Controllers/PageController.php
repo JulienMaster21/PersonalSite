@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -40,7 +41,26 @@ class PageController extends Controller
         return view("pages/contact");
     }
 
+    function getUserPage () {
+        $user = Auth::user();
+        return view("pages/userPage", [
+            'user' => $user,
+        ]);
+    }
+
     function logOut () {
         Auth::logout();
+    }
+
+    function get403 () {
+        abort(403);
+    }
+
+    function get500 () {
+        abort(500);
+    }
+
+    function get419 () {
+        abort(419);
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Test extends Model
 {
     /**
-    * Get the course that owns the test.
+    * Get the courses that owns the tests.
     */
     public function course() {
         return $this->belongsTo('App\Course');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCourse;
 use App\Course;
 use App\Blok;
 use App\Test;
@@ -17,6 +18,7 @@ class CourseController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->authorizeResource(Course::class, "course");
     }
 
     /**
@@ -38,32 +40,22 @@ class CourseController extends Controller
     {
         $bloks = Blok::all();
 
-        return view("pages/courses.create", ["bloks" => $bloks]);
+        return view("pages/courses.create", [
+            "bloks" => $bloks
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\StoreCourse $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCourse $request)
     {
-        $validatedData = $request->validate(
-            [
-                "name" => "required|max:255|string",
-                "blok_id" => "nullable",
-            ]
-        );
+        Course::create($request->validated());
 
-        $course = new Course;
-
-        $course->name = $validatedData["name"];
-        $course->blok_id = $validatedData["blok_id"];
-
-        $course->save();
-
-        return redirect("tests");
+        return redirect("dashboard");
     }
 
     /**
@@ -72,10 +64,9 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Course $course)
     {
         $courses = Course::all();
-        $course = Course::find($id);
         $tests = Test::all();
         $blok = $course->blok;
 
@@ -93,9 +84,8 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Course $course)
     {
-        $course = Course::find($id);
         $bloks = Blok::all();
 
         return view("pages/courses.edit", [
@@ -111,21 +101,11 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreCourse $request, Course $course)
     {
-        $validatedData = $request->validate([
-            "name" => "required|max:255|string",
-            "blok_id" => "nullable",
-        ]);
+        $course->update($request->validated());
 
-        $course = Course::find($id);
-
-        $course->name = $validatedData["name"];
-        $course->blok_id = $validatedData["blok_id"];
-
-        $course->save();
-
-        return redirect("tests");
+        return redirect("dashboard");
     }
 
     /**
@@ -134,14 +114,13 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Course $course)
     {
-        $course = Course::find($id);
-
+        // Remove the associations with tests
         Test::where('course_id', $course->id)->update(['course_id' => NULL]);
 
         $course->delete();
 
-        return redirect("tests");
+        return redirect("dashboard");
     }
 }

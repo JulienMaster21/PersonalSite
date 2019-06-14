@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBlok;
 use Illuminate\Http\Request;
 use \App\Blok;
 use \App\Course;
@@ -16,6 +17,7 @@ class BlokController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->authorizeResource(Blok::class, "blok");
     }
 
     /**
@@ -44,15 +46,11 @@ class BlokController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBlok $request)
     {
-        $blok = new Blok;
+        Blok::create($request->validated());
 
-        $blok->id = $request->id;
-
-        $blok->save();
-
-        return redirect("tests");
+        return redirect("dashboard");
     }
 
     /**
@@ -61,9 +59,8 @@ class BlokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Blok $blok)
     {
-        $blok = Blok::find($id);
         $bloks = Blok::all();
         $courses = Course::all();
 
@@ -103,14 +100,13 @@ class BlokController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Blok $blok)
     {
-        $blok = Blok::find($id);
-
+        // Remove the associations with courses
         Course::where('blok_id', $blok->id)->update(['blok_id' => NULL]);
 
         $blok->delete();
 
-        return redirect("tests");
+        return redirect("dashboard");
     }
 }

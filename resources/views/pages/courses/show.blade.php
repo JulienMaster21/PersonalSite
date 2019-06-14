@@ -1,65 +1,60 @@
 @extends('templates/emptyPage')
 @section("title", "Cursus $course->id")
 @section("content")
-    <h3 class="center">Cursus</h3>
-        <div class="flex">
-            <h3>{{$course->name}}</h3>
-        </div>
-    <h3 class="center">Blok</h3>
-        <div class="flex">
-            @if ($course->blok_id == NULL)
-                <h3>Geen</h3>
-            @else
-                <h3>
-                    <a class="link" href="/bloks/{{ $blok->id }}">Blok {{ $blok->id }}</a>
-                </h3>
-            @endif
-        </div>
-        <h3 class="center">Toetsen</h3>
+    <h3 class="text-center">Cursus: {{ $course->name }}</h3>
+    <h3 class="text-center">
+        @if ($course->blok_id == NULL)
+            Blok: Geen
+        @else
+            <a class="link" href="/bloks/{{ $blok->id }}">Blok: {{ $blok->id }}</a>
+        @endif
+    </h3>
+        <h3 class="text-center">Toetsen:</h3>
             @if ($course->tests->isEmpty())
-                <div class="flex">
+                <div class="container mb-5">
                     <h3>Geen</h3>
                 </div>
             @else
                 @foreach ($tests->where("course_id", "=", $course->id) as $test)
-                        <div class="flex">
-                            <h3>
-                                <a class="link" href="/tests/{{ $test->id }}">{{ $test->name }}</a>
-                            </h3>
-                        </div>
+                    <div class="container mb-5">
+                        <h3>
+                            <a class="link" href="/tests/{{ $test->id }}">{{ $test->name }}</a>
+                        </h3>
+                    </div>
                 @endforeach
             @endif
-        <div class="flex marginbottom">
-            <a class="notDecorated" href="{{route("courses.create")}}">
-                <div class="divButton">
-                    <i class="fas fa-plus"></i>
-                </div>
-            </a>
-        </div>
-        <div class="flex marginbottom">
-            <form action="/courses/{{$course->id}}/edit" method="GET">
+    <div class="container mb-3">
+        <form action="{{ route("courses.create") }}" method="get">
+            <button type="submit">
+                <i class="fas fa-plus"></i>
+            </button>
+        </form>
+    </div>
+    <div class="container mb-3">
+        <form action="/courses/{{$course->id}}/edit" method="GET">
+            <button type="submit">
+                <i class="fas fa-pencil-alt"></i>
+            </button>
+        </form>
+    </div>
+    @if (count($courses) === 1)
+
+    @else
+        <div class="container mb-3">
+            <form action="/courses/{{$course->id}}" method="POST">
+                @method("DELETE")
+                @csrf
                 <button type="submit">
-                    <i class="fas fa-pencil-alt"></i>
+                    <i class="fas fa-trash-alt"></i>
                 </button>
             </form>
         </div>
-        @if (count($courses) == 1)
-
-        @else
-            <div class="flex marginbottom">
-                <form action="/courses/{{$course->id}}" method="POST">
-                    @method("DELETE")
-                    @csrf
-                    <button type="submit">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </form>
-            </div>
-        @endif
-        <div class="flex">
-            <a class="notDecorated" href="{{route("tests.index")}}">
-                <div class="divButton">
-                    <i class="fas fa-arrow-left"></i>
-                </div>
-            </a>
-        </div>
+    @endif
+    <div class="container">
+        <form action="{{ route("tests.index") }}" method="get">
+            <button type="submit">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+        </form>
+    </div>
+@endsection
