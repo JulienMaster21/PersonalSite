@@ -1,4 +1,4 @@
-@extends('templates/BasePage')
+@extends('templates/basePage')
 @section("title", "Opdrachten")
 @section("content")
     <div class="container-fluid d-flex justify-content-center mb-3">
