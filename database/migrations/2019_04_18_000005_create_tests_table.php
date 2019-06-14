@@ -10,11 +10,11 @@ class CreateTestsTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'test';
+    public $tableName = 'tests';
 
     /**
      * Run the migrations.
-     * @table test
+     * @table tests
      *
      * @return void
      */

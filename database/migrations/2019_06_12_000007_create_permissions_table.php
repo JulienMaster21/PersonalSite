@@ -25,8 +25,6 @@ class CreatePermissionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
 
-            $table->unique(["id"], 'id_UNIQUE');
-
             $table->unique(["name"], 'name_UNIQUE');
             $table->nullableTimestamps();
         });
