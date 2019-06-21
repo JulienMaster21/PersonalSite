@@ -213,6 +213,11 @@ td {
     font-weight: bold;
 }
 
+.assignmentImage {
+    min-width: 20vw;
+    min-height: 20vh;
+}
+
 @media screen and (max-width: 1007px) {
     .list_box {
         flex: none;

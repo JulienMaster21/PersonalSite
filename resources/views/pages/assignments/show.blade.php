@@ -4,7 +4,7 @@
     <h3 class="text-center">Naam: {{ $assignment->name }}</h3>
     <h3 class="text-center">Afbeelding:</h3>
         <div class="container mb-3">
-            <img class="img-fluid assignmentImage" src="{{ $assignment->url }}">
+            <img class="img-fluid" src="{{ $assignment->url }}">
         </div>
     <h3 class="text-center mb-3">Beschrijving: {{ $assignment->description }}</h3>
     <div class="container mb-3">
