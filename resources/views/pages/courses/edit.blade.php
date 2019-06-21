@@ -42,5 +42,5 @@
             </button>
         </form>
     </div>
-    <script rel="javascript" src="{{ asset("js/validateCourse.js") }}"></script>
+    <script rel="javascript" src="{{ secure_asset("js/validateCourse.js") }}"></script>
 @endsection

@@ -14,7 +14,7 @@
         </div>
         <div class="container d-flex justify-content-center mb-3">
             <a href="/assignments/{{$assignment->id}}">
-                <img class="img-fluid" src="{{$assignment->url}}">
+                <img class="img-fluid assignmentImage" src="{{$assignment->url}}">
             </a>
         </div>
         <div class="container text-center mb-5">

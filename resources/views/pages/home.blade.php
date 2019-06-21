@@ -27,7 +27,7 @@
             </p>
         </div>
         <div class="image_box col-sm">
-            <img class="img-fluid" src="{{asset("images/de_rede.jpg")}}" />
+            <img class="img-fluid" src="{{secure_asset("images/de_rede.jpg")}}" />
             <p class="font-italic">Hier heb ik mijn Atheneum diploma behaald.</p>
         </div>
     </section>

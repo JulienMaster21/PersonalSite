@@ -96,22 +96,22 @@
     <h3>Beoordeling</h3>
     <ul>
         <li>
-            <a class="link" href="{{asset("pdf/beoordeling_pitch.pdf")}}">Beoordeling Pitch [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_pitch.pdf</a>
+            <a class="link" href="{{secure_asset("pdf/beoordeling_pitch.pdf")}}">Beoordeling Pitch [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_pitch.pdf</a>
         </li>
         <li>
-            <a class="link" href="{{asset("pdf/beoordeling_functioneel_1.pdf")}}">Beoordeling Functioneel 1 [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_functioneel_1.pdf</a>
+            <a class="link" href="{{secure_asset("pdf/beoordeling_functioneel_1.pdf")}}">Beoordeling Functioneel 1 [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_functioneel_1.pdf</a>
         </li>
         <li>
-            <a class="link" href="{{asset("pdf/beoordeling_functioneel_2.pdf")}}">Beoordeling Functioneel 2 [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_functioneel_2.pdf</a>
+            <a class="link" href="{{secure_asset("pdf/beoordeling_functioneel_2.pdf")}}">Beoordeling Functioneel 2 [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_functioneel_2.pdf</a>
         </li>
         <li>
-            <a class="link" href="{{asset("pdf/beoordeling_technisch_1.pdf")}}">Beoordeling Technisch 1 [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_technisch_1.pdf</a>
+            <a class="link" href="{{secure_asset("pdf/beoordeling_technisch_1.pdf")}}">Beoordeling Technisch 1 [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_technisch_1.pdf</a>
         </li>
         <li>
-            <a class="link" href="{{asset("pdf/beoordeling_technisch_2.pdf")}}">Beoordeling Technisch 2 [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_technisch_2.pdf</a>
+            <a class="link" href="{{secure_asset("pdf/beoordeling_technisch_2.pdf")}}">Beoordeling Technisch 2 [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_technisch_2.pdf</a>
         </li>
         <li>
-            <a class="link" href="{{asset("pdf/analyse_feedback.pdf")}}">Beoordeling Analyse Feedback [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_analyse_feedback.pdf</a>
+            <a class="link" href="{{secure_asset("pdf/analyse_feedback.pdf")}}">Beoordeling Analyse Feedback [pdf bestand]. (z.d.). Geraadpleegd op 17 september 2018, van bronnen/beoordeling_analyse_feedback.pdf</a>
         </li>
     </ul>
     <h3>Internetbronnen</h3>

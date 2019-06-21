@@ -41,10 +41,10 @@
         </main>
         <div class="image_box col-sm">
             <a href="https://www.instagram.com/julienmaster21/">
-                <img class="img-fluid" src="{{asset("images/terminator_captain.jpg")}}" alt="My miniature model of a terminator captain."/></a>
+                <img class="img-fluid" src="{{secure_asset("images/terminator_captain.jpg")}}" alt="My miniature model of a terminator captain."/></a>
             <p>Dit is een van mijn modellen die ik in elkaar heb gezet en geschilderd.</p>
             <a href="{{route("emperor")}}">
-                <img class="img-fluid" src="{{asset("images/emperor_of_mankind.jpg")}}" alt="The Holy image of the Emperor of Mankind."/>
+                <img class="img-fluid" src="{{secure_asset("images/emperor_of_mankind.jpg")}}" alt="The Holy image of the Emperor of Mankind."/>
             </a>
             <p>Dit is de Emperor of Mankind. Hij is de leider van de Imperium of Man.</p>
         </div>

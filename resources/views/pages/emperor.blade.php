@@ -2,18 +2,18 @@
 @section("title", "FOR THE EMPEROR!")
 @section("content")
     <audio loop autoplay>
-        <source src= "{{asset("audio/we_are_one.mp3")}}" type="audio/mpeg">
+        <source src= "{{secure_asset("audio/we_are_one.mp3")}}" type="audio/mpeg">
     </audio>
     <main>
         <a href="{{route("about")}}">
-            <img class="memes emperormeme" src="{{asset("images/taste_the_rainbow.gif")}}"/>
+            <img class="memes emperormeme" src="{{secure_asset("images/taste_the_rainbow.gif")}}"/>
         </a>
-        <img class="memes" src="{{asset("images/drive_me_closer.jpg")}}"/>
-        <img class="memes" src="{{asset("images/artillery.jpg")}}"/>
-        <img class="memes" src="{{asset("images/social.jpg")}}"/>
-        <img class="memes" src="{{asset("images/dont_worry.jpg")}}"/>
-        <img class="memes" class="" src="{{asset("images/i_dont_want_to.jpg")}}"/>
-        <img class="memes" src="{{asset("images/dreadnought.jpg")}}"/>
+        <img class="memes" src="{{secure_asset("images/drive_me_closer.jpg")}}"/>
+        <img class="memes" src="{{secure_asset("images/artillery.jpg")}}"/>
+        <img class="memes" src="{{secure_asset("images/social.jpg")}}"/>
+        <img class="memes" src="{{secure_asset("images/dont_worry.jpg")}}"/>
+        <img class="memes" class="" src="{{secure_asset("images/i_dont_want_to.jpg")}}"/>
+        <img class="memes" src="{{secure_asset("images/dreadnought.jpg")}}"/>
     </main>
     <div class="container mt-5">
         <form action="{{ route('about') }}">
@@ -22,5 +22,5 @@
             </button>
         </form>
     </div>
-    <script src="{{asset("js/meme.js")}}" rel="javascript"></script>
+    <script src="{{secure_asset("js/meme.js")}}" rel="javascript"></script>
 @endsection
