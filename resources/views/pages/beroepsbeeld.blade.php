@@ -3,7 +3,7 @@
 @section("content")
     <p>Op deze pagina zal ik mijn mening en data over het beroep van ICT'er uitwerken.</p>
     <div class="container">
-        <img src="{{secure_asset("images/hbo_i.jpg")}}" class="img-fluid rotate180"/>
+        <img src="{{secure_asset("images/hbo_i.jpg")}}" class="img-fluid"/>
     </div>
     <p class="text-center font-italic">Selfie van mij bij de ingang van het HBO-I Job Event.</p>
     <p>Als eerste zal ik beginnen met wat ik heb geleerd bij het HBO-I Job Event.
@@ -23,7 +23,7 @@
         meest gewilde positie is.
     </p>
     <div class="container d-flex justify-content-center">
-        <img src="{{secure_asset("images/stroopwafel.jpg")}}" class="rotate270" />
+        <img src="{{secure_asset("images/stroopwafel.jpg")}}" class="img-fluid" />
     </div>
     <p class="text-center font-italic">Tegen een vers gemaakte stroopwafel zeg ik geen nee.</p>
     <p>Als volgende voorbeeld heb ik een, volgens mijn mening, hilarische genoemd bedrijf
@@ -32,7 +32,7 @@
         te testen. Naast pentesten schrijven zij ook software met PHP.
     </p>
     <div class="container">
-        <img src="{{secure_asset("images/dongit.jpg")}}" class="img-fluid rotate90" />
+        <img src="{{secure_asset("images/dongit.jpg")}}" class="img-fluid" />
     </div>
     <p class="text-center font-italic">Een zeer doordringend bedrijf</p>
     <p>Hierna heb ik met het bedrijf chipSoft gesproken. ChipSoft is een bedrijf dat zich
@@ -45,7 +45,7 @@
         Hiernaast zei de vertegenwoordiger dat zij werken met blockchain technologie.
     </p>
     <div class="container">
-        <img src="{{secure_asset("images/arcade.jpg")}}" class="img-fluid rotate90" />
+        <img src="{{secure_asset("images/arcade.jpg")}}" class="img-fluid" />
     </div>
     <p class="text-center font-italic">Even een kleine pauze nemen.</p>
     <p>Hier zal ik een beoordeling geven van de bedrijven die we bezocht hebben tijdens de bedrijvensafari.</p>
