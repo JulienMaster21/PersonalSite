@@ -8,7 +8,7 @@ function checkName () {
     let name = document.getElementById('name').value;
 
     // Define the regex for checking the name value
-    let nameRegex = /^[a-zA-Z0-9]{6,255}$/;
+    let nameRegex = /^[a-zA-Z0-9 ]{6,255}$/;
     let nameValidationSucceeded = nameRegex.test(name);
 
     // Define error message on wrong name
