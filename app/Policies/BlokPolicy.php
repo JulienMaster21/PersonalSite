@@ -19,7 +19,16 @@ class BlokPolicy
      */
     public function view(User $user, Blok $blok)
     {
-        return $user->roles()->first()->permissions()->where('name', '=', 'view_blok')->first();
+        $can_view = null;
+        $roles = $user->roles()->get();
+
+        foreach ($roles as $role) {
+            if ($role->permissions()->get()->contains('name', '=', 'view_blok')) {
+                $can_view = true;
+            }
+        }
+
+        return $can_view;
     }
 
     /**
@@ -30,7 +39,16 @@ class BlokPolicy
      */
     public function create(User $user)
     {
-        return $user->roles()->first()->permissions()->where('name', '=', 'create_blok')->first();
+        $can_create = null;
+        $roles = $user->roles()->get();
+
+        foreach ($roles as $role) {
+            if ($role->permissions()->get()->contains('name', '=', 'create_blok')) {
+                $can_create = true;
+            }
+        }
+
+        return $can_create;
     }
 
     /**
@@ -42,7 +60,16 @@ class BlokPolicy
      */
     public function update(User $user, Blok $blok)
     {
-        return $user->roles()->first()->permissions()->where('name', '=', 'update_blok')->first();
+        $can_update = null;
+        $roles = $user->roles()->get();
+
+        foreach ($roles as $role) {
+            if ($role->permissions()->get()->contains('name', '=', 'update_blok')) {
+                $can_update = true;
+            }
+        }
+
+        return $can_update;
     }
 
     /**
@@ -54,7 +81,16 @@ class BlokPolicy
      */
     public function delete(User $user, Blok $blok)
     {
-        return $user->roles()->first()->permissions()->where('name', '=', 'delete_blok')->first();
+        $can_delete = null;
+        $roles = $user->roles()->get();
+
+        foreach ($roles as $role) {
+            if ($role->permissions()->get()->contains('name', '=', 'delete_blok')) {
+                $can_delete = true;
+            }
+        }
+
+        return $can_delete;
     }
 
     /**

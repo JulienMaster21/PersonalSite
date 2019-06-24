@@ -19,7 +19,16 @@ class CoursePolicy
      */
     public function view(User $user, Course $course)
     {
-        return $user->roles()->first()->permissions()->where('name', '=', 'view_course')->first();
+        $can_view = null;
+        $roles = $user->roles()->get();
+
+        foreach ($roles as $role) {
+            if ($role->permissions()->get()->contains('name', '=', 'view_course')) {
+                $can_view = true;
+            }
+        }
+
+        return $can_view;
     }
 
     /**
@@ -30,7 +39,16 @@ class CoursePolicy
      */
     public function create(User $user)
     {
-        return $user->roles()->first()->permissions()->where('name', '=', 'create_course')->first();
+        $can_create = null;
+        $roles = $user->roles()->get();
+
+        foreach ($roles as $role) {
+            if ($role->permissions()->get()->contains('name', '=', 'create_course')) {
+                $can_create = true;
+            }
+        }
+
+        return $can_create;
     }
 
     /**
@@ -42,7 +60,16 @@ class CoursePolicy
      */
     public function update(User $user, Course $course)
     {
-        return $user->roles()->first()->permissions()->where('name', '=', 'update_course')->first();
+        $can_update = null;
+        $roles = $user->roles()->get();
+
+        foreach ($roles as $role) {
+            if ($role->permissions()->get()->contains('name', '=', 'update_course')) {
+                $can_update = true;
+            }
+        }
+
+        return $can_update;
     }
 
     /**
@@ -54,7 +81,16 @@ class CoursePolicy
      */
     public function delete(User $user, Course $course)
     {
-        return $user->roles()->first()->permissions()->where('name', '=', 'delete_course')->first();
+        $can_delete = null;
+        $roles = $user->roles()->get();
+
+        foreach ($roles as $role) {
+            if ($role->permissions()->get()->contains('name', '=', 'delete_course')) {
+                $can_delete = true;
+            }
+        }
+
+        return $can_delete;
     }
 
     /**
