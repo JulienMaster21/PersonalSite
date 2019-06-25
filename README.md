@@ -2,6 +2,8 @@
 
 ## Authenticatie
 
+Ik heb authenticatie nodig, want ik heb cijfers op mijn site staan die ik alleen door vertrouwde
+gebruikers wil kunnen laten aanpassen. Ik moet hiervoor weten wie de gebruiker is.
 Voor authenticatie gebruik ik Laravel's middleware.
 De reden hiervoor is dat je dit makkelijk kunt opzetten met een artisan commando.
 Het implementeren ervan is ook niet zoveel werk,
@@ -10,6 +12,8 @@ Ik moest verder geen exotische inlogsysteem hebben, dus waarom zou ik zelf een i
 
 ## Authorisatie
 
+Ik heb authorisatie nodig, want ik heb cijfers op mijn site staan die ik alleen door vertrouwde
+gebruikers wil kunnen laten aanpassen.
 Voor authorisatie gebruik ik een RBAC systeem dat gebruik maakt van Policies.
 Het RBAC systeem bestaat uit Users die een many to many relatie heeft met roles
 die weer een many to many relatie heeft met permissies.
@@ -31,10 +35,10 @@ Om te registreren moet je op de geen account? klikken en het form invullen.
 
 ## Handleiding om authorisatie te testen
 
-Maak een gebruiker aan via de register pagina. Die gebruiker is een 'user'.
-Ga dan naar het dashboard en klik op een de naam van een toets, cursus of blok.
-Klik daarna op de de create, update of delete knoppen. De user mag de show pagina zien,
-maar niet anders.
+Maak een gebruiker aan via de register pagina. Die gebruiker is een 'gebruiker'.
+Ga dan naar het dashboard en klik op de naam van een toets, cursus of blok.
+Er staan geen create, update of delete knoppen. De user mag de show pagina zien,
+maar niets anders.
 Als je dit wel wil kunnen aanpassen moet je via de database de rol van de gebruiker aanpassen.
 Je moet dan in de role_user tabel de rij van de user aanpassen. Verander de role id van 1 naar 2.
 De gebruiker is nu een administrator.
