@@ -14,6 +14,7 @@
             @endforeach
         @endif
     </div>
+    @can('create', $blok)
         <div class="container mb-3">
             <form action="/bloks" method="post">
                 @csrf
@@ -22,6 +23,8 @@
                 </button>
             </form>
         </div>
+    @endcan
+    @can('delete', $blok)
         @if (count($bloks) == 1)
 
         @else
@@ -35,11 +38,12 @@
                 </form>
             </div>
         @endif
-        <div class="container">
-            <form action="{{ route("test") }}" method="get">
-                <button type="submit">
-                    <i class="fas fa-arrow-left"></i>
-                </button>
-            </form>
-        </div>
+    @endcan
+    <div class="container">
+        <form action="{{ route("tests.index") }}" method="get">
+            <button type="submit">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+        </form>
+    </div>
 @endsection

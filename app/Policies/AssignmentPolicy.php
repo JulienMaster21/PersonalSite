@@ -17,7 +17,7 @@ class AssignmentPolicy
      * @param  \App\Assignment  $assignment
      * @return mixed
      */
-    public function view(User $user, Assignment $assignment)
+    public function view(User $user)
     {
         $can_view = null;
         $roles = $user->roles()->get();

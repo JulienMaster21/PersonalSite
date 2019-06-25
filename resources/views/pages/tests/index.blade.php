@@ -16,14 +16,22 @@
             @foreach ($bloks as $blok)
                 <tr class="blok">
                     <td colspan="5">
-                        <a class="link" href="bloks/{{ $blok->id }}">Blok {{ $blok->id }}</a>
+                        @can('view', $blok)
+                            <a class="link" href="bloks/{{ $blok->id }}">Blok {{ $blok->id }}</a>
+                        @else
+                            Blok {{ $blok->id }}
+                        @endcan
                     </td>
                 </tr>
                 @foreach ($courses->where("blok_id", "=", $blok->id) as $course)
                     @if ($course->tests->isEmpty())
                         <tr>
                             <td>
-                                <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
+                                @can('view', $course)
+                                    <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
+                                @else
+                                    {{ $course->name }}
+                                @endcan
                             </td>
                             <td>Geen</td>
                             <td>Geen</td>
@@ -34,10 +42,18 @@
                         @foreach ($tests->where("course_id", "=", $course->id) as $test)
                             <tr>
                                 <td>
-                                    <a class="link" href="courses/{{ $course->id }}">{{ $course->name }}</a>
+                                    @can('view', $course)
+                                        <a class="link" href="courses/{{ $course->id }}">{{ $course->name }}</a>
+                                    @else
+                                        {{ $course->name }}
+                                    @endcan
                                 </td>
                                 <td>
-                                    <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>
+                                    @can('view', $test)
+                                        <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>
+                                    @else
+                                        {{ $test->name }}
+                                    @endcan
                                 </td>
                                 <td>{{ $test->completed === 1 ? "Ja" : "Nee" }}</td>
                                 <td>{{ $test->grade }}</td>
@@ -56,7 +72,11 @@
             @foreach ($courses->where("blok_id", "=", NULL) as $course)
                 <tr>
                     <td colspan="5">
-                        <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
+                        @can('view', $course)
+                            <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
+                        @else
+                            {{ $course->name }}
+                        @endcan
                     </td>
                 </tr>
                 @endforeach
@@ -72,7 +92,11 @@
             @foreach ($tests->where("course_id", "=", NULL) as $test)
                 <tr>
                     <td colspan="2">
-                        <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>
+                        @can('view', $test)
+                            <a class="link" href="tests/{{ $test->id }}">{{ $test->name }}</a>
+                        @else
+                            {{ $test->name }}
+                        @endcan
                     </td>
                     <td>{{ $test->completed === 1 ? "Ja" : "Nee" }}</td>
                     <td>{{ $test->grade }}</td>

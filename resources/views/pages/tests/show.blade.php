@@ -12,34 +12,40 @@
             <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
         @endif
     </h3>
-    <div class="container mb-3">
-        <form action="{{ route("tests.create") }}" method="get">
-            <button type="submit">
-                <i class="fas fa-plus"></i>
-            </button>
-        </form>
-    </div>
-    <div class="container mb-3">
-        <form action="/tests/{{ $test->id }}/edit" method="GET">
-            <button type="submit">
-                <i class="fas fa-pencil-alt"></i>
-            </button>
-        </form>
-    </div>
-    {{-- Check to see if this is the final tests --}}
-    @if (count($tests) === 1)
-
-    @else
+    @can('create', $test)
         <div class="container mb-3">
-            <form action="/tests/{{ $test->id }}" method="POST">
-                @method("DELETE")
-                @csrf
+            <form action="{{ route("tests.create") }}" method="get">
                 <button type="submit">
-                    <i class="fas fa-trash-alt"></i>
+                    <i class="fas fa-plus"></i>
                 </button>
             </form>
         </div>
-    @endif
+    @endcan
+    @can('update', $test)
+        <div class="container mb-3">
+            <form action="/tests/{{ $test->id }}/edit" method="GET">
+                <button type="submit">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+            </form>
+        </div>
+    @endcan
+    @can('delete', $test)
+        {{-- Check to see if this is the final test --}}
+        @if (count($tests) === 1)
+
+        @else
+            <div class="container mb-3">
+                <form action="/tests/{{ $test->id }}" method="POST">
+                    @method("DELETE")
+                    @csrf
+                    <button type="submit">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+            </div>
+        @endif
+    @endcan
     <div class="container">
         <form action="{{ route("tests.index") }}" method="get">
             <button type="submit">
