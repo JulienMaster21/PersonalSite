@@ -20,6 +20,6 @@ class Test extends Model
         "EC",
         "course_id"
     ];
+
     protected $table = "tests";
-    public $timestamps = false;
 }

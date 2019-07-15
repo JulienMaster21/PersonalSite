@@ -18,5 +18,4 @@ class Blok extends Model
         "id" => -1,
     ];
     protected $table = "bloks";
-    public $timestamps = false;
 }

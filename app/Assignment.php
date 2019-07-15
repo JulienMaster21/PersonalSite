@@ -18,6 +18,5 @@ class Assignment extends Model
         "description",
     ];
 
-    public $timestamps = false;
     protected $table = "assignments";
 }
