@@ -182,6 +182,8 @@ td {
 .mobile_navbar {
     position: fixed;
     top: 9em;
+    left: 50%;
+    transform: translateX(-50%);
     border: 2px dashed #00FF33;
     background-color: black;
     display: none;
