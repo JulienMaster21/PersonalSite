@@ -16,6 +16,9 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, th, td, tr, li, label {
 .link:hover {
     color: red;
 }
+.link:hover h3 {
+    color: red;
+}
 /*Images*/
 .memes {
     dankness: maximum;
