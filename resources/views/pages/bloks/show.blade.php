@@ -3,7 +3,7 @@
 @section("content")
     <h3 class="text-center">Blok: {{$blok->id}}</h3>
     <h3 class="text-center">Cursussen:</h3>
-    <div class="container text-center mb-5">
+    <div class="container text-center mb-3">
         @if ($blok->courses->isEmpty())
                 <h3>Geen</h3>
         @else
@@ -14,6 +14,8 @@
             @endforeach
         @endif
     </div>
+    <h3 class="text-center">Gemaakt op: {{ $blok->created_at }}</h3>
+    <h3 class="text-center mb-5">Laatst aangepast op: {{ $blok->updated_at }}</h3>
     @can('create', $blok)
         <div class="container mb-3">
             <form action="/bloks" method="post">

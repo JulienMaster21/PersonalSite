@@ -6,7 +6,9 @@
         <div class="container mb-3">
             <img class="img-fluid" src="{{ $assignment->url }}">
         </div>
-    <h3 class="text-center mb-3">Beschrijving: {{ $assignment->description }}</h3>
+    <h3 class="text-center">Beschrijving: {{ $assignment->description }}</h3>
+    <h3 class="text-center">Gemaakt op: {{ $assignment->created_at }}</h3>
+    <h3 class="text-center mb-3">Laatst aangepast op: {{ $assignment->updated_at }}</h3>
     @can('update', $assignment)
         <div class="container mb-3">
             <form action="/assignments/{{$assignment->id}}/edit" method="GET">

@@ -9,20 +9,22 @@
             <a class="link" href="/bloks/{{ $blok->id }}">Blok: {{ $blok->id }}</a>
         @endif
     </h3>
-        <h3 class="text-center">Toetsen:</h3>
-            @if ($course->tests->isEmpty())
-                <div class="container mb-5">
-                    <h3>Geen</h3>
+    <h3 class="text-center">Toetsen:</h3>
+        @if ($course->tests->isEmpty())
+            <div class="container mb-3">
+                <h3>Geen</h3>
+            </div>
+        @else
+            @foreach ($tests->where("course_id", "=", $course->id) as $test)
+                <div class="container mb-3">
+                    <h3>
+                        <a class="link" href="/tests/{{ $test->id }}">{{ $test->name }}</a>
+                    </h3>
                 </div>
-            @else
-                @foreach ($tests->where("course_id", "=", $course->id) as $test)
-                    <div class="container mb-5">
-                        <h3>
-                            <a class="link" href="/tests/{{ $test->id }}">{{ $test->name }}</a>
-                        </h3>
-                    </div>
-                @endforeach
-            @endif
+            @endforeach
+        @endif
+    <h3 class="text-center">Gemaakt op: {{ $course->created_at }}</h3>
+    <h3 class="text-center mb-5">Laatst aangepast op: {{ $course->updated_at }}</h3>
     @can('create', $course)
         <div class="container mb-3">
             <form action="{{ route("courses.create") }}" method="get">

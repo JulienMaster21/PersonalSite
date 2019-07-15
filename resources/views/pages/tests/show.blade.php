@@ -5,13 +5,15 @@
     <h3 class="text-center">Behaald: {{ $test->completed === 1 ? "Ja" : "Nee" }}</h3>
     <h3 class="text-center">Cijfer: {{ $test->grade }}</h3>
     <h3 class="text-center">EC's: {{ $test->EC }}</h3>
-    <h3 class="text-center mb-3">Cursus:
+    <h3 class="text-center">Cursus:
         @if ($test->course_id === NULL)
             Geen
         @else
             <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
         @endif
     </h3>
+    <h3 class="text-center">Gemaakt op: {{ $test->created_at }}</h3>
+    <h3 class="text-center mb-5">Laatst aangepast op: {{ $test->updated_at }}</h3>
     @can('create', $test)
         <div class="container mb-3">
             <form action="{{ route("tests.create") }}" method="get">

@@ -15,7 +15,8 @@ class Blok extends Model
     }
 
     protected $attributes = [
-        "id" => -1,
+
     ];
+
     protected $table = "bloks";
 }
