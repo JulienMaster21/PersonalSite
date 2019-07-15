@@ -25,10 +25,11 @@ class CreateRoleUserTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('role_id');
 
+            $table->nullableTimestamps();
+
             $table->index(["user_id"], 'fk_users_has_Role_users1_idx');
 
             $table->index(["role_id"], 'fk_users_has_Role_Role1_idx');
-            $table->nullableTimestamps();
 
 
             $table->foreign('user_id', 'fk_users_has_Role_users1_idx')

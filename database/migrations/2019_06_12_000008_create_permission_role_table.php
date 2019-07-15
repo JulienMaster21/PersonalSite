@@ -25,10 +25,11 @@ class CreatePermissionRoleTable extends Migration
             $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('permission_id');
 
+            $table->nullableTimestamps();
+
             $table->index(["role_id"], 'fk_roles_has_permissions_roles1_idx');
 
             $table->index(["permission_id"], 'fk_roles_has_permissions_permissions1_idx');
-            $table->nullableTimestamps();
 
 
             $table->foreign('role_id', 'fk_roles_has_permissions_roles1_idx')

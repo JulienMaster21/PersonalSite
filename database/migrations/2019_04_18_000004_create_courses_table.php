@@ -26,6 +26,8 @@ class CreateCoursesTable extends Migration
             $table->unsignedInteger('blok_id')->nullable();
             $table->string('name');
 
+            $table->nullableTimestamps();
+
             $table->index(["blok_id"], 'fk_courses_bloks_idx');
 
 

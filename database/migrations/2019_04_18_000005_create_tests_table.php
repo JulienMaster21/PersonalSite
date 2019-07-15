@@ -29,6 +29,8 @@ class CreateTestsTable extends Migration
             $table->float('grade')->nullable();
             $table->float('EC')->nullable();
 
+            $table->nullableTimestamps();
+
             $table->index(["course_id"], 'fk_tests_courses1_idx');
 
 

@@ -26,6 +26,8 @@ class CreateAssignmentsTable extends Migration
             $table->string('name');
             $table->string('url');
             $table->string('description');
+
+            $table->nullableTimestamps();
         });
     }
 

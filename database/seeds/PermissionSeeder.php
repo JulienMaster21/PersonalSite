@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class PermissionSeeder extends Seeder
@@ -12,22 +13,22 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         DB::table('permissions')->insert([
-            ['name' => 'view_test'],
-            ['name' => 'create_test'],
-            ['name' => 'update_test'],
-            ['name' => 'delete_test'],
-            ['name' => 'view_course'],
-            ['name' => 'create_course'],
-            ['name' => 'update_course'],
-            ['name' => 'delete_course'],
-            ['name' => 'view_blok'],
-            ['name' => 'create_blok'],
-            ['name' => 'update_blok'],
-            ['name' => 'delete_blok'],
-            ['name' => 'view_assignment'],
-            ['name' => 'create_assignment'],
-            ['name' => 'update_assignment'],
-            ['name' => 'delete_assignment'],
+            ['name' => 'view_test',         "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'create_test',       "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'update_test',       "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'delete_test',       "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'view_course',       "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'create_course',     "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'update_course',     "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'delete_course',     "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'view_blok',         "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'create_blok',       "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'update_blok',       "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'delete_blok',       "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'view_assignment',   "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'create_assignment', "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'update_assignment', "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['name' => 'delete_assignment', "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
         ]);
     }
 }
