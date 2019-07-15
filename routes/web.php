@@ -32,7 +32,7 @@ Route::get("/emperor", "PageController@getEmperor")
 Route::get("/contact", "PageController@getContact")
         ->name("contact");
 
-Route::get('/userpage', 'PageController@getUserPage')
+Route::get('/userpage', 'UserController@getUserPage')
         ->name('userPage');
 
 Route::get("/500", 'PageController@get500')

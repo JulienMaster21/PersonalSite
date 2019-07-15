@@ -40,13 +40,17 @@
                     Login
                 </button>
             </div>
-
-            <div class="form-group">
-                <a class="link" href="{{ route('register') }}">
-                    Geen account?
-                </a>
-            </div>
         </form>
+        <div>
+            <a class="link" href="{{ route('register') }}">
+                Geen account?
+            </a>
+        </div>
+        <div>
+            <a class="link" href="{{ route('home') }}">
+                Inloggen als gast?
+            </a>
+        </div>
     </div>
     <script rel="javascript" src="{{ secure_asset("js/validateLogin.js") }}"></script>
 @endsection

@@ -7,16 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     function getHome () {
         return view("pages/home");
     }
@@ -39,17 +29,6 @@ class PageController extends Controller
 
     function getContact () {
         return view("pages/contact");
-    }
-
-    function getUserPage () {
-        $user = Auth::user();
-        return view("pages/userPage", [
-            'user' => $user,
-        ]);
-    }
-
-    function logOut () {
-        Auth::logout();
     }
 
     function get403 () {

@@ -15,21 +15,32 @@
         <title>@yield("title")</title>
     </head>
     <body>
-        <!--Profile bar-->
-        <section class="profile_bar d-flex justify-content-end my-3">
-            <form action="{{ route('userPage') }}" method="get">
-                <button type="submit">
-                    <i class="fas fa-user"></i>
-                </button>
-            </form>
-            <form class="mx-3" action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit">
-                    <i class="fas fa-sign-out-alt"></i>
-                </button>
-            </form>
-        </section>
-        <!--Mobile dropdown menu-->
+        <!-- Profile bar -->
+        <!-- Check if user is logged in -->
+        @if (\Illuminate\Support\Facades\Auth::check())
+            <section class="profile_bar d-flex justify-content-end my-3">
+                <form action="{{ route('userPage') }}" method="get">
+                    <button type="submit">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </form>
+                <form class="mx-3" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </form>
+            </section>
+        @else
+            <section class="profile_bar d-flex justify-content-end my-3">
+                <form class="mx-3" action="{{ route('login') }}" method="get">
+                    <button type="submit">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </form>
+            </section>
+        @endif
+        <!-- Mobile dropdown menu -->
         <section>
             <button class="hamburger_button btn-lg ml-4" type="button" onclick="menu();">
                 <i class="fa fa-bars"></i>
@@ -59,16 +70,19 @@
                 </div>
             </a>
             @endif
-            @if (url()->current() == "tests")
-                <div class="mobile_navbutton_active">
-                    <h3>Dashboard</h3>
-                </div>
-            @else
-            <a href="{{ route("dashboard") }}">
-                <div class="mobile_navbutton">
-                    <h3>Dashboard</h3>
-                </div>
-            </a>
+            <!-- Check if user is logged in -->
+            @if (\Illuminate\Support\Facades\Auth::check())
+                @if (url()->current() == "tests")
+                    <div class="mobile_navbutton_active">
+                        <h3>Dashboard</h3>
+                    </div>
+                @else
+                <a href="{{ route("dashboard") }}">
+                    <div class="mobile_navbutton">
+                        <h3>Dashboard</h3>
+                    </div>
+                </a>
+                @endif
             @endif
             @if (url()->current() == "http://portfolio.test/beroepsbeeld")
                 <div class="mobile_navbutton_active">
@@ -128,16 +142,19 @@
                         </div>
                     </a>
                 @endif
-                @if (url()->current() == "http://portfolio.test/dashboard")
-                    <div class="col-2 py-5 navbutton_active">
-                        <h3>Dashboard</h3>
-                    </div>
-                @else
-                    <a class="col-2 p-0" href="{{ route("dashboard" )}}">
-                        <div class="py-5 navbutton">
+                <!-- Check if user is logged in -->
+                @if (\Illuminate\Support\Facades\Auth::check())
+                    @if (url()->current() == "http://portfolio.test/dashboard")
+                        <div class="col-2 py-5 navbutton_active">
                             <h3>Dashboard</h3>
                         </div>
-                    </a>
+                    @else
+                        <a class="col-2 p-0" href="{{ route("dashboard" )}}">
+                            <div class="py-5 navbutton">
+                                <h3>Dashboard</h3>
+                            </div>
+                        </a>
+                    @endif
                 @endif
                 @if (url()->current() == "http://portfolio.test/beroepsbeeld")
                     <div class="col-2 py-5 navbutton_active">
@@ -161,16 +178,19 @@
                         </div>
                     </a>
                 @endif
-                @if (url()->current() == "http://portfolio.test/assignments")
-                    <div class="col-2 py-5 navbutton_active">
-                        <h3>Opdrachten</h3>
-                    </div>
-                @else
-                    <a class="col-2 p-0" href="{{ route("assignments.index") }}">
-                        <div class="py-5 navbutton">
+                <!-- Check if user is logged in -->
+                @if (\Illuminate\Support\Facades\Auth::check())
+                    @if (url()->current() == "http://portfolio.test/assignments")
+                        <div class="col-2 py-5 navbutton_active">
                             <h3>Opdrachten</h3>
                         </div>
-                    </a>
+                    @else
+                        <a class="col-2 p-0" href="{{ route("assignments.index") }}">
+                            <div class="py-5 navbutton">
+                                <h3>Opdrachten</h3>
+                            </div>
+                        </a>
+                    @endif
                 @endif
         </section>
         <main class="content">
