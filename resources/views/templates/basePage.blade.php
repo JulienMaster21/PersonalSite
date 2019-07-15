@@ -46,7 +46,7 @@
                 <i class="fa fa-bars"></i>
             </button>
         </section>
-        <!--Mobile navbar-->
+        <!-- Mobile navbar -->
         <section class="mobile_navbar text-center container" id="dropdown">
             @if (url()->current() == "http://portfolio.test")
                 <div class="mobile_navbutton_active">
@@ -106,16 +106,19 @@
                 </div>
             </a>
             @endif
-            @if (url()->current() == "assignments")
-                <div class="mobile_navbutton_active">
-                    <h3>Opdrachten</h3>
-                </div>
-            @else
-            <a href="{{ route("assignments.index") }}">
-                <div class="mobile_navbutton">
-                    <h3>Opdrachten</h3>
-                </div>
-            </a>
+            <!-- Check if user is logged in -->
+            @if (\Illuminate\Support\Facades\Auth::check())
+                @if (url()->current() == "assignments")
+                    <div class="mobile_navbutton_active">
+                        <h3>Opdrachten</h3>
+                    </div>
+                @else
+                <a href="{{ route("assignments.index") }}">
+                    <div class="mobile_navbutton">
+                        <h3>Opdrachten</h3>
+                    </div>
+                </a>
+                @endif
             @endif
         </section>
         <!--Desktop navbar-->
