@@ -4,7 +4,7 @@
     <p>* Verplicht</p>
     <div class="container">
         <form action="/tests/{{ $test->id }}" method="POST" id="form">
-            @method("PATCh")
+            @method("PATCH")
             @csrf
             <div class="form-group">
                 <label for="name">*Naam:</label>

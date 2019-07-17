@@ -32,7 +32,7 @@ Route::get("/emperor", "PageController@getEmperor")
 Route::get("/contact", "PageController@getContact")
         ->name("contact");
 
-Route::get('/userpage', 'UserController@getUserPage')
+Route::get('/userpage', 'CurrentUserController@getUserPage')
         ->name('userPage');
 
 Route::get("/500", 'PageController@get500')
@@ -48,5 +48,6 @@ Route::resource("assignments", "AssignmentController");
 Route::resource("tests", "TestController");
 Route::resource("courses", "CourseController");
 Route::resource("bloks", "BlokController");
+Route::resource("users", "UserController");
 
 Auth::routes();

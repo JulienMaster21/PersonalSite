@@ -4,23 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class PageController extends Controller
 {
-    function getHome () {
-        return view("pages/home");
+    function getHome (User $user) {
+        return view("pages/home", [
+            'user' => $user,
+        ]);
     }
 
-    function getAbout () {
-        return view("pages/about");
+    function getAbout (User $user) {
+        return view("pages/about", [
+            'user' => $user,
+        ]);
     }
 
-    function getBeroepsbeeld () {
-        return view("pages/beroepsbeeld");
+    function getBeroepsbeeld (User $user) {
+        return view("pages/beroepsbeeld", [
+            'user' => $user,
+        ]);
     }
 
-    function getMotivatie () {
-        return view("pages/motivatie");
+    function getMotivatie (User $user) {
+        return view("pages/motivatie", [
+            'user' => $user,
+        ]);
     }
 
     function getEmperor () {

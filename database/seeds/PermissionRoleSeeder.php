@@ -36,6 +36,10 @@ class PermissionRoleSeeder extends Seeder
             ['role_id' => 2, 'permission_id' => 14, "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
             ['role_id' => 2, 'permission_id' => 15, "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
             ['role_id' => 2, 'permission_id' => 16, "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['role_id' => 2, 'permission_id' => 17, "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['role_id' => 2, 'permission_id' => 18, "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['role_id' => 2, 'permission_id' => 19, "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ['role_id' => 2, 'permission_id' => 20, "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
         ]);
     }
 }

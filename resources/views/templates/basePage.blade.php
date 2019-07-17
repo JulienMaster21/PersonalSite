@@ -24,6 +24,15 @@
                         <i class="fas fa-user"></i>
                     </button>
                 </form>
+                @can('view', $user)
+                    <div class="ml-3">
+                        <a href="{{ route("users.index") }}">
+                            <button type="button">
+                                <i class="fas fa-users"></i>
+                            </button>
+                        </a>
+                    </div>
+                @endcan
                 <form class="mx-3" action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit">

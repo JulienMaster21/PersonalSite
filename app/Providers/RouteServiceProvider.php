@@ -8,6 +8,7 @@ use App\Test;
 use App\Course;
 use App\Blok;
 use App\Assignment;
+use App\User;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -33,6 +34,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('course', Course::class);
         Route::model('blok', Blok::class);
         Route::model('assignment', Assignment::class);
+        Route::model('user', User::class);
     }
 
     /**
