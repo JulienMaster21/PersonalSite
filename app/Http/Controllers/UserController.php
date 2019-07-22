@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUser;
+use App\Role;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -64,8 +66,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $roles = Role::all();
+
         return view('pages/users.edit', [
             'user' => $user,
+            'roles' => $roles,
         ]);
     }
 
@@ -83,14 +88,18 @@ class UserController extends Controller
         // Reset all roles so only the selected roles are added
         $user->roles()->detach();
 
-        // Check if user was selected
-        if($request->has('user')) {
-            $user->roles()->attach(1);
-        }
+        // Loop through all available roles
+        foreach (Role::all() as $role) {
+            // Check if role was selected
+            if ($request->has($role->name)) {
+                // Add role to user
+                $user->roles()->attach($role->id, [
+                    "created_at" => Carbon::now(),
+                    "updated_at" => Carbon::now()
+                ]);
 
-        // Check if administrator was selected
-        if($request->has('administrator')) {
-            $user->roles()->attach(2);
+                $user->touch();
+            }
         }
 
         $user->save();

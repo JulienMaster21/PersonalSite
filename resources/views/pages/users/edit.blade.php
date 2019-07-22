@@ -14,7 +14,7 @@
                        data-content="Voer een naam in tussen 6 en 255 karakters" onblur="checkName();">
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
+                <label for="email">*Email:</label>
                 <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" required
                        placeholder="Voer een geldig emailadres in de vorm van gebruiker@example.com in"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
@@ -22,25 +22,19 @@
                        onblur="checkEmail();">
             </div>
             <h3 class="mb-3">Rollen:</h3>
-            <div class="form-check">
-                <input id="user" name="user" class="form-check-input" type="checkbox"
-                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                        data-content="Klik op de checkbox om de gebruiker deze rol te geven"
-                        value="true" onblur="checkUser();"
-                        @if($user->roles()->get()->where('name', '=', 'gebruiker')->isNotEmpty())
-                            checked
-                        @endif>
-                <label class="form-check-label" for="user">Gebruiker</label>
-            </div>
-            <div class="form-check mb-5">
-                <input id="administrator" name="administrator" class="form-check-input" type="checkbox"
-                       data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Klik op de checkbox om de gebruiker deze rol te geven"
-                       value="true" onblur="checkAdministrator();"
-                        @if($user->roles()->get()->where('name', '=', 'administrator')->isNotEmpty())
-                            checked
-                        @endif>
-                <label class="form-check-label" for="administrator">Administrator</label>
+            <div class="mb-5">
+                @foreach($roles as $role)
+                    <div class="form-check">
+                        <input id="{{ $role->name }}" name="{{ $role->name }}" class="form-check-input" type="checkbox"
+                                data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
+                                data-content="Klik op de checkbox om de gebruiker deze rol te geven"
+                                value="true" onblur="checkUser();"
+                                @if($user->roles()->get()->contains($role->id))
+                                    checked
+                                @endif>
+                        <label class="form-check-label" for="{{ $role->name }}">{{ $role->name }}</label>
+                    </div>
+                @endforeach
             </div>
             <div class="container mb-3">
                 <button type="submit">

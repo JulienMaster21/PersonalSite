@@ -26,8 +26,6 @@ class StoreUser extends FormRequest
         return [
             "name" => "required|between:6,255|string",
             "email" => "required|between:6,255|email|string",
-            "user" => "nullable|in:true|string",
-            "administrator" => "nullable|in:true|string",
         ];
     }
 }

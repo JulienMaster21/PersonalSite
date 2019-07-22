@@ -75,84 +75,12 @@ function checkEmail () {
     return emailValidationSucceeded;
 }
 
-function checkUser () {
-    // Define the user value
-    let user = document.getElementById('user').value;
-
-    // Define the validation for checking the user value
-    let userValidationSucceeded = user === "true";
-
-    // Define error message on wrong user
-    let userErrorMessage = 'De checkbox moet een waarde van \'true\' hebben';
-
-    // check if user feedback already exists and if so to delete it
-    let userFeedback = document.getElementById('user-feedback');
-    if (document.body.contains(userFeedback)) {
-        userFeedback.parentNode.removeChild(userFeedback);
-    }
-    // Check if user is valid
-    if (userValidationSucceeded) {
-        if (document.getElementById('user').classList.contains('is-invalid')) {
-            document.getElementById('user').classList.remove('is-invalid');
-        }
-    }
-    // Add feedback if user is not valid
-    else if (!userValidationSucceeded) {
-        document.getElementById('user').classList.add('is-invalid');
-        let div = document.createElement('div');
-        div.setAttribute('id', 'user-feedback');
-        div.setAttribute('class', 'invalid-feedback');
-        div.innerText = userErrorMessage;
-
-        document.getElementById('user').parentElement.appendChild(div);
-    }
-
-    return userValidationSucceeded;
-}
-
-function checkAdministrator () {
-    // Define the administrator value
-    let administrator = document.getElementById('administrator').value;
-
-    // Define the validation for checking the administrator value
-    let administratorValidationSucceeded = administrator === "true";
-
-    // Define error message on wrong administrator
-    let administratorErrorMessage = 'De checkbox moet een waarde van \'true\' hebben';
-
-    // check if administrator feedback already exists and if so to delete it
-    let administratorFeedback = document.getElementById('administrator-feedback');
-    if (document.body.contains(administratorFeedback)) {
-        administratorFeedback.parentNode.removeChild(administratorFeedback);
-    }
-    // Check if administrator is valid
-    if (administratorValidationSucceeded) {
-        if (document.getElementById('administrator').classList.contains('is-invalid')) {
-            document.getElementById('administrator').classList.remove('is-invalid');
-        }
-    }
-    // Add feedback if administrator is not valid
-    else if (!administratorValidationSucceeded) {
-        document.getElementById('administrator').classList.add('is-invalid');
-        let div = document.createElement('div');
-        div.setAttribute('id', 'administrator-feedback');
-        div.setAttribute('class', 'invalid-feedback');
-        div.innerText = administratorErrorMessage;
-
-        document.getElementById('administrator').parentElement.appendChild(div);
-    }
-
-    return administratorValidationSucceeded;
-}
-
 let validateForm = function(event) {
     event.preventDefault();
 
     // Submit the form if the validation is succesful
     if (checkName() &&
-        checkEmail() &&
-        checkUser() &&
-        checkAdministrator()) {
+        checkEmail()) {
         document.getElementById('form').submit();
     }
 };
