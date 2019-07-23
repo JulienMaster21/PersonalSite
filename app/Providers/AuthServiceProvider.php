@@ -9,7 +9,11 @@ use App\Policies\AssignmentPolicy;
 use App\Policies\BlokPolicy;
 use App\Policies\CoursePolicy;
 use App\Policies\TestPolicy;
+use App\Policies\UserPolicy;
+use App\Policies\RolePolicy;
 use App\Test;
+use App\User;
+use App\Role;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -26,6 +30,8 @@ class AuthServiceProvider extends ServiceProvider
         Course::class => CoursePolicy::class,
         Blok::class => BlokPolicy::class,
         Assignment::class => AssignmentPolicy::class,
+        User::class => UserPolicy::class,
+        Role::class => RolePolicy::class,
     ];
 
     /**
