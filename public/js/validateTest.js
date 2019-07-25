@@ -3,7 +3,14 @@ let init = function() {
     form.addEventListener('submit', validateForm);
 };
 
+function checkLang() {
+    return document.getElementById('html').getAttribute('lang');
+}
+
 function checkName () {
+    // Initialise the name error message value
+    let nameErrorMessage;
+
     // Define the name value
     let name = document.getElementById('name').value;
 
@@ -12,7 +19,12 @@ function checkName () {
     let nameValidationSucceeded = nameRegex.test(name);
 
     // Define error message on wrong name
-    let nameErrorMessage = 'Voer een naam in van minimaal 6 tot 255 karakters.';
+    if (checkLang() === 'nl') {
+        nameErrorMessage = 'Voer een naam in van minimaal 6 tot 255 karakters.';
+    }
+    else {
+        nameErrorMessage = 'Enter a name with a minimum of 6 to 255 characters.';
+    }
 
     // check if name feedback already exists and if so to delete it
     let nameFeedback = document.getElementById('name-feedback');
@@ -40,6 +52,9 @@ function checkName () {
 }
 
 function checkGrade () {
+    // Initialise the grade error message value
+    let gradeErrorMessage;
+
     // Define the grade value
     let grade = document.getElementById('grade').value;
 
@@ -48,7 +63,12 @@ function checkGrade () {
     let gradeValidationSucceeded = gradeRegex.test(grade);
 
     // Define error message on wrong grade
-    let gradeErrorMessage = 'Voer een cijfer van 1 tot 10 in met de vorm van 1.1';
+    if (checkLang() === 'nl') {
+        gradeErrorMessage = 'Voer een cijfer van 1 tot 10 in met de vorm van 1.1.';
+    }
+    else {
+        gradeErrorMessage = 'Enter a number from 1 to 10 in the form of 1.1.';
+    }
 
     // check if grade feedback already exists and if so to delete it
     let gradeFeedback = document.getElementById('grade-feedback');
@@ -76,15 +96,23 @@ function checkGrade () {
 }
 
 function checkCompleted () {
+    // Initialise the completed error message value
+    let completedErrorMessage;
+
     // Define the completed value
     let completed = document.getElementById('completed').value;
 
     // Define the validation for checking the completed value
     let completedValidation = 1;
-    let completedValidationSucceeded = completed == completedValidation;
+    let completedValidationSucceeded = completed === completedValidation;
 
     // Define error message on wrong completed
-    let completedErrorMessage = 'De waarde van de checkbox moet \'1\' zijn';
+    if (checkLang() === 'nl') {
+        completedErrorMessage = 'De waarde van de checkbox moet \'1\' zijn.';
+    }
+    else {
+        completedErrorMessage = 'The value of the checkbox must be \'1\'.';
+    }
 
     // check if completed feedback already exists and if so to delete it
     let completedFeedback = document.getElementById('completed-feedback');
@@ -112,6 +140,9 @@ function checkCompleted () {
 }
 
 function checkEC () {
+    // Initialise the EC error message value
+    let ECErrorMessage;
+
     // Define the EC value
     let EC = document.getElementById('EC').value;
 
@@ -120,7 +151,12 @@ function checkEC () {
     let ECValidationSucceeded = ECRegex.test(EC);
 
     // Define error message on wrong EC
-    let ECErrorMessage = 'Voer een cijfer van 1 tot 10 in met de vorm 1.1';
+    if (checkLang() === 'nl') {
+        ECErrorMessage = 'Voer een cijfer van 1 tot 10 in met de vorm van 1.1.';
+    }
+    else {
+        ECErrorMessage = 'Enter a number from 1 to 10 in the form of 1.1.';
+    }
 
     // check if EC feedback already exists and if so to delete it
     let ECFeedback = document.getElementById('EC-feedback');
@@ -148,6 +184,9 @@ function checkEC () {
 }
 
 function checkCourse () {
+    // Initialise the course error message value
+    let courseErrorMessage;
+
     // Define the course_id value
     let course_id = document.getElementById('course_id').value;
 
@@ -156,7 +195,12 @@ function checkCourse () {
     let courseValidationSucceeded = courseRegex.test(course_id);
 
     // Define error message on wrong course_id
-    let courseErrorMessage = 'De waarde van die optie is niet geldig';
+    if (checkLang() === 'nl') {
+        courseErrorMessage = 'De waarde van die optie is niet geldig.';
+    }
+    else {
+        courseErrorMessage = 'The value of that option isn\'t valid.';
+    }
 
     // check if courses feedback already exists and if so to delete it
     let courseFeedback = document.getElementById('courses-feedback');

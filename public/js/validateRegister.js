@@ -3,7 +3,14 @@ let init = function() {
     form.addEventListener('submit', validateForm);
 };
 
+function checkLang() {
+    return document.getElementById('html').getAttribute('lang');
+}
+
 function checkName () {
+    // Initialise the name error message value
+    let nameErrorMessage;
+
     // Define the name value
     let name = document.getElementById('name').value;
 
@@ -12,7 +19,12 @@ function checkName () {
     let nameValidationSucceeded = nameRegex.test(name);
 
     // Define error message on wrong name
-    let nameErrorMessage = 'Voer een naam in van minimaal 6 tot 255 karakters';
+    if (checkLang() === 'nl') {
+        nameErrorMessage = 'Voer een naam in van minimaal 6 tot 255 karakters.';
+    }
+    else {
+        nameErrorMessage = 'Enter a name with a minimum of 6 to 255 characters.';
+    }
 
     // check if name feedback already exists and if so to delete it
     let nameFeedback = document.getElementById('name-feedback');
@@ -40,6 +52,9 @@ function checkName () {
 }
 
 function checkEmail () {
+    // Initialise the email error message value
+    let emailErrorMessage;
+
     // Define the email value
     let email = document.getElementById('email').value;
 
@@ -48,7 +63,12 @@ function checkEmail () {
     let emailValidationSucceeded = emailRegex.test(email);
 
     // Define error message on wrong email
-    let emailErrorMessage = 'Voer een geldig emailadres in de vorm van gebruiker@example.com in';
+    if (checkLang() === 'nl') {
+        emailErrorMessage = 'Voer een geldig emailadres in de vorm van gebruiker@example.com in.';
+    }
+    else {
+        emailErrorMessage = 'Enter a valid email address in the form of user@example.com.';
+    }
 
     // check if email feedback already exists and if so to delete it
     let emailFeedback = document.getElementById('email-feedback');
@@ -76,6 +96,9 @@ function checkEmail () {
 }
 
 function checkPassword () {
+    // Initialise the password error message value
+    let passwordErrorMessage;
+
     // Define the password value
     let password = document.getElementById('password').value;
 
@@ -84,7 +107,12 @@ function checkPassword () {
     let passwordValidationSucceeded = passwordRegex.test(password);
 
     // Define error message on wrong password
-    let passwordErrorMessage = 'Voer een wachtwoord in van minimaal 8 karakters';
+    if (checkLang() === 'nl') {
+        passwordErrorMessage = 'Voer een wachtwoord in van minimaal 8 karakters.';
+    }
+    else {
+        passwordErrorMessage = 'Enter a password with a minimum of 8 characters.'
+    }
 
     // check if password feedback already exists and if so to delete it
     let passwordFeedback = document.getElementById('password-feedback');
@@ -112,6 +140,9 @@ function checkPassword () {
 }
 
 function checkConfirmPassword () {
+    // Initialise the email error message value
+    let confirmPasswordErrorMessage;
+
     // Define the password value
     let password = document.getElementById('password').value;
 
@@ -122,7 +153,12 @@ function checkConfirmPassword () {
     let confirmPasswordValidationSucceeded = password === confirmPassword;
 
     // Define error message on wrong confirmPassword
-    let confirmPasswordErrorMessage = 'Het ingevulde wachtwoord is niet hetzelfde';
+    if (checkLang() === 'nl') {
+        confirmPasswordErrorMessage = 'Het ingevulde wachtwoord is niet hetzelfde.';
+    }
+    else {
+        confirmPasswordErrorMessage = 'The entered password isn\'t the same.';
+    }
 
     // check if confirmPassword feedback already exists and if so to delete it
     let confirmPasswordFeedback = document.getElementById('confirmPassword-feedback');

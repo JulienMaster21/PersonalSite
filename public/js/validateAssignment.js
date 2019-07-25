@@ -3,7 +3,14 @@ let init = function() {
     form.addEventListener('submit', validateForm);
 };
 
+function checkLang() {
+    return document.getElementById('html').getAttribute('lang');
+}
+
 function checkName () {
+    // Initialise the name error message value
+    let nameErrorMessage;
+
     // Define the name value
     let name = document.getElementById('name').value;
 
@@ -12,7 +19,12 @@ function checkName () {
     let nameValidationSucceeded = nameRegex.test(name);
 
     // Define error message on wrong name
-    let nameErrorMessage = 'Voer een naam in van minimaal 6 tot 255 karakters.';
+    if (checkLang() === 'nl') {
+        nameErrorMessage = 'Voer een naam in van minimaal 6 tot 255 karakters.';
+    }
+    else {
+        nameErrorMessage = 'Enter a name with a minimum of 6 to 255 characters.';
+    }
 
     // check if name feedback already exists and if so to delete it
     let nameFeedback = document.getElementById('name-feedback');
@@ -40,6 +52,9 @@ function checkName () {
 }
 
 function checkURL () {
+    // Initialise the url error message value
+    let urlErrorMessage;
+
     // Define the url value
     let url = document.getElementById('url').value;
 
@@ -48,7 +63,12 @@ function checkURL () {
     let urlValidationSucceeded = urlRegex.test(url);
 
     // Define error message on wrong url
-    let urlErrorMessage = 'Voer een url in van minimaal 6 tot 255 karakters.';
+    if (checkLang() === 'nl') {
+        urlErrorMessage = 'Voer een url in van minimaal 6 tot 255 karakters.';
+    }
+    else {
+        urlErrorMessage = 'Enter a url with a minimum of 6 to 255 characters.';
+    }
 
     // check if url feedback already exists and if so to delete it
     let urlFeedback = document.getElementById('url-feedback');
@@ -76,6 +96,9 @@ function checkURL () {
 }
 
 function checkDescription () {
+    // Initialise the description error message value
+    let descriptionErrorMessage;
+
     // Define the description value
     let description = document.getElementById('description').value;
 
@@ -84,7 +107,12 @@ function checkDescription () {
     let descriptionValidationSucceeded = descriptionRegex.test(description);
 
     // Define error message on wrong description
-    let descriptionErrorMessage = 'Voer een beschrijving in van minimaal 6 tot 255 karakters.';
+    if (checkLang() === 'nl') {
+        descriptionErrorMessage = 'Voer een beschrijving in van minimaal 6 tot 255 karakters.';
+    }
+    else {
+        descriptionErrorMessage = 'Enter a description with a minimum of 6 to 255 characters.';
+    }
 
     // check if description feedback already exists and if so to delete it
     let descriptionFeedback = document.getElementById('description-feedback');

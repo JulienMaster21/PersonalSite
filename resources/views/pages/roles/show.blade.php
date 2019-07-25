@@ -1,5 +1,5 @@
 @extends("templates/emptyPage")
-@section("title", ucfirst(__('models.role.singular')) . " " . $role->id)
+@section("title", ucfirst(__('models.role.singular')) . ' ' . $role->id)
 @section("content")
     <div class="container mb-3">
         <h3>{{ ucfirst(__('miscellaneous.name')) }}: {{ $role->name }}</h3>
@@ -51,8 +51,8 @@
             @endforeach
         </tbody>
     </table>
-    <h3>{{ ucfirst(__('miscellaneous.made on')) }}: {{ $role->created_at ? $role->created_at : 'Niet' }}</h3>
-    <h3 class="mb-5">{{ ucfirst(__('miscellaneous.last updated on')) }}: {{ $role->updated_at ? $role->updated_at : 'Niet' }}</h3>
+    <h3>{{ ucfirst(__('miscellaneous.madeOn')) }}: {{ $role->created_at ? $role->created_at : ucfirst(__('miscellaneous.not')) }}</h3>
+    <h3 class="mb-5">{{ ucfirst(__('miscellaneous.lastUpdatedOn')) }}: {{ $role->updated_at ? $role->updated_at : ucfirst(__('miscellaneous.not')) }}</h3>
     @can('update', $role)
         <div class="container mb-3">
             <form action="/roles/{{ $role->id }}/edit" method="GET">

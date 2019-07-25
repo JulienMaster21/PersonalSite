@@ -1,11 +1,11 @@
 @extends("templates/emptyPage")
-@section("title", "Gebruikerspagina")
+@section("title", ucfirst(__('miscellaneous.userpage')))
 @section("content")
     <div class="container mb-5">
-        <h3>Naam: {{ $user->name }}</h3>
-        <h3>E-mail: {{ $user->email }}</h3>
-        <h3>E-mail geverifieerd sinds: {{ $user->email_verified_at ? $user->email_verified_at : 'Niet' }}</h3>
-        <h3>Rollen: @foreach($user->roles()->get() as $role)
+        <h3>{{ ucfirst(__('miscellaneous.name')) }}: {{ $user->name }}</h3>
+        <h3>{{ ucfirst(__('miscellaneous.email')) }}: {{ $user->email }}</h3>
+        <h3>{{ ucfirst(__('miscellaneous.emailVerifiedOn')) }}: {{ $user->email_verified_at ? $user->email_verified_at : ucfirst(__('miscellaneous.not')) }}</h3>
+        <h3>{{ ucfirst(__('models.role.plural')) }}: @foreach($user->roles()->get() as $role)
                         @if ($role->id === $user->roles()->get()->last()->id)
                             {{ $role->name }}
                         @else
@@ -13,8 +13,8 @@
                         @endif
                     @endforeach
         </h3>
-        <h3>Lid sinds: {{ $user->created_at ? $user->created_at : 'Niet' }}</h3>
-        <h3>Laatst geupdate sinds: {{ $user->updated_at ? $user->updated_at : 'Niet' }}</h3>
+        <h3>{{ ucfirst(__('miscellaneous.memberSince')) }}: {{ $user->created_at ? $user->created_at : ucfirst(__('miscellaneous.not')) }}</h3>
+        <h3>{{ ucfirst(__('miscellaneous.lastUpdatedOn')) }}: {{ $user->updated_at ? $user->updated_at : ucfirst(__('miscellaneous.not')) }}</h3>
     </div>
     <div class="container">
         <form action="{{ route('home') }}" method="get">

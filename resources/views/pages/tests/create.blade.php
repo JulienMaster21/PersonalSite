@@ -1,48 +1,53 @@
 @extends('templates/emptyPage')
-@section("title", "Maak Toets")
+@section("title", ucfirst(__('miscellaneous.create')) . ' ' . ucfirst(__('models.test.singular')))
 @section("content")
-    <p>* Verplicht</p>
+    <p>* {{ ucfirst(__('miscellaneous.required')) }}</p>
     <div class="container">
         <form action="/tests" method="POST" id="form">
             @csrf
             <div class="form-group">
-                <label for="name">*Naam:</label>
+                <label for="name">*{{ ucfirst(__('miscellaneous.name')) }}:</label>
                 <input id="name" required type="text" name="name"
-                       placeholder="Voer een naam in tussen 6 en 255 karakters" class="form-control"
+                       placeholder="{{ __('messages.name') }}" class="form-control"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een naam in tussen 6 en 255 karakters" onblur="checkName();">
+                       data-content="{{ __('messages.name') }}" onblur="checkName();">
             </div>
+
             <div class="form-group">
-                <label for="grade">Cijfer:</label>
+                <label for="grade">{{ ucfirst(__('dashboard.head4')) }}:</label>
                 <input id="grade" required type="text" name="grade"
-                       placeholder="Voer een cijfer tussen 1 en 10 in" class="form-control"
+                       placeholder="{{ __('messages.number') }}" class="form-control"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een cijfer tussen 1 en 10 in" onblur="checkGrade();">
+                       data-content="{{ __('messages.number') }}" onblur="checkGrade();">
             </div>
+
             <div class="form-check mb-3">
                 <input id="completed" type="checkbox" name="completed" value="1"
                        class="form-check-input" onblur="checkCompleted();">
-                <label for="completed" class="form-check-label">voldoende?</label>
+                <label for="completed" class="form-check-label">{{ ucfirst(__('miscellaneous.sufficient')) }}?</label>
             </div>
+
             <div class="form-group">
-                <label for="EC">*EC waarde:</label>
+                <label for="EC">*{{ __('miscellaneous.ECValue') }}:</label>
                 <input id="EC" required type="text" name="EC"
-                       placeholder="Voer een cijfer in tussen 1 en 10" class="form-control"
+                       placeholder="{{ __('messages.number') }}" class="form-control"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een cijfer tussen 1 en 10 in" onblur="checkEC();">
+                       data-content="{{ __('messages.number') }}" onblur="checkEC();">
             </div>
+
             <div class="form-group">
-                <label for="course_id">Cursus:</label>
+                <label for="course_id">{{ ucfirst(__('models.course.singular')) }}:</label>
                 <select id="course_id" name="course_id" class="form-control"
                         data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                        data-content="Alle waarden in de dropdown zijn toegestaan, inclusief geen"
+                        data-content="{{ __('messages.dropdown') }}"
                         onblur="checkCourse();">
-                    <option value="">Geen</option>
+                    <option value="">{{ ucfirst(__('miscellaneous.none')) }}</option>
                     @foreach ($courses as $course)
                         <option value="{{ $course->id }}">{{ $course->name }}</option>
                     @endforeach
                 </select>
             </div>
+
             <div class="container mb-3">
                 <button type="submit">
                     <i class="fas fa-check"></i>

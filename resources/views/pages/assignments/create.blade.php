@@ -1,44 +1,44 @@
 @extends('templates/emptyPage')
-@section("title", "Maak Opdracht")
+@section("title", ucfirst(__('miscellaneous.make')) . ' ' . ucfirst(__('models.assignment.singular')))
 @section("content")
     <div class="container">
         <form action="/assignments" method="POST" id="form">
             @csrf
             <div class="form-group">
-                <label for="name">Naam:</label>
+                <label for="name">{{ ucfirst(__('miscellaneous.name')) }}:</label>
                 <input id="name" required type="text" name="name"
                         @if (old("name") !== NULL)
                         value="{{old("name")}}"
                         @else
 
                         @endif
-                       placeholder="Voer een naam in tussen 6 en 255 karakters" class="form-control"
+                       placeholder="{{ __('messages.name') }}" class="form-control"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een naam in tussen 6 en 255 karakters" onblur="checkName();">
+                       data-content="{{ __('messages.name') }}" onblur="checkName();">
             </div>
             <div class="form-group">
-                <label for="url">Afbeeldinglocatie:</label>
+                <label for="url">{{ ucfirst(__('miscellaneous.imagesSource')) }}:</label>
                 <input id="url" required type="text" name="url"
                        @if (old("url") !== NULL)
                        value="{{old("url")}}"
                        @else
 
                        @endif
-                       placeholder="Voer een geldige bestandslocatie in" class="form-control"
+                       placeholder="{{ __('messages.imageSource') }}" class="form-control"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een geldige bestandslocatie in" onblur="checkURL();">
+                       data-content="{{ __('messages.imageSource') }}" onblur="checkURL();">
             </div>
             <div class="form-group">
-                <label for="description">Beschrijving: </label>
+                <label for="description">{{ ucfirst(__('miscellaneous.description')) }}: </label>
                 <input id="description" required type="text" name="description"
                        @if (old("description") !== NULL)
                        value="{{old("description")}}"
                        @else
 
                        @endif
-                       placeholder="Voer een beschrijving in tussen 6 en 255 karakters" class="form-control"
+                       placeholder="{{ __('messages.description') }}" class="form-control"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een beschrijving in tussen 6 en 255 karakters" onblur="checkDescription();">
+                       data-content="{{ __('messages.description') }}" onblur="checkDescription();">
             </div>
             <div class="container mb-3">
                 <button type="submit">

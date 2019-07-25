@@ -1,34 +1,37 @@
 @extends("templates/emptyPage")
-@section("title", "Pas Gebruiker aan")
+@section("title", ucfirst(__('miscellaneous.edit', ['object' => ucfirst(__('models.user.singular'))])))
 @section("content")
-    <p>* Verplicht</p>
+    <p>* {{ ucfirst(__('miscellaneous.required')) }}</p>
     <div class="container">
         <form action="/users/{{ $user->id }}" method="POST" id="form">
             @method("PATCH")
             @csrf
+
             <div class="form-group">
-                <label for="name">*Naam:</label>
+                <label for="name">*{{ ucfirst(__('miscellaneous.name')) }}:</label>
                 <input id="name" required type="text" name="name" value="{{ $user->name }}"
-                       placeholder="Voer een naam in tussen 6 en 255 karakters" class="form-control"
+                       placeholder="{{ __('messages.name') }}" class="form-control"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een naam in tussen 6 en 255 karakters" onblur="checkName();">
+                       data-content="{{ __('messages.name') }}" onblur="checkName();">
             </div>
+
             <div class="form-group">
-                <label for="email">*Email:</label>
+                <label for="email">*{{ ucfirst(__('miscellaneous.email')) }}:</label>
                 <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" required
-                       placeholder="Voer een geldig emailadres in de vorm van gebruiker@example.com in"
+                       placeholder="{{ __('messages.email') }}"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een geldig emailadres in de vorm van gebruiker@example.com in"
+                       data-content="{{ __('messages.email') }}"
                        onblur="checkEmail();">
             </div>
-            <h3 class="mb-3">Rollen:</h3>
+
+            <h3 class="mb-3">{{ ucfirst(__('models.role.plural')) }}:</h3>
             <div class="mb-5">
                 @foreach($roles as $role)
                     <div class="form-check">
                         <input id="{{ $role->name }}" name="{{ $role->name }}" class="form-check-input" type="checkbox"
                                 data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                                data-content="Klik op de checkbox om de gebruiker deze rol te geven"
-                                value="true" onblur="checkUser();"
+                                data-content="{{ __('messages.checkbox') }}"
+                                value="true"
                                 @if($user->roles()->get()->contains($role->id))
                                     checked
                                 @endif>

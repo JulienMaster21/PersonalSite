@@ -1,19 +1,19 @@
 @extends('templates/emptyPage')
-@section("title", "Toets $test->id")
+@section("title", ucfirst(__('models.test.singular')) . ' ' . $test->id)
 @section("content")
-    <h3 class="text-center">Toets: {{ $test->name }}</h3>
-    <h3 class="text-center">Behaald: {{ $test->completed === 1 ? "Ja" : "Nee" }}</h3>
-    <h3 class="text-center">Cijfer: {{ $test->grade }}</h3>
-    <h3 class="text-center">EC's: {{ $test->EC }}</h3>
-    <h3 class="text-center">Cursus:
+    <h3 class="text-center">{{ ucfirst(__('models.test.singular')) }}: {{ $test->name }}</h3>
+    <h3 class="text-center">{{ ucfirst(__('dashboard.head3')) }}: {{ $test->completed === 1 ? ucfirst(__('miscellaneous.yes')) : ucfirst(__('miscellaneous.no')) }}</h3>
+    <h3 class="text-center">{{ ucfirst(__('dashboard.head4')) }}: {{ $test->grade }}</h3>
+    <h3 class="text-center">{{ ucfirst(__('dashboard.head5')) }}: {{ $test->EC }}</h3>
+    <h3 class="text-center">{{ ucfirst(__('models.course.singular')) }}:
         @if ($test->course_id === NULL)
-            Geen
+            {{ ucfirst(__('miscellaneous.none')) }}
         @else
             <a class="link" href="/courses/{{ $course->id }}">{{ $course->name }}</a>
         @endif
     </h3>
-    <h3 class="text-center">Gemaakt op: {{ $test->created_at }}</h3>
-    <h3 class="text-center mb-5">Laatst aangepast op: {{ $test->updated_at }}</h3>
+    <h3 class="text-center">{{ ucfirst(__('miscellaneous.madeOn')) }}: {{ $test->created_at }}</h3>
+    <h3 class="text-center mb-5">{{ ucfirst(__('miscellaneous.lastUpdatedOn')) }}: {{ $test->updated_at }}</h3>
     @can('create', $test)
         <div class="container mb-3">
             <form action="{{ route("tests.create") }}" method="get">

@@ -1,48 +1,48 @@
 @extends("templates/emptyPage")
-@section("title", "Registreren")
+@section("title", ucfirst(__('miscellaneous.register.plural')))
 @section("content")
     <div class="container">
-        <h3 class="mb-3">Registreer</h3>
+        <h3 class="mb-3">{{ ucfirst(__('miscellaneous.register.singular')) }}</h3>
 
         <form id="form" method="POST" action="{{ route('register') }}">
             @csrf
 
             <div class="form-group">
-                <label for="name">Naam:</label>
+                <label for="name">{{ ucfirst(__('miscellaneous.name')) }}:</label>
                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required
-                       autofocus placeholder="Voer een naam in van minimaal 6 tot 255 karakters"
+                       autofocus placeholder="{{ __('messages.name') }}"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een naam in van minimaal 6 tot 255 karakters" onblur="checkName();">
+                       data-content="{{ __('messages.name') }}" onblur="checkName();">
             </div>
 
             <div class="form-group">
-                <label for="email">Email:</label>
+                <label for="email">{{ ucfirst(__('miscellaneous.email')) }}:</label>
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required
-                       placeholder="Voer een geldig emailadres in de vorm van gebruiker@example.com in"
+                       placeholder="{{ __('messages.email') }}"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een geldig emailadres in de vorm van gebruiker@example.com in"
+                       data-content="{{ __('messages.email') }}"
                        onblur="checkEmail();">
             </div>
 
             <div class="form-group">
-                <label for="password">Wachtwoord:</label>
+                <label for="password">{{ ucfirst(__('miscellaneous.password')) }}:</label>
                 <input id="password" type="password" class="form-control" name="password" required
-                       placeholder="Voer een wachtwoord in van minimaal 8 karakters"
+                       placeholder="{{ __('messages.password') }}"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een wachtwoord in van minimaal 8 karakters" onblur="checkPassword();">
+                       data-content="{{ __('messages.password') }}" onblur="checkPassword();">
             </div>
 
             <div class="form-group">
-                <label for="confirmPassword">Bevestig wachtwoord:</label>
+                <label for="confirmPassword">{{ ucfirst(__('miscellaneous.confirmPassword')) }}:</label>
                 <input id="confirmPassword" type="password" class="form-control" name="password_confirmation" required
-                       placeholder="Voer het wachtwoord nog een keer in"
+                       placeholder="{{ __('messages.confirmPassword') }}"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer het wachtwoord nog een keer in" onblur="checkConfirmPassword();">
+                       data-content="{{ __('messages.confirmPassword') }}" onblur="checkConfirmPassword();">
             </div>
 
             <div class="form-group">
                 <button type="submit" class="btn-lg">
-                    Registreer
+                    {{ ucfirst(__('miscellaneous.register.singular')) }}
                 </button>
             </div>
         </form>

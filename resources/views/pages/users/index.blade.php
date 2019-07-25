@@ -1,12 +1,12 @@
 @extends("templates/emptyPage")
-@section("title", "Gebruikers")
+@section("title", ucfirst(__('models.user.plural')))
 @section("content")
-    <h1 class="mb-3">Gebruikers</h1>
+    <h1 class="mb-3">{{ ucfirst(__('models.user.plural')) }}</h1>
     <table class="text-center monitor mb-5 mx-auto">
         <thead>
             <tr>
-                <th>Naam</th>
-                <th>Email</th>
+                <th>{{ ucfirst(__('miscellaneous.name')) }}</th>
+                <th>{{ ucfirst(__('miscellaneous.email')) }}</th>
             </tr>
         </thead>
         <tbody>

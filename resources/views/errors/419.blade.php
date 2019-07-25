@@ -1,13 +1,11 @@
 @extends("templates/emptyPage")
-@section("title", "Sessie verlopen")
+@section("title", ucfirst(__('errors.sessionExpired')))
 @section("content")
     <h1 class="errorHeader text-center">419</h1>
     <div class="container mb-5">
         <section class="errorSection text-center">
-            <h2>Je sessie is verlopen.</h2>
-            <h2>Ons advies is om terug naar de laatste pagina of
-                de home pagina te gaan.
-            </h2>
+            <h2>{{ __('errors.yourSessionExpired') }}</h2>
+            <h2>{{ __('errors.advice') }}</h2>
         </section>
     </div>
     <form class="mb-3" action="{{ url()->previous() }}" method="get">

@@ -5,25 +5,28 @@
     <div class="container">
         <form action="/roles" method="POST" id="form">
             @csrf
+
             <div class="form-group">
                 <label for="name">*{{ ucfirst(__('miscellaneous.name')) }}:</label>
                 <input id="name" required type="text" name="name"
-                       placeholder="Voer een naam in tussen 6 en 255 karakters" class="form-control"
+                       placeholder="{{ __('messages.name') }}" class="form-control"
                        data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                       data-content="Voer een naam in tussen 6 en 255 karakters" onblur="checkName();">
+                       data-content="{{ __('messages.name') }}" onblur="checkName();">
             </div>
+
             <h3 class="mb-3">{{ ucfirst(__('miscellaneous.permissions.plural')) }}:</h3>
             <div class="mb-5">
                 @foreach($permissions as $permission)
                     <div class="form-check">
                         <input id="{{ $permission->name }}" name="{{ $permission->slug }}" class="form-check-input" type="checkbox"
                                 data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
-                                data-content="Klik op de checkbox om de gebruiker deze rol te geven"
+                                data-content="{{ __('messages.checkbox') }}"
                                 value="true">
                         <label class="form-check-label" for="{{ $permission->name }}">{{ ucfirst(__('permissions.' . $permission->name)) }}</label>
                     </div>
                 @endforeach
             </div>
+
             <div class="container mb-3">
                 <button type="submit">
                     <i class="fas fa-check"></i>

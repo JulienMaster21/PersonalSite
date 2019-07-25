@@ -1,14 +1,14 @@
 @extends('templates/emptyPage')
-@section("title", "Opdracht $assignment->id")
+@section("title", ucfirst(__('models.assignment.singular')) . ' ' . $assignment->id)
 @section("content")
-    <h3 class="text-center">Naam: {{ $assignment->name }}</h3>
-    <h3 class="text-center">Afbeelding:</h3>
+    <h3 class="text-center">{{ ucfirst(__('miscellaneous.name')) }}: {{ $assignment->name }}</h3>
+    <h3 class="text-center">{{ ucfirst(__('miscellaneous.image')) }}:</h3>
         <div class="container mb-3">
             <img class="img-fluid" src="{{ $assignment->url }}">
         </div>
-    <h3 class="text-center">Beschrijving: {{ $assignment->description }}</h3>
-    <h3 class="text-center">Gemaakt op: {{ $assignment->created_at }}</h3>
-    <h3 class="text-center mb-3">Laatst aangepast op: {{ $assignment->updated_at }}</h3>
+    <h3 class="text-center">{{ ucfirst(__('miscellaneous.description')) }}: {{ $assignment->description }}</h3>
+    <h3 class="text-center">{{ ucfirst(__('miscellaneous.madeOn')) }}: {{ $assignment->created_at }}</h3>
+    <h3 class="text-center mb-3">{{ ucfirst(__('miscellaneous.lastUpdatedOn')) }}: {{ $assignment->updated_at }}</h3>
     @can('update', $assignment)
         <div class="container mb-3">
             <form action="/assignments/{{$assignment->id}}/edit" method="GET">

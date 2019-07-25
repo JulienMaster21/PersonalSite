@@ -3,7 +3,14 @@ let init = function() {
     form.addEventListener('submit', validateForm);
 };
 
+function checkLang() {
+    return document.getElementById('html').getAttribute('lang');
+}
+
 function checkName () {
+    // Initialise the name error message value
+    let nameErrorMessage;
+
     // Define the name value
     let name = document.getElementById('name').value;
 
@@ -12,7 +19,12 @@ function checkName () {
     let nameValidationSucceeded = nameRegex.test(name);
 
     // Define error message on wrong name
-    let nameErrorMessage = 'Voer een naam in van minimaal 6 tot 255 karakters.';
+    if (checkLang() === 'nl') {
+        nameErrorMessage = 'Voer een naam in van minimaal 6 tot 255 karakters.';
+    }
+    else {
+        nameErrorMessage = 'Enter a name with a minimum of 6 to 255 characters.';
+    }
 
     // check if name feedback already exists and if so to delete it
     let nameFeedback = document.getElementById('name-feedback');

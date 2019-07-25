@@ -1,5 +1,5 @@
 @extends("templates/memePage")
-@section("title", "FOR THE EMPEROR!")
+@section("title", __('miscellaneous.forTheEmperor'))
 @section("content")
     <audio loop autoplay>
         <source src= "{{secure_asset("audio/we_are_one.mp3")}}" type="audio/mpeg">
