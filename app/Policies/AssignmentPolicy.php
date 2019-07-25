@@ -23,7 +23,7 @@ class AssignmentPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'view_assignment')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'view_assignment')) {
                 $can_view = true;
             }
         }
@@ -43,7 +43,7 @@ class AssignmentPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'create_assignment')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'create_assignment')) {
                 $can_create = true;
             }
         }
@@ -64,7 +64,7 @@ class AssignmentPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'update_assignment')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'update_assignment')) {
                 $can_update = true;
             }
         }
@@ -85,7 +85,7 @@ class AssignmentPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'delete_assignment')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'delete_assignment')) {
                 $can_delete = true;
             }
         }

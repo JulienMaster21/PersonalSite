@@ -23,7 +23,7 @@ class BlokPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'view_blok')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'view_blok')) {
                 $can_view = true;
             }
         }
@@ -43,7 +43,7 @@ class BlokPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'create_blok')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'create_blok')) {
                 $can_create = true;
             }
         }
@@ -64,7 +64,7 @@ class BlokPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'update_blok')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'update_blok')) {
                 $can_update = true;
             }
         }
@@ -85,7 +85,7 @@ class BlokPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'delete_blok')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'delete_blok')) {
                 $can_delete = true;
             }
         }

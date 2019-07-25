@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTest;
+use App\Role;
 use Illuminate\Http\Request;
 use App\Test;
 use App\Blok;
@@ -27,7 +28,7 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index(User $user, Role $role)
     {
         $bloks = Blok::all();
         $courses = Course::all();
@@ -50,6 +51,7 @@ class TestController extends Controller
             "tests" => $tests,
             "ECValues" => $ECValues,
             'user' => $user,
+            'role' => $role,
         ]);
     }
 

@@ -23,7 +23,7 @@ class TestPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'view_test')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'view_test')) {
                 $can_view = true;
             }
         }
@@ -43,7 +43,7 @@ class TestPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'create_test')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'create_test')) {
                $can_create = true;
             }
         }
@@ -64,7 +64,7 @@ class TestPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'update_test')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'update_test')) {
                 $can_update = true;
             }
         }
@@ -85,7 +85,7 @@ class TestPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'delete_test')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'delete_test')) {
                 $can_delete = true;
             }
         }

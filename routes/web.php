@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
+
 Route::get("/", "PageController@getHome")
         ->name("home");
 
@@ -20,11 +25,11 @@ Route::get("/over-mij", "PageController@getAbout")
 Route::get("/dashboard", "TestController@index")
         ->name("dashboard");
 
-Route::get("/beroepsbeeld", "PageController@getBeroepsbeeld")
-        ->name("beroepsbeeld");
+Route::get("/careerResearch", "PageController@getCareerResearch")
+        ->name("careerResearch");
 
-Route::get("/motivatie", "PageController@getMotivatie")
-        ->name("motivatie");
+Route::get("/motivation", "PageController@getMotivation")
+        ->name("motivation");
 
 Route::get("/emperor", "PageController@getEmperor")
         ->name("emperor");
@@ -49,5 +54,6 @@ Route::resource("tests", "TestController");
 Route::resource("courses", "CourseController");
 Route::resource("bloks", "BlokController");
 Route::resource("users", "UserController");
+Route::resource("roles", "RoleController");
 
 Auth::routes();

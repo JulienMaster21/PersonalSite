@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAssignment;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Assignment;
@@ -26,12 +27,14 @@ class AssignmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index(User $user, Assignment $assignment, Role $role)
     {
         $assignments = Assignment::all();
         return view("pages/assignments.index", [
             "assignments" => $assignments,
             'user' => $user,
+            'assignment' => $assignment,
+            'role' => $role,
         ]);
     }
 

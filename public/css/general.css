@@ -10,15 +10,23 @@ body {
 h1, h2, h3, h4, h5, h6, p, a, ul, ol, th, td, tr, li, label {
     color: #00FF33;
 }
+
 .link {
     word-break: break-all;
 }
+
 .link:hover {
     color: red;
 }
+
 .link:hover h3 {
     color: red;
 }
+
+.fix_whitespace {
+    margin-right: -1.25ex;
+}
+
 /*Images*/
 .memes {
     dankness: maximum;
@@ -64,6 +72,10 @@ button:hover {
     color: black;
     background-color: #00FF33;
     border: 2px solid #00FF33;
+}
+.imageButton {
+    width: 3em;
+    height: auto;
 }
 /*Lists*/
 ul {

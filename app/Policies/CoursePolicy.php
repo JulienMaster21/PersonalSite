@@ -23,7 +23,7 @@ class CoursePolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'view_course')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'view_course')) {
                 $can_view = true;
             }
         }
@@ -43,7 +43,7 @@ class CoursePolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'create_course')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'create_course')) {
                 $can_create = true;
             }
         }
@@ -64,7 +64,7 @@ class CoursePolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'update_course')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'update_course')) {
                 $can_update = true;
             }
         }
@@ -85,7 +85,7 @@ class CoursePolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'delete_course')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'delete_course')) {
                 $can_delete = true;
             }
         }

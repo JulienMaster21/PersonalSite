@@ -22,7 +22,7 @@ class UserPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'view_user')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'view_user')) {
                 $can_view = true;
             }
         }
@@ -42,7 +42,7 @@ class UserPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'create_user')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'create_user')) {
                 $can_create = true;
             }
         }
@@ -63,7 +63,7 @@ class UserPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'update_user')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'update_user')) {
                 $can_update = true;
             }
         }
@@ -84,7 +84,7 @@ class UserPolicy
         $roles = $user->roles()->get();
 
         foreach ($roles as $role) {
-            if ($role->permissions()->get()->contains('name', '=', 'delete_user')) {
+            if ($role->permissions()->get()->contains('slug', '=', 'delete_user')) {
                 $can_delete = true;
             }
         }
