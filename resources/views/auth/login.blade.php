@@ -1,6 +1,22 @@
 @extends("templates/emptyPage")
 @section("title", ucfirst(__('miscellaneous.login')))
 @section("content")
+    <!-- Profile bar -->
+    <section class="row m-0">
+        <!-- Language options -->
+        <div class="col-6 d-flex">
+            <form action="{{ url('locale/en') }}" method="get">
+                <button type="submit">
+                    <img class="imageButton" src="{{ secure_asset('images/unionjack.svg') }}">
+                </button>
+            </form>
+            <form class="ml-3" action="{{ url('locale/nl') }}" method="get">
+                <button type="submit">
+                    <img class="imageButton" src="{{ secure_asset('images/dutchflag.svg') }}">
+                </button>
+            </form>
+        </div>
+    </section>
     <h1 class="mb-5">{{ ucfirst(__('miscellaneous.portfolio')) }}</h1>
     <h3 class="mb-3">{{ ucfirst(__('miscellaneous.login')) }}</h3>
 
