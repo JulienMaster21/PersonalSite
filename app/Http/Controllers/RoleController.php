@@ -38,10 +38,10 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $permissions = Permission::all();
+        $models = Lang::get('models');
 
         return view('pages/roles.create', [
-            'permissions' => $permissions,
+            'models' => $models,
         ]);
     }
 
@@ -98,11 +98,11 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        $permissions = Permission::all();
+        $models = Lang::get('models');
 
         return view('pages/roles.edit', [
             'role' => $role,
-            'permissions' => $permissions,
+            'models' => $models,
         ]);
     }
 

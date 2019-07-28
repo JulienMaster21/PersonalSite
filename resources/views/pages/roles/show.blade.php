@@ -10,7 +10,7 @@
             <tr>
                 <th></th>
                 <th>{{ ucfirst(__('miscellaneous.view')) }}</th>
-                <th>{{ ucfirst(__('miscellaneous.make')) }}</th>
+                <th>{{ ucfirst(__('miscellaneous.create.plural')) }}</th>
                 <th>{{ ucfirst(__('miscellaneous.update')) }}</th>
                 <th>{{ ucfirst(__('miscellaneous.delete')) }}</th>
             </tr>
@@ -18,7 +18,7 @@
         <tbody>
             @foreach($models as $key=>$model)
                 <tr>
-                    <td>{{ ucfirst(__('miscellaneous.can')) }} {{ ucfirst($model['plural']) }}</td>
+                    <td>{{ ucfirst($model['plural']) }}</td>
                     <td>
                         @if($role->permissions()->get()->contains('slug', '=', 'view_' . $key))
                             <i class="fas fa-check"></i>
