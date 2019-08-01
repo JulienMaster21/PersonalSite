@@ -56,4 +56,4 @@ Route::resource("bloks", "BlokController");
 Route::resource("users", "UserController");
 Route::resource("roles", "RoleController");
 
-Auth::routes();
+Auth::routes(['verify' => true]);

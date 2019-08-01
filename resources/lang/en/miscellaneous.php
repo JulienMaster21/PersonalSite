@@ -55,6 +55,13 @@ return [
         'plural' => 'permissions'
     ],
 
+    // Email verification
+    'verify' => 'verify your email',
+    'sent' => 'Before proceeding, please check your email for a verification link.',
+    'resent' => 'A fresh verification link has been sent to your email address.',
+    'didntReceive' => 'If you did not receive the email',
+    'clickHere' => 'click here to request another',
+
     // Page names
     'home' => 'home',
     'about' => 'about',

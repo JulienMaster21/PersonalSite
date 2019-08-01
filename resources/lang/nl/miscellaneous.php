@@ -55,6 +55,13 @@ return [
         'plural' => 'permissies'
     ],
 
+    // Email verification
+    'verify' => 'verifieer jouw email',
+    'sent' => 'Voordat je doorgaat, check jouw email voor een verificatielink.',
+    'resent' => 'Een nieuwe verificatielink is naar jouw email verstuurd.',
+    'didntReceive' => 'Als je de email niet gekregen hebt',
+    'clickHere' => 'klik hier om een nieuwe te krijgen',
+
     // Page names
     'home' => 'home',
     'about' => 'over mij',

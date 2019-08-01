@@ -1,24 +1,17 @@
-@extends('layouts.app')
+@extends("templates/emptyPage")
+@section("title", ucfirst(__('miscellaneous.verify')))
+@section("content")
+    <h1 class="mb-5">{{ ucfirst(__('miscellaneous.verify')) }}</h1>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
-
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
-
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>.
-                </div>
-            </div>
+    @if (session('resent'))
+        <div class="alert alert-success" role="alert">
+            {{ __('miscellaneous.resent') }}
         </div>
-    </div>
-</div>
+    @endif
+
+    <p>
+        {{ __('miscellaneous.sent') }}
+        {{ __('miscellaneous.didntReceive') }}, <a class="link" href="{{ route('verification.resend') }}">
+        {{ __('miscellaneous.clickHere') }}</a>.
+    </p>
 @endsection
