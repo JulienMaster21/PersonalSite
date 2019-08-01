@@ -38,13 +38,13 @@
     </p>
     <p>{{ __('motivation.main7') }}</p>
     <h1 id="carriere" class="text-center anchor">{{ ucfirst(__('motivation.head7')) }}</h1>
-    <h2 class="text-center">{{ ucfirst(__('motivation.head8')) }} (24 punten)</h2>
+    <h2 class="text-center">{{ ucfirst(__('motivation.head8')) }} (24 {{ ucfirst(__('miscellaneous.points')) }})</h2>
     <p>{{ __('motivation.main8') }}</p>
     <p>{{ __('motivation.main9') }}</p>
-    <h2 class="text-center">{{ ucfirst(__('motivation.head9')) }} (21 punten)</h2>
+    <h2 class="text-center">{{ ucfirst(__('motivation.head9')) }} (21 {{ ucfirst(__('miscellaneous.points')) }})</h2>
     <p>{{ __('motivation.main10') }}</p>
     <p>{{ __('motivation.main11') }}</p>
-    <h2 class="text-center">{{ ucfirst(__('motivation.head10')) }} (0 punten)</h2>
+    <h2 class="text-center">{{ ucfirst(__('motivation.head10')) }} (0 {{ ucfirst(__('miscellaneous.points')) }})</h2>
     <p>{{ __('motivation.main12') }}</p>
     <p>{{ __('motivation.main13') }}</p>
     <h1 id="conclusie" class="text-center anchor">{{ ucfirst(__('motivation.head11')) }}</h1>

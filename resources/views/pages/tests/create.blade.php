@@ -1,5 +1,5 @@
 @extends('templates/emptyPage')
-@section("title", ucfirst(__('miscellaneous.create')) . ' ' . ucfirst(__('models.test.singular')))
+@section("title", ucfirst(__('miscellaneous.create.singular')) . ' ' . ucfirst(__('models.test.singular')))
 @section("content")
     <p>* {{ ucfirst(__('miscellaneous.required')) }}</p>
     <div class="container">

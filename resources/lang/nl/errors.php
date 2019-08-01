@@ -5,7 +5,7 @@ return [
 
     // Error description
     'pageNotFound' => 'pagina niet gevonden',
-    'accesDenied' => 'toegang geweigerd',
+    'accessDenied' => 'toegang geweigerd',
     'sessionExpired' => 'sessie verlopen',
     'internalError' => 'interne server fout',
 
@@ -14,7 +14,7 @@ return [
     'pageMoved' => 'De pagina is mogelijk verplaatst of bestaat niet.',
     'insufficientPermission' => 'Je hebt niet voldoende rechten om deze actie uit te voeren.',
     'notRight' => 'Als dit niet klopt, dan zullen we dit zo snel mogelijk oplossen.',
-    'yourSessionExpired' => 'Jouw sessie is verlopen',
+    'yourSessionExpired' => 'Jouw sessie is verlopen.',
     'somethingWentWrong' => 'Er is iets fout gegaan bij onze servers.',
     'requestCausedError' => 'De request die gestuurd werd veroorzaakte een onverwachte fout.',
 

@@ -8,10 +8,10 @@ return [
     'text2' => 'Als eerste zal ik beginnen met wat ik heb geleerd bij het HBO-I Job Event.
                 Er waren verrassend veel verschillende soorten organisaties aanwezig.
                 Het eerste voorbeeld is de Rabobank. De vertegenwoordiger heeft mij verteld over de verschillende
-                posities die aanwezig waren zoals business analyst, operations engineer en etc.
+                posities die aanwezig waren zoals: business analyst, operations engineer en etc.
                 Verder heeft hij mij verteld over ITIL (Information Technology Infrastructure Library).
                 Dit gebruiken zij om de beheersprocessen op te delen in logische groepen.',
-    'text3' => 'Naast de Rabobank waren er meerdere overheidsinstanties aanwezig zoals het CBS en de
+    'text3' => 'Naast de Rabobank waren er meerdere overheidsinstanties aanwezig zoals: het CBS en de
                 Ministerie van Defensie. Ik vond persoonlijk het CBS iets interessanter dan Defensie.
                 In mijn gesprek met de CBS vertegenwoordiger kreeg ik te horen dat Data Scientist de
                 meest gewilde positie is.',
@@ -25,8 +25,8 @@ return [
                 Dat is een techniek die men gebruikt waarbij de ontwikkelaars zelf bepalen wat ze doen en
                 wanneer ze dat doen. Er wordt natuurlijk wel gekeken hoeveel en
                 welke kwaliteit werk er wordt geleverd.',
-    'text6' => 'Als laatste heb ik met het bedrijf ETTU gesproken. Zij zochten naar AI enigneers.
-                Hiernaast zei de vertegenwoordiger dat zij werken met blockchain technologie.',
+    'text6' => 'Als laatste heb ik met het bedrijf ETTU gesproken. Zij zochten naar AI engineers.
+                Hiernaast zei de vertegenwoordiger dat zij werken met Blockchain technologie.',
     'text7' => 'Hier zal ik een beoordeling geven van de bedrijven die we bezocht hebben tijdens de bedrijvensafari.',
     'text8' => 'Colijn IT is een bedrijf dat software ontwikkelt voor de meubelindustrie.
                 Dit bedrijf bestaat al lang en dat vind ik gerustellend.',

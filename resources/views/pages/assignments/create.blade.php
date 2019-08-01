@@ -1,5 +1,5 @@
 @extends('templates/emptyPage')
-@section("title", ucfirst(__('miscellaneous.make')) . ' ' . ucfirst(__('models.assignment.singular')))
+@section("title", ucfirst(__('miscellaneous.create.plural')) . ' ' . ucfirst(__('models.assignment.singular')))
 @section("content")
     <div class="container">
         <form action="/assignments" method="POST" id="form">

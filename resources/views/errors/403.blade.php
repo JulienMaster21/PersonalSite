@@ -1,5 +1,5 @@
 @extends("templates/emptyPage")
-@section("title", ucfirst(__('errors.accesDenied')))
+@section("title", ucfirst(__('errors.accessDenied')))
 @section("content")
     <h1 class="errorHeader text-center">403</h1>
     <div class="container mb-5">

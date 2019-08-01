@@ -7,15 +7,17 @@ return [
     'name' => 'naam',
     'can' => 'kan',
     'view' => 'zien',
-    'create' => 'maak',
-    'make' => 'maken',
+    'create' => [
+        'singular' => 'maak',
+        'plural' => 'maken',
+    ],
     'update' => 'aanpassen',
     'delete' => 'verwijderen',
     'edit' => 'pas :object aan',
 
     // Timestamps
     'madeOn' => 'gemaakt op',
-    'lastUpdatedOn' => 'Laatst geupdate op',
+    'lastUpdatedOn' => 'laatst geupdate op',
     'memberSince' => 'lid sinds',
     'emailVerifiedOn' => 'email geverifieerd op',
 
@@ -41,6 +43,7 @@ return [
     'forTheEmperor' => 'VOOR DE EMPEROR!',
     'sufficient' => 'voldoende',
     'ECValue' => 'EC waarde',
+    'points' => 'punten',
 
     // Often used words with plural
     'register' => [
