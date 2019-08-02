@@ -8,6 +8,7 @@ use App\Role;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RoleController extends Controller
 {
@@ -25,9 +26,11 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
+        $user = Auth::user();
 
         return view('pages/roles.index', [
             'roles' => $roles,
+            'user' => $user,
         ]);
     }
 

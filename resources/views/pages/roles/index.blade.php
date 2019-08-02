@@ -6,6 +6,7 @@
         <thead>
             <tr>
                 <th>{{ ucfirst(__('miscellaneous.name')) }}</th>
+                <th>{{ ucfirst(__('miscellaneous.youHave')) }}?</th>
             </tr>
         </thead>
         <tbody>
@@ -13,6 +14,13 @@
                 <tr>
                     <td>
                         <a class="link" href="roles/{{ $role->id }}">{{ $role->name }}</a>
+                    </td>
+                    <td>
+                        @if($user->roles()->get()->contains('name', '=', $role->name))
+                            <i class="fas fa-check"></i>
+                        @else
+                            <i class="fas fa-times"></i>
+                        @endif
                     </td>
                 </tr>
             @endforeach

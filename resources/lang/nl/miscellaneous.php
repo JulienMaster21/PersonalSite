@@ -44,6 +44,7 @@ return [
     'sufficient' => 'voldoende',
     'ECValue' => 'EC waarde',
     'points' => 'punten',
+    'youHave' => 'heb jij het',
 
     // Often used words with plural
     'register' => [

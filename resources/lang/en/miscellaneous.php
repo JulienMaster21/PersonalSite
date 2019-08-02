@@ -44,6 +44,7 @@ return [
     'sufficient' => 'sufficient',
     'ECValue' => 'EC value',
     'points' => 'points',
+    'youHave' => 'do you have it',
 
     // Often used words with plural
     'register' => [
