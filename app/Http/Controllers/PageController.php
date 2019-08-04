@@ -45,6 +45,14 @@ class PageController extends Controller
         return view("pages/contact");
     }
 
+    function getPrivacyPolicy () {
+        return view('pages/privacyPolicy');
+    }
+
+    function getTermsAndConditions () {
+        return view('pages/termsAndConditions');
+    }
+
     function get403 () {
         abort(403);
     }

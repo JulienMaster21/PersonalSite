@@ -25,7 +25,7 @@ Route::get("/over-mij", "PageController@getAbout")
 Route::get("/dashboard", "TestController@index")
         ->name("dashboard");
 
-Route::get("/careerResearch", "PageController@getCareerResearch")
+Route::get("/career-research", "PageController@getCareerResearch")
         ->name("careerResearch");
 
 Route::get("/motivation", "PageController@getMotivation")
@@ -36,6 +36,12 @@ Route::get("/emperor", "PageController@getEmperor")
 
 Route::get("/contact", "PageController@getContact")
         ->name("contact");
+
+Route::get("/privacy-policy", "PageController@getPrivacyPolicy")
+    ->name("privacyPolicy");
+
+Route::get("/terms-and-conditions", "PageController@getTermsAndConditions")
+    ->name("termsAndConditions");
 
 Route::get('/userpage', 'CurrentUserController@getUserPage')
         ->name('userPage');

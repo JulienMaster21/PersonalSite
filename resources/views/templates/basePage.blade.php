@@ -242,6 +242,18 @@
             @endif
             @yield("content")
         </main>
+        {{-- Footer --}}
+        <footer class="row text-center pt-3 mt-5 mx-0">
+            <p class="col-4">
+                <a class="link" href="{{ route('privacyPolicy') }}">{{ __('privacyPolicy.title') }}</a>
+            </p>
+            <p class="col-4">
+                <a class=" link" href="{{ route('termsAndConditions') }}">{{ __('termsAndConditions.title') }}</a>
+            </p>
+            <p class="col-4">
+                <a class="link" href="{{ route('contact') }}">{{ ucfirst(__('miscellaneous.contact')) }}</a>
+            </p>
+        </footer>
     </body>
     <script src="{{secure_asset("js/general.js")}}" rel="javascript"></script>
     <script src="{{secure_asset("js/app.js")}}" rel="javascript"></script>
