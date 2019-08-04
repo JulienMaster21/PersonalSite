@@ -17,6 +17,12 @@
         <h3>{{ ucfirst(__('miscellaneous.lastUpdatedOn')) }}: {{ $user->updated_at ? $user->updated_at : ucfirst(__('miscellaneous.not')) }}</h3>
     </div>
     <div class="container">
+        <form class="mb-3" action="{{ route('deleteUser') }}" method="POST">
+            @csrf
+            <button type="submit">
+                {{ ucfirst(__('miscellaneous.delete.singular')) }} {{ ucfirst(__('miscellaneous.account')) }}?
+            </button>
+        </form>
         <form action="{{ route('home') }}" method="get">
             <button type="submit">
                 <i class="fas fa-home"></i>

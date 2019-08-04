@@ -21,7 +21,7 @@
                 <th>{{ ucfirst(__('miscellaneous.view')) }}</th>
                 <th>{{ ucfirst(__('miscellaneous.create.plural')) }}</th>
                 <th>{{ ucfirst(__('miscellaneous.update')) }}</th>
-                <th>{{ ucfirst(__('miscellaneous.delete')) }}</th>
+                <th>{{ ucfirst(__('miscellaneous.delete.plural')) }}</th>
             </tr>
             </thead>
             <tbody>

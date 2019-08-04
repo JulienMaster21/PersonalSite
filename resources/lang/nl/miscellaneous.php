@@ -12,7 +12,10 @@ return [
         'plural' => 'maken',
     ],
     'update' => 'aanpassen',
-    'delete' => 'verwijderen',
+    'delete' => [
+        'singular' => 'verwijder',
+        'plural' => 'verwijderen'
+    ],
     'edit' => 'pas :object aan',
 
     // Timestamps
@@ -45,6 +48,7 @@ return [
     'ECValue' => 'EC waarde',
     'points' => 'punten',
     'youHave' => 'heb jij het',
+    'account' => 'profiel',
 
     // Often used words with plural
     'register' => [

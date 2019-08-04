@@ -12,7 +12,10 @@ return [
         'plural' => 'create',
     ],
     'update' => 'update',
-    'delete' => 'delete',
+    'delete' => [
+        'singular' => 'delete',
+        'plural' => 'delete',
+    ],
     'edit' => 'edit :object',
 
     // Timestamps
@@ -45,6 +48,7 @@ return [
     'ECValue' => 'EC value',
     'points' => 'points',
     'youHave' => 'do you have it',
+    'account' => 'account',
 
     // Often used words with plural
     'register' => [

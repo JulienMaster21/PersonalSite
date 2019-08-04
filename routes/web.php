@@ -46,6 +46,9 @@ Route::get("/terms-and-conditions", "PageController@getTermsAndConditions")
 Route::get('/userpage', 'CurrentUserController@getUserPage')
         ->name('userPage');
 
+Route::post('/delete-current-user', 'CurrentUserController@deleteUser')
+        ->name('deleteUser');
+
 Route::get("/500", 'PageController@get500')
         ->name('500');
 

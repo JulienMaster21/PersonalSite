@@ -27,4 +27,15 @@ class CurrentUserController extends Controller
     function logOut () {
         Auth::logout();
     }
+
+    function deleteUser () {
+        $user = Auth::user();
+
+        // Remove all roles from user
+        $user->roles()->detach();
+
+        $user->delete();
+
+        return redirect()->route('home');
+    }
 }
