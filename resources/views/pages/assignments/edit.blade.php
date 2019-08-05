@@ -40,5 +40,4 @@
             </button>
         </form>
     </div>
-    <script rel="javascript" src="{{ secure_asset("js/validateAssignment.js") }}"></script>
 @endsection

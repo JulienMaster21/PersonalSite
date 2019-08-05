@@ -53,5 +53,4 @@
             </button>
         </form>
     </div>
-    <script rel="javascript" src="{{ secure_asset("js/validateRegister.js") }}"></script>
 @endsection

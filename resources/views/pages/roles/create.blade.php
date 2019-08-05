@@ -70,5 +70,4 @@
             </button>
         </form>
     </div>
-    <script rel="javascript" src="{{ secure_asset("js/validateRole.js") }}"></script>
 @endsection

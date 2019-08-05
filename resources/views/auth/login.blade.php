@@ -74,5 +74,4 @@
             </a>
         </div>
     </div>
-    <script rel="javascript" src="{{ secure_asset("js/validateLogin.js") }}"></script>
 @endsection

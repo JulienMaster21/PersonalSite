@@ -8,23 +8,15 @@
             @csrf
 
             <input type="hidden" name="token" value="{{ $token }}">
-
-            <div class="form-group">
-                <label for="email">{{ ucfirst(__('miscellaneous.email')) }}</label>
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                       value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
+            <input type="hidden" name="email" value="{{ $email }}">
 
             <div class="form-group">
                 <label for="password">{{ ucfirst(__('miscellaneous.password')) }}</label>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                       name="password" required autocomplete="new-password">
+                       name="password" required autocomplete="new-password"
+                       onblur="checkPassword()" placeholder="{{ __('messages.password') }}"
+                       data-trigger="focus" data-container="body" data-toggle="popover"
+                       data-placement="top" data-content="{{ __('messages.password') }}">
 
                 @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -34,9 +26,12 @@
             </div>
 
             <div class="form-group mb-5">
-                <label for="password-confirm">{{ ucfirst(__('miscellaneous.confirm')) }} {{ ucfirst(__('miscellaneous.password')) }}</label>
-                    <input id="password-confirm" type="password" class="form-control"
-                           name="password_confirmation" required autocomplete="new-password">
+                <label for="confirmPassword">{{ ucfirst(__('miscellaneous.confirm')) }} {{ ucfirst(__('miscellaneous.password')) }}</label>
+                    <input id="confirmPassword" type="password" class="form-control"
+                           name="password_confirmation" required autocomplete="new-password"
+                           onblur="checkConfirmPassword()" placeholder="{{ __('messages.confirmPassword') }}"
+                           data-trigger="focus" data-container="body" data-toggle="popover"
+                           data-placement="top" data-content="{{ __('messages.confirmPassword') }}">
             </div>
 
             <div class="form-group">

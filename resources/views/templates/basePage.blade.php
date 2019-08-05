@@ -255,6 +255,5 @@
             </p>
         </footer>
     </body>
-    <script src="{{secure_asset("js/general.js")}}" rel="javascript"></script>
     <script src="{{secure_asset("js/app.js")}}" rel="javascript"></script>
 </html>

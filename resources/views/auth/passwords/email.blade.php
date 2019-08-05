@@ -17,7 +17,10 @@
             <div class="form-group mb-5">
                 <label for="email">{{ ucfirst(__('miscellaneous.email')) }}:</label>
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                        onblur="checkEmail()" placeholder="{{ __('messages.email') }}"
+                       data-trigger="focus" data-container="body" data-toggle="popover"
+                       data-placement="top" data-content="{{ __('messages.email') }}">
 
                 @error('email')
                     <span class="invalid-feedback" role="alert">
