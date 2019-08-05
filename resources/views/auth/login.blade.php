@@ -41,6 +41,12 @@
                        data-content="{{ __('messages.password') }}" onblur="checkPassword();">
             </div>
 
+            <div class="mb-3">
+                <a class="link" href="{{ route('password.request') }}">
+                    {{ ucfirst(__('miscellaneous.forgotPassword')) }}?
+                </a>
+            </div>
+
             <div class="form-group">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>

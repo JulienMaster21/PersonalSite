@@ -49,6 +49,10 @@ return [
     'points' => 'points',
     'youHave' => 'do you have it',
     'account' => 'account',
+    'reset' => 'reset',
+    'forgotPassword' => 'forgot password',
+    'sendLink' => 'send password reset link',
+    'confirm' => 'confirm',
 
     // Often used words with plural
     'register' => [

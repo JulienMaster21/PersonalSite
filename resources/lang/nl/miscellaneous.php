@@ -49,6 +49,10 @@ return [
     'points' => 'punten',
     'youHave' => 'heb jij het',
     'account' => 'profiel',
+    'reset' => 'reset',
+    'forgotPassword' => 'wachtwoord vergeten',
+    'sendLink' => 'Verstuur wachtwoord reset link',
+    'confirm' => 'bevestig',
 
     // Often used words with plural
     'register' => [
