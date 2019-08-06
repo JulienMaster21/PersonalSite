@@ -552,12 +552,56 @@ window.checkConfirmPassword = function checkConfirmPassword () {
     return confirmPasswordValidationSucceeded;
 };
 
+window.checkAgreeToTerms = function checkAgreeToTerms() {
+    // Initialise the agreeToTerms error message value
+    let agreeToTermsErrorMessage;
+
+    // Define the agreeToTerms value
+    let agreeToTerms = document.getElementById('agreeToTerms').value;
+
+    // Define the validation for checking the agreeToTerms value
+    let agreeToTermsValidation = '1';
+    let agreeToTermsValidationSucceeded = agreeToTerms === agreeToTermsValidation;
+
+    // Define error message on wrong agreeToTerms
+    if (checkLang() === 'nl') {
+        agreeToTermsErrorMessage = 'De waarde van de checkbox moet \'1\' zijn.';
+    } else {
+        agreeToTermsErrorMessage = 'The value of the checkbox must be \'1\'.';
+    }
+
+    // check if agreeToTerms feedback already exists and if so to delete it
+    let agreeToTermsFeedback = document.getElementById('agreeToTerms-feedback');
+    if (document.body.contains(agreeToTermsFeedback)) {
+        agreeToTermsFeedback.parentNode.removeChild(agreeToTermsFeedback);
+    }
+    // Check if agreeToTerms is valid
+    if (agreeToTermsValidationSucceeded) {
+        if (document.getElementById('agreeToTerms').classList.contains('is-invalid')) {
+            document.getElementById('agreeToTerms').classList.remove('is-invalid');
+        }
+    }
+    // Add feedback if agreeToTerms is not valid
+    else if (!agreeToTermsValidationSucceeded) {
+        document.getElementById('agreeToTerms').classList.add('is-invalid');
+        let div = document.createElement('div');
+        div.setAttribute('id', 'agreeToTerms-feedback');
+        div.setAttribute('class', 'invalid-feedback');
+        div.innerText = agreeToTermsErrorMessage;
+
+        document.getElementById('agreeToTerms').parentElement.appendChild(div);
+    }
+
+    return agreeToTermsValidationSucceeded;
+};
+
 // Function to check if all inputs are valid
 let validateForm = function(event) {
     event.preventDefault();
 
     // Submit the form if the validation is successful
-    if ((!document.getElementById('name') || checkName()) &&
+    if (
+        (!document.getElementById('name') || checkName()) &&
         (!document.getElementById('grade') || checkGrade()) &&
         (!document.getElementById('completed') || checkCompleted()) &&
         (!document.getElementById('EC') || checkEC()) &&
@@ -567,7 +611,9 @@ let validateForm = function(event) {
         (!document.getElementById('blok_id') || checkBlok()) &&
         (!document.getElementById('email') || checkEmail()) &&
         (!document.getElementById('password') || checkPassword()) &&
-        (!document.getElementById('confirmPassword') || checkConfirmPassword())) {
+        (!document.getElementById('confirmPassword') || checkConfirmPassword())
+        (!document.getElementById('agreeToTerms') || checkAgreeToTerms())
+    ) {
         document.getElementById('form').submit();
     }
 };

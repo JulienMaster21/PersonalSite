@@ -53,6 +53,8 @@ return [
     'forgotPassword' => 'forgot password',
     'sendLink' => 'send password reset link',
     'confirm' => 'confirm',
+    'and' => 'and',
+    'agreeToTerms' => 'I agree to the',
 
     // Often used words with plural
     'register' => [

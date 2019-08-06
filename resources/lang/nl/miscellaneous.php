@@ -53,6 +53,8 @@ return [
     'forgotPassword' => 'wachtwoord vergeten',
     'sendLink' => 'Verstuur wachtwoord reset link',
     'confirm' => 'bevestig',
+    'and' => 'en',
+    'agreeToTerms' => 'Ik ga akkoord met het',
 
     // Often used words with plural
     'register' => [

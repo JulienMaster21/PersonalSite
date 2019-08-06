@@ -12,4 +12,5 @@ return [
     'dropdown' => 'Alle waarden in de dropdown zijn toegestaan, inclusief geen.',
     'number' => 'Voer een cijfer tussen 1 en 10 in.',
     'checkbox' => 'Vul de checkbox om deze optie toe te voegen.',
+    'agreeToTerms' => 'Vul de checkbox om akkoord te gaan met de voorwaarden.',
 ];

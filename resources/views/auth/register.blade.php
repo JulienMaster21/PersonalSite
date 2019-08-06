@@ -41,6 +41,17 @@
             </div>
 
             <div class="form-group">
+                <input class="form-check-input" type="checkbox" name="agreeToTerms" id="agreeToTerms" value="1"
+                       data-trigger="focus" data-container="body" data-toggle="popover" data-placement="top"
+                       data-content="{{ __('messages.agreeToTerms') }}" onblur="checkAgreeToTerms();">
+                <label for="agreeToTerms">{{ __('miscellaneous.agreeToTerms') }}
+                    <a class="link" href="{{ route('privacyPolicy') }}">{{ __('privacyPolicy.title') }}</a>
+                    {{ __('miscellaneous.and') }}
+                    <a class="link" href="{{ route('termsAndConditions') }}">{{ __('termsAndConditions.title') }}</a>
+                </label>
+            </div>
+
+            <div class="form-group">
                 <button type="submit" class="btn-lg">
                     {{ ucfirst(__('miscellaneous.register.singular')) }}
                 </button>
