@@ -611,7 +611,7 @@ let validateForm = function(event) {
         (!document.getElementById('blok_id') || checkBlok()) &&
         (!document.getElementById('email') || checkEmail()) &&
         (!document.getElementById('password') || checkPassword()) &&
-        (!document.getElementById('confirmPassword') || checkConfirmPassword())
+        (!document.getElementById('confirmPassword') || checkConfirmPassword()) &&
         (!document.getElementById('agreeToTerms') || checkAgreeToTerms())
     ) {
         document.getElementById('form').submit();
