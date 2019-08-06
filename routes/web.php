@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('locale/{locale}', function ($locale){
-    Session::put('locale', $locale);
-    return redirect()->back();
-});
+Route::get('locale/{locale}', 'PageController@setLocale')
+        ->name('setLocale');
 
 Route::get("/", "PageController@getHome")
         ->name("home");

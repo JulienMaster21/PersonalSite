@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Role;
+use Illuminate\Support\Facades\Session;
 
 class PageController extends Controller
 {
@@ -63,5 +64,10 @@ class PageController extends Controller
 
     function get419 () {
         abort(419);
+    }
+
+    function setLocale ($locale) {
+        Session::put('locale', $locale);
+        return redirect()->back();
     }
 }
