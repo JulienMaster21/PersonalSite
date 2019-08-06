@@ -1,7 +1,7 @@
 @extends("templates/emptyPage")
 @section("title", __('termsAndConditions.title'))
 @section("content")
-    <h1>{{ __('termsAndConditions.title') }} ("Terms")</h1>
+    <h1>{{ __('termsAndConditions.title') }}</h1>
 
     <p class="text-left">{{ __('termsAndConditions.lastUpdated') }}</p>
 
@@ -37,23 +37,21 @@
 
     <p class="text-left">{{ __('termsAndConditions.p13') }}</p>
 
-    <p class="text-left">{{ __('termsAndConditions.p14') }}</p>
-
     <h2>{{ __('termsAndConditions.h4') }}</h2>
+
+    <p class="text-left">{{ __('termsAndConditions.p14') }}</p>
 
     <p class="text-left">{{ __('termsAndConditions.p15') }}</p>
 
-    <p class="text-left">{{ __('termsAndConditions.p16') }}</p>
-
     <h2>{{ __('termsAndConditions.h5') }}</h2>
+
+    <p class="text-left">{{ __('termsAndConditions.p16') }}</p>
 
     <p class="text-left">{{ __('termsAndConditions.p17') }}</p>
 
-    <p class="text-left">{{ __('termsAndConditions.p18') }}</p>
-
     <h2>{{ __('termsAndConditions.h6') }}</h2>
 
-    <p class="text-left mb-5">{{ __('termsAndConditions.p19') }}</p>
+    <p class="text-left mb-5">{{ __('termsAndConditions.p18') }}</p>
 
     <form class="mb-3" action="{{ url()->previous() }}" method="get">
         <button type="submit">

@@ -4,65 +4,68 @@ return [
     // Translations for the Terms and Conditions
 
     // Headers
-    'title' => 'Terms and Conditions',
-    'h1' => 'Accounts',
-    'h2' => 'Links To Other Web Sites',
-    'h3' => 'Termination',
-    'h4' => 'Governing Law',
-    'h5' => 'Changes',
-    'h6' => 'Contact Us',
+    'title' => 'Algemene voorwaarden ("Voorwaarden")',
+    'h1' => 'Profielen',
+    'h2' => 'Links Naar Andere Websites',
+    'h3' => 'Beëindiging',
+    'h4' => 'Toepasselijk recht',
+    'h5' => 'Veranderingen',
+    'h6' => 'Contact opnemen',
 
     // Paragraphs
-    'lastUpdated' => 'Last updated: August 02, 2019',
-    'p1' => 'Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using
-            the http://salty-taiga-21931.herokuapp.com website (the "Service") operated by JulienMaster\'s
-            portfolio ("us", "we", or "our").',
-    'p2' => 'Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms.
-            These Terms apply to all visitors, users and others who access or use the Service.',
-    'p3' => 'By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of
-            the terms then you may not access the Service. The Terms and Conditions agreement  for JulienMaster\'s
-            portfolio has been created with the help of ',
+    'lastUpdated' => 'Laatst aangepast op: 2 Augustus, 2019',
+    'p1' => 'Lees alsjeblieft de algemene voorwaarden ("Voorwaarden", "Algemene voorwaarden") zorgvuldig door voordat
+            je de website http://salty-taiga-21931.herokuapp.com (de "Dienst") gebruikt, beheerd door JulienMaster\'    s
+            portfolio ("ons", "wij", of "onze").',
+    'p2' => 'Jouw toegang tot en het gebruik van de Dienst is gebaseerd op de aanvaarding en nakoming van
+            deze voorwaarden. Deze voorwaarden gelden voor alle bezoekers, gebruikers en anderen wie de
+            Dienst gebruiken.',
+    'p3' => 'Door het gebruik van de Dienst ga je akkoord met deze voorwaarden. Als je het niet eens bent met elk
+            onderdeel van de voorwaarden dan mag je geen toegang hebben tot de Dienst. De algemene voorwaarden voor
+            JulienMaster\'s portfolio is gegenereerd door ',
     'p3link' => 'TermsFeed',
-    'p4' => 'When you create an account with us, you must provide us information that is accurate, complete,
-            and current at all times. Failure to do so constitutes a breach of the Terms, which may result in
-            immediate termination of your account on our Service.',
-    'p5' => 'You are responsible for safeguarding the password that you use to access the Service and for
-            any activities or actions under your password, whether your password is with our Service
-            or a third-party service.',
-    'p6' => 'You agree not to disclose your password to any third party. You must notify us immediately upon
-            becoming aware of any breach of security or unauthorized use of your account.',
-    'p7' => 'Our Service may contain links to third-party web sites or services that are not owned or controlled by
-            JulienMaster\'s portfolio.',
-    'p8' => 'JulienMaster\'s portfolio has no control over, and assumes no responsibility for, the content,
-            privacy policies, or practices of any third party web sites or services. You further acknowledge and
-            agree that JulienMaster\'s portfolio shall not be responsible or liable, directly or indirectly, for
-            any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any
-            such content, goods or services available on or through any such web sites or services.',
-    'p9' => 'We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites
-            or services that you visit.',
-    'p10' => 'We may terminate or suspend access to our Service immediately, without prior notice or liability,
-            for any reason whatsoever, including without limitation if you breach the Terms.',
-    'p11' => 'All provisions of the Terms which by their nature should survive termination shall survive termination,
-            including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of
-            liability.',
-    'p12' => 'We may terminate or suspend your account immediately, without prior notice or liability,
-            for any reason whatsoever, including without limitation if you breach the Terms.',
-    'p13' => 'Upon termination, your right to use the Service will immediately cease.
-            If you wish to terminate your account, you may simply discontinue using the Service.',
-    'p14' => 'All provisions of the Terms which by their nature should survive termination shall survive termination,
-            including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of
-            liability.',
-    'p15' => 'These Terms shall be governed and construed in accordance with the laws of Netherlands, without regard
-            to its conflict of law provisions.',
-    'p16' => 'Our failure to enforce any right or provision of these Terms will not be considered a waiver of
-            those rights. If any provision of these Terms is held to be invalid or unenforceable by a court,
-            the remaining provisions of these Terms will remain in effect. These Terms constitute the entire
-            agreement between us regarding our Service, and supersede and replace any prior agreements we might
-            have between us regarding the Service.',
-    'p17' => 'We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a
-            revision is material we will try to provide at least 30 days notice prior to any new terms taking effect.
-            What constitutes a material change will be determined at our sole discretion.',
-    'p18' => 'By continuing to access or use our Service after those revisions become effective, you agree to be
-            bound by the revised terms. If you do not agree to the new terms, please stop using the Service.',
-    'p19' => 'If you have any questions about these Terms, please contact us.',
+    'p4' => 'Wanneer je een profiel bij ons maakt, moet je ons van gegevens voorzien die nauwkeurig, volledig,
+            en actueel zijn op elk moment. Het niet opvolgen hiervan wordt gezien als schending van de voorwaarden,
+            dat kan resulteren tot een onmiddelijk beëindiging van jouw profiel op onze Dienst.',
+    'p5' => 'Je bent verantwoordelijk voor het waarborgen van jouw wachtwoord dat je gebruikt voor de Dienst en voor
+            elke activiteit of actie met jouw wachtwoord, achteloos of jouw wachtwoord bij onze Dienst hoort
+            of een externe partij.',
+    'p6' => 'Je gaat ermee akkoord om jouw wachtwoord niet te onthullen aan een externe partij. Je moet ons
+            onmiddelijk verwittigen wanneer je weet dat er een breuk in de veiligheid is of
+            een ongeautoriseerd gebruik van jouw profiel.',
+    'p7' => 'Onze Dienst kan links naar websites of diensten van externe partijen bevatten die niet worden beheerd
+            door JulienMaster\'s portfolio.',
+    'p8' => 'JulienMaster\'s portfolio heeft geen controle over, en neemt geen verantwoordelijkheid voor, de inhoud,
+            privacybeleid, of praktijken van elke website of dienst van externe partijen. Je erkent en gaat ermee
+            akkoord dat JulienMaster\'s portfolio niet verantwoordelijk of aansprakelijk is, direct of indirect, voor
+            schade of verlies veroorzaakt of beweert te veroorzaakt zijn door of in connectie met het gebruik of
+            het vertrouwen op inhoud, goederen of diensten beschikbaar op of door elke dergelijke
+            websites of diensten.',
+    'p9' => 'We geven je het advies om de algemene voorwaarden en privacybeleid van de websites of diensten van
+            exterene partijen, die je bezoekt goed door te lezen.',
+    'p10' => 'We mogen jouw toegang tot de Dienst onmiddelijk beëindigen of schorsen, zonder voorafgaande
+            aankondiging of aansprakelijkheid, voor elke reden, inclusief zonder beperking als je
+            de voorwaarden schendt.',
+    'p11' => 'Alle voorziening van de voorwaarden die beëindiging zouden moeten overleven zal beëindiging overleven,
+            inclusief, zonder beperking, voorziening in eigendom, garantie disclaimers, vergoeding of limitaties
+            van aansprakelijkheid.',
+    'p12' => 'We mogen jouw profiel onmiddelijk beëindigen of schorsen, zonder voorafgaande aankondiging
+            of aansprakelijkheid, voor elke reden, inclusief maar zonder beperking als je de voorwaarden schendt.',
+    'p13' => 'Op beëindiging, zal jouw recht tot het gebruik van de Dienst onmiddelijk stoppen.
+            Als je jouw profiel wil beëindigen, mag je eenvoudig stoppen met het gebruik van de Dienst.',
+    'p14' => 'Deze voorwaarden zullen bestuurd en opgevat worden in overeenstemming met de wet van Nederland,
+            zonder beschouwing voor de tegenstrijdigheden van de Wet voorzieningen.',
+    'p15' => 'Ons falen om elk recht of voorziening van deze voorwaarden af te dwingen, zal niet als verwerping
+            van die rechten worden beschouwd. Als een voorziening van deze voorwaarden als niet geldig
+            of onuitvoerbaar wordt verklaard door het gerecht, de overgebleven voorzieningen van deze voorwaarden
+            zullen nog steeds in effect blijven. Deze voorwaarden vormen de gehele overeenkomst tussen ons als Dienst,
+            en vervangen elke voorafgaande overeenkomst die we hebben tussen ons als Dienst.',
+    'p16' => 'We behouden het recht, naar ons eigen oordeel, om deze voorwaarden aan te passen of te vervangen.
+            Als een verandering inhoudelijk significant is, dan zullen we proberen om 30 dagen voorafgaand,
+            een aankondiging hiervan te maken voordat de nieuwe voorwaarden in effect gaan.
+            Wat wij inhoudelijk significant vinden is naar ons eigen oordeel.',
+    'p17' => 'Door het voortgezet toegang of gebruik van onze Dienst nadat de veranderingen in effect gaan,
+            ga je akkoord met de aangepaste voorwaarden. Als je niet akkoord gaat met onze nieuwe voorwaarden,
+            stop dan alsjeblieft met het gebruik van de Dienst.',
+    'p18' => 'Als je vragen hebt over onze voorwaarden, neem dan alsjeblieft contact met ons op.',
 ];

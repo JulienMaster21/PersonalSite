@@ -22,7 +22,7 @@ return [
     'h15' => 'Contact Us',
 
     // Paragraphs
-    'effectiveDate' => 'Effective date: August 02, 2019',
+    'effectiveDate' => 'Effective date: 2 August, 2019',
     'p1' => 'JulienMaster\'s portfolio ("us", "we", or "our") operates the http://salty-taiga-21931.herokuapp.com
             website (the "Service").',
     'p2' => 'This page informs you of our policies regarding the collection, use, and disclosure of personal data

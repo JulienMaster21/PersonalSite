@@ -4,7 +4,7 @@ return [
     // Translations for the Terms and Conditions
 
     // Headers
-    'title' => 'Terms and Conditions',
+    'title' => 'Terms and Conditions ("Terms")',
     'h1' => 'Accounts',
     'h2' => 'Links To Other Web Sites',
     'h3' => 'Termination',
@@ -13,7 +13,7 @@ return [
     'h6' => 'Contact Us',
 
     // Paragraphs
-    'lastUpdated' => 'Last updated: August 02, 2019',
+    'lastUpdated' => 'Last updated on: 2 August, 2019',
     'p1' => 'Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using
             the http://salty-taiga-21931.herokuapp.com website (the "Service") operated by JulienMaster\'s
             portfolio ("us", "we", or "our").',
@@ -49,20 +49,17 @@ return [
             for any reason whatsoever, including without limitation if you breach the Terms.',
     'p13' => 'Upon termination, your right to use the Service will immediately cease.
             If you wish to terminate your account, you may simply discontinue using the Service.',
-    'p14' => 'All provisions of the Terms which by their nature should survive termination shall survive termination,
-            including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of
-            liability.',
-    'p15' => 'These Terms shall be governed and construed in accordance with the laws of Netherlands, without regard
+    'p14' => 'These Terms shall be governed and construed in accordance with the laws of Netherlands, without regard
             to its conflict of law provisions.',
-    'p16' => 'Our failure to enforce any right or provision of these Terms will not be considered a waiver of
+    'p15' => 'Our failure to enforce any right or provision of these Terms will not be considered a waiver of
             those rights. If any provision of these Terms is held to be invalid or unenforceable by a court,
             the remaining provisions of these Terms will remain in effect. These Terms constitute the entire
             agreement between us regarding our Service, and supersede and replace any prior agreements we might
             have between us regarding the Service.',
-    'p17' => 'We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a
+    'p16' => 'We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a
             revision is material we will try to provide at least 30 days notice prior to any new terms taking effect.
             What constitutes a material change will be determined at our sole discretion.',
-    'p18' => 'By continuing to access or use our Service after those revisions become effective, you agree to be
+    'p17' => 'By continuing to access or use our Service after those revisions become effective, you agree to be
             bound by the revised terms. If you do not agree to the new terms, please stop using the Service.',
-    'p19' => 'If you have any questions about these Terms, please contact us.',
+    'p18' => 'If you have any questions about these Terms, please contact us.',
 ];

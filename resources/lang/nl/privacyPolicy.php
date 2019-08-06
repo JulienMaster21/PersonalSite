@@ -22,13 +22,13 @@ return [
     'h15' => 'Contact opnemen',
 
     // Paragraphs
-    'effectiveDate' => 'Ingangsdatum: August 02, 2019',
+    'effectiveDate' => 'Ingangsdatum: 2 Augustus, 2019',
     'p1' => 'JulienMaster\'s portfolio ("ons", "wij" of "onze") beheert de http://salty-taiga-21931.herokuapp.com
             website ("hierna genoemd Dienst").',
     'p2' => 'Deze pagina bevat informatie over ons beleid met betrekking tot de verzameling, het gebruik en
             de openbaarmaking van uw persoonsgegevens wanneer u onze Dienst gebruikt en de keuzes die u hebt met
-            betrekking tot die gegevens. Our Privacy Policy  for JulienMaster\'s portfolio is created with the help
-            of the ',
+            betrekking tot die gegevens. Onze Privacy Policy voor JulienMaster\'s portfolio is gegenereerd
+            door de ',
     'p2link' => 'Free Privacy Policy Generator',
     'p3' => 'Wij gebruiken uw gegevens om de Dienst te leveren en te verbeteren. Wanneer u de Dienst gebruikt,
             gaat u akkoord met de verzameling en het gebruik van informatie in overeenstemming met dit beleid.
